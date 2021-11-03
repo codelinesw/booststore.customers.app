@@ -1,0 +1,43 @@
+.imagen-muestra{
+    width:220px;
+    height:220px;
+    border-radius:6px;
+    text-align: center;
+    border: 3px solid #263133;
+}
+
+.container-botones{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+
+    .container-button{
+        width: 45%;
+        margin-right: 10px;
+        ion-button{
+            width: 100%;
+        }
+    }
+}
+
+
+.container-button{
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+    .container-botones{
+        display: block;
+        .container-button{
+            position: relative;
+            width: 100%;
+            margin:auto !important;
+            margin-bottom: 15px !important;
+        }
+    }
+    .button-scan,button.button-scan{
+        width: 105px;
+        display: block;
+    }
+   
+  }

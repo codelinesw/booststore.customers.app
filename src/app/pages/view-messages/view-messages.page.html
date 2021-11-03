@@ -1,0 +1,41 @@
+<app-chat-header nameUser="{{selectedUser.name}}" userAvatar="{{selectedUser.image}}" userUuid="{{selectedUser.uuid}}"></app-chat-header>
+<ion-content>
+  <ion-grid class="ion-padding-top ion-padding-horizontal">
+    <!-- <div class="container-view-message" *ngIf="selectedUser.uuid">      
+      <div class="bottom-conversation">
+        <button class="custom-cd-button border-purple bg-purple d-flex button-upimage" style="width:40px;height:37px;justify-content:center;align-items:center;">
+          <ion-icon name="images-outline" class="w-mr" style="font-size:20px; color:#898989;"></ion-icon>
+        </button>
+        <div class="container-boxtext">
+          <div class="box-text" #textarea id="textarea" contenteditable="true" (keyup)="setContent($event)" (keypress)="cleanPlaceholder($event)"></div>
+        </div>
+        <button class="custom-cd-button border-green bg-green d-flex button-send" style="width:45px;height:45px;justify-content:center;align-items:center;" (click)="save()">
+          <ion-icon name="paper-plane-outline" class="w-mr" style="font-size:20px; color:white;"></ion-icon>
+        </button>
+      </div>
+    </div> -->
+    <div class="container-view-message" *ngIf="selectedUser.uuid">
+      <div class="body-conversation">
+        <div [ngClass]="item.contact.uuid !== uuid ? 'container-message left' : 'container-message right'" *ngFor="let item of CurrentMessages;">
+          <div class="message-bubble">
+            <span [ngClass]="item.contact.uuid !== uuid ? 'message white' : 'message green'">{{ item.message.content.text }}</span>
+            <span class="message-time">
+              <p class="time">{{ utils.getCurrentTime(item.dateCreated) }}</p>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-conversation">
+        <button class="custom-cd-button border-purple bg-purple d-flex button-upimage" style="width:40px;height:37px;justify-content:center;align-items:center;">
+          <ion-icon name="images-outline" class="w-mr" style="font-size:20px; color:#898989;"></ion-icon>
+        </button>
+        <div class="container-boxtext">
+          <div class="box-text" #textarea id="textarea" contenteditable="true" (keyup)="setContent($event)" (keypress)="cleanPlaceholder($event)"></div>
+        </div>
+        <button class="custom-cd-button border-green bg-green d-flex button-send" style="width:45px;height:45px;justify-content:center;align-items:center;" (click)="save()">
+          <ion-icon name="paper-plane-outline" class="w-mr" style="font-size:20px; color:white;"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,119 @@
+<ion-app>
+  <ion-split-pane contentId="main">
+    <ion-menu side="start" menuId="first" contentId="main" class="sidebar">
+      <ion-header class="bg-white">
+        <ion-toolbar mode="md" class="bg-white" class="d-flex justify-content-center align-items-center">
+          <div class="d-flex justify-content-center align-items-center w-80 m-auto">
+            <img [src]="storeLogoType" class="storeLogoType" />
+            <ion-title class="company-name">{{ storesName }}</ion-title>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list lines="none">
+          <br>
+          <div class="d-block w-100" *ngFor="let item of options">
+            <ion-item button  lines="none" color="none" [ngClass]="currentPath === item.route || currentPath === '' ? 'active-item' : 'item'" (click)="item.option === 'Inventario' ? showSection('inventorySection') : goToPage('/'+item.route)" lines="none" color="none">
+              <ion-icon [name]="item.icon"></ion-icon>
+              <ion-text>{{ item.option }}</ion-text>          
+            </ion-item>
+            <ion-list no-margin class="section-collapse inventorySection" #inventorySection id="inventorySection" *ngIf="item.option === 'Inventario'">
+              <ion-item button [ngClass]="currentPath === 'warehouse'? 'active-item' : 'item'" (click)="goToPage('/warehouse')" lines="none">
+                <ion-icon name="cloud-outline"></ion-icon>
+                <ion-text>Almacenes</ion-text>
+              </ion-item>
+              <ion-item button [ngClass]="currentPath === 'units'? 'active-item' : 'item'" (click)="goToPage('/units')" *ngIf="idClassification === 1 || idClassification == 3" lines="none">
+                <ion-icon name="library-outline"></ion-icon>
+                <ion-text>Unidades</ion-text>
+              </ion-item>              
+              <ion-item button [ngClass]="currentPath === 'ingredients'? 'active-item' : 'item'" (click)="goToPage('/ingredients')" *ngIf="idClassification === 1 || idClassification == 3" lines="none">
+                <ion-icon name="reader-outline"></ion-icon>
+                <ion-text>Ingredientes</ion-text>
+              </ion-item>            
+              <ion-item button [ngClass]="currentPath === 'products'? 'active-item' : 'item'" (click)="goToPage('/products')" lines="none">
+                <ion-icon name="cube-outline"></ion-icon>
+                <ion-text>Productos</ion-text>
+              </ion-item>
+              <ion-item button [ngClass]="currentPath === 'warehouse-supply'? 'active-item' : 'item'" (click)="goToPage('/warehouse-supply')" lines="none">
+                <ion-icon name="shuffle-outline"></ion-icon>
+                <ion-text>Movimientos</ion-text>
+              </ion-item>              
+            </ion-list>
+          </div>         
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'signout' ? 'active-item' : 'item'" (click)="signOut()" lines="none" *ngIf="login" >
+            <ion-icon name="log-out-outline"></ion-icon>
+            <ion-text>Cerrar sesión</ion-text>
+          </ion-item>                  
+          <!-- <ion-item button [ngClass]="currentPath === 'my-store' || currentPath === '' ? 'active-item' : 'item'" (click)="goToPage('/my-store')">            
+            <ion-icon name="bar-chart-outline"></ion-icon>
+            <ion-text>Indicadores</ion-text>
+          </ion-item>
+          <ion-item button [ngClass]="currentPath === 'office' ? 'active-item' : 'item'" (click)="goToPage('/office')">            
+            <ion-icon name="grid-outline"></ion-icon>
+            <ion-text>Sedes</ion-text>
+          </ion-item>
+          <ion-item button [ngClass]="currentPath === 'categories' ? 'active-item' : 'item'" (click)="goToPage('/categories')">
+            <ion-icon name="clipboard-outline"></ion-icon>
+            <ion-text>Mis categorias</ion-text>
+          </ion-item>
+          <ion-row>
+            <ion-item button [ngClass]="currentPath === 'inventary'? 'active-item' : 'item'" (click)="showSection('inventorySection')">
+              <ion-icon name="newspaper-outline"></ion-icon>
+              <ion-text>Inventario</ion-text>
+            </ion-item>
+          </ion-row>
+                    -->
+          <!-- <ion-list no-margin #userSection id="userSection" class="section-collapse userSection">
+
+          </ion-list> -->
+          <!-- <ion-item button [ngClass]="currentPath === 'users'? 'active-item' : 'item'" (click)="goToPage('/users')">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <ion-text>Usuarios</ion-text>
+          </ion-item>
+          <ion-row>
+            <ion-item button [ngClass]="currentPath === 'clients'? 'active-item' : 'item'" (click)="goToPage('/clients')">
+              <ion-icon name="accessibility-outline"></ion-icon>
+              <ion-text>Clientes</ion-text>
+            </ion-item>
+          </ion-row>
+          <ion-item button [ngClass]="currentPath === 'reservations' ? 'active-item' : 'item'"  (click)="goToPage('/reservations')">            
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-text>Reservaciones</ion-text>
+          </ion-item>                               
+          <ion-item button [ngClass]="currentPath === 'sales' ? 'active-item' : 'item'"  (click)="goToPage('/sales')">            
+            <ion-icon name="cart-outline"></ion-icon>
+            <ion-text>Ordenes</ion-text>
+          </ion-item> 
+          <ion-item button [ngClass]="currentPath === 'home-delivery' ? 'active-item' : 'item'" (click)="goToPage('/home-delivery')">            
+            <ion-icon name="bicycle-outline"></ion-icon>
+            <ion-text>Envios</ion-text>
+          </ion-item>                             -->
+          <!-- <ion-item  (click)="goToPage('/sales')">
+            <ion-icon name="newspaper-outline"></ion-icon>
+            <ion-text>Facturacion</ion-text>
+          </ion-item> -->
+          <!-- <ion-item button [ngClass]="currentPath === 'message' ? 'active-item' : 'item'" (click)="goToPage('/message')">
+            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+            <ion-text>Mensajes</ion-text>
+          </ion-item> -->
+             
+        </ion-list>
+        <!-- <ion-list lines="none">
+          <ion-list-header>
+            <ion-label color="primary">Acciones para la tienda</ion-label>
+          </ion-list-header>
+          <ion-item button [ngClass]="currentPath === 'settings' ? 'active-item' : 'item'" (click)="goToPage('/settings')">            
+            <ion-icon name="options-outline"></ion-icon>
+            <ion-text>Configuraciones</ion-text>
+          </ion-item>
+          <ion-item button [ngClass]="currentPath === 'signout' ? 'active-item' : 'item'" (click)="goToPage('/office')">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <ion-text>Cerrar sesión</ion-text>
+          </ion-item>         
+        </ion-list> -->
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+

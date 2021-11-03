@@ -1,0 +1,20 @@
+  <ion-header>
+    <ion-toolbar>
+      <div class="d-flex justify-content-between align-items-center">
+        <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;z-index:9999 !important;">
+          <ion-button (click)="openMenu()" color="white" class="menu-toggle" style="z-index:9999 !important;">
+            <ion-icon name="menu" color="primary"></ion-icon>
+          </ion-button>
+          <h2 style="font-size:18px !important;transform: translateY(-5px) !important;">{{title ? title: 'WonderShopp'}}</h2>
+        </div>
+        <div class="d-flex mainNav">
+          <button class="custom-cd-button without-bg buttonNav button-bell" (click)="openShoppingCart()">
+            <ion-icon name="cart-outline"></ion-icon>
+          </button>
+          <button class="custom-cd-button without-bg buttonNav avatar">
+            <img src="http://localhost/universe-orm/Stores/LogoTypes/Store-JD-avatar-shop-test.png" class="storeLogoType" />
+          </button>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>

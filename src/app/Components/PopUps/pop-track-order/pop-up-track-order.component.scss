@@ -1,0 +1,96 @@
+$dark:#263133;
+$semiDark:#979da4;
+$green:#345d5c;
+
+ion-content{
+    background-color:#fff !important;//#f1f4f9;//#f3f4fb;
+    --background:#fff !important;//#f1f4f9;//#f3f4fb;
+}
+
+.estimated-time{
+    position: relative;
+    width: 85%;
+    height:120px !important;
+    margin:auto !important;
+    transform: translateY(-32px) !important;
+    background-color: #fff !important;
+    border-radius:10px !important;
+    z-index: 200;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    .info{
+        position: relative;
+        width: 95%;
+        height:70%;
+        padding:15px !important;
+        //background-color:green !important;
+
+        .panel-left{
+            width: 85%;
+            height:100%;
+            line-height:20px !important;
+
+            .text{
+                margin-top: -8px !important;
+                color:$semiDark
+            }
+
+            .time{
+                color:$dark;
+                transform:translateY(-16px) !important;
+            }
+        }
+    }
+
+    .container-progress{
+        position: relative;
+        width: 100%;
+        height:30%;
+        //background-color:red !important;
+            .container-progress-bar{
+                position: relative;
+                width: 100%;
+                padding:0px 5px;                
+
+                .progress-bar{
+                    position: relative;
+                    width: 90%;
+                    height:8px !important;
+                    margin:auto !important;
+                    border-radius: 10px;
+                    background-color: $semiDark;
+
+                    .bar{
+                        position:absolute;
+                        top:0px;
+                        left:0px;
+                        width: 0%;
+                        height:100%;
+                        border-radius: 10px;
+                        background-color:$green !important;
+                    }
+                }
+            }
+    }
+}
+
+.mapa{
+ width: 95% !important;
+ height: 190px;
+ margin:auto;
+ border-radius:15px !important;
+ transform:translateY(15px) !important;
+}
+// .container-track-order{
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+
+//     .container-map{
+//         position: relative;
+//         width: 100%;
+//         height: 200px;
+//         background-color: red !important;
+//         display: block;
+//     }
+// }

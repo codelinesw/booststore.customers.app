@@ -1,0 +1,141 @@
+<app-header title="Domicilios"></app-header>
+<ion-content>
+  <ion-row class="w-100 m-auto mt-25 ion-padding">
+  <ion-row class="w-95 m-auto ion-padding-horizontal ion-justify-content-between ion-align-items-center">
+      <div class="col w-75">
+        <div>
+          <ion-text>
+            <h1>Domicilios</h1>
+          </ion-text>
+          <ion-text color="medium">
+            <p>En esta seccion puedes ver el historico de domicilios y los que estan en curso</p>
+          </ion-text>
+        </div>
+      </div>
+  </ion-row>  
+  <ion-row class="w-100 mb-15">
+   <div class="w-100 m-auto">
+      <div class="search-bar m-auto">
+        <ion-label class="mb-15">Que sede estas buscando?</ion-label>
+        <div class="container-search mt-15  d-flex justify-content-between align-items-center">
+          <ion-row class="w-90 mr-15 search">          
+            <div class="container-input m-auto w-100">
+              <div class="container-icon">
+                <ion-icon class="icon-input" name="cube-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-input type="text" placeholder="Ingresa el nombre del domiciliario" (keypress)="searchItems($event)" (ionFocus)="utils.addAnimation($event,true)"></ion-input>
+                </div>
+              </ion-item>
+            </div>
+          </ion-row>
+          <ion-button class="custom-cd-button border-green bg-green w-10 mt-0" (click)="utils.goToPage('/create-office')">
+            <ion-text>Filtrar</ion-text>
+          </ion-button>
+        </div>          
+      </div>
+   </div>
+  </ion-row>
+  <div class="container-table other-style">
+    <div class="header">
+      <h3 class="title-third-nevel">Lista de domicilios</h3>
+    </div>
+    <div class="body" style="position:relative;height:3000px;overflow-y: inherit !important;" *ngIf="visible">
+      <table class="table other-style">
+        <thead>
+          <tr class="table-header">
+            <th scope="col">
+              <ion-checkbox></ion-checkbox>
+            </th>
+            <th scope="col">#</th>
+            <th scope="col">Domiciliario</th>
+            <th scope="col">Pedido</th>
+            <th scope="col">Ubicación entrega</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha creacion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr class="row" *ngFor="let item of Deliverers; let i = index;">
+            <th scope="row">
+              <ion-checkbox></ion-checkbox>
+            </th>
+            <th scope="row">{{ (i+1) }}</th>
+            <td class="d-flex justify-content-start align-items-center" style="cursor: pointer;" (click)="openPopUpTrackOrder(item.pickupLocation,item.idSale)">
+              <ion-avatar slot="start" style="width:45px; height:45px;" class="mr-15">
+                <img [src]="item.logoType">
+              </ion-avatar>
+              <div>
+                <p>Restaurante</p>
+                <p class="bold">{{ item.shopName }}</p>
+              </div>
+            </td>
+            <td>{{ item.document }}</td>
+            <td>{{ item.pickupLocation }}</td>
+            <td>
+              <div [ngClass]="item.status === 'ONROUTE' ? 'tag confirmed' : 'tag  outOfLine'" style="left:0% !important; right:0px !important; height:35px !important; transform: translateY(5px);">
+                <p style="transform: translateY(-22px);">{{ item.status === 'ONROUTE' ? 'En ruta' : item.status === 'COMPLETED' ? 'Entregado' : 'En espera' }}</p>
+              </div>
+            </td>
+            <td>{{ item.dateCreated }}</td>
+            <td style="position: relative;">
+              <ion-button class="custom-cd-button border-green without-bg color-green w-auto" (click)="upHomeDeliverySate(item.idHomeDelivery)">
+                <ion-text>
+                  {{ item.status === 'ONROUTE' ? 'Entregar' : item.status === 'COMPLETED' ? '' : 'Despachar' }}
+                </ion-text>
+              </ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="body" style="position:relative;height:3000px;overflow-y: inherit !important;" *ngIf="!visible">
+      <div class="table other-style">
+        <div class="table-body">
+          <div class="card-accordion d-block" *ngFor="let item of Deliverers; let i = index;">
+            <div class="accordion-header d-flex justify-content-between">
+              <div class="d-flex justify-content-between align-items-center">
+                <ion-avatar slot="start" style="width:40px; height:40px;" class="mr-15">
+                  <img [src]="item.logoType">
+                </ion-avatar>
+                <div class="info-shop">
+                  <p class="bold">{{ item.shopName }}</p>
+                  <p>Restaurante</p>
+                </div>
+              </div>
+              <div [ngClass]="item.status === 'ONROUTE' ? 'tag confirmed' : 'tag  outOfLine'" style="right:auto !important;left:25px !important; height:30px !important; transform: translateY(5px);font-size: 14px !important;">
+                <p style="transform: translateY(-22px);">{{ item.status === 'ONROUTE' ? 'En ruta' : item.status === 'COMPLETED' ? 'Entregado' : 'En espera' }}</p>
+              </div>              
+            </div>
+            <div class="accordion-body">
+              <div class="info-address padding-x15 w-100 d-flex justify-content-start align-items-center">
+                <div class="circle-icon from">                  </div>
+                <p>{{ item.address }}</p>
+              </div>
+              <div class="info-address padding-x15 w-100 d-flex justify-content-start align-items-center">
+                <div class="circle-icon to"></div>                
+                <p>Entrega en {{ item.pickupLocation}}</p>
+              </div>
+            </div>
+            <div class="accordion-footer">
+              <div class="d-flex justify-content-between w-80 m-auto">
+                <ion-button class="custom-cd-button without-bg color-green" (click)="openPopUpTrackOrder(item.pickupLocation,item.idSale)">
+                  <ion-text>Ver mas</ion-text>
+                </ion-button>
+                <div class="vertical-divider"></div>
+                <ion-button class="custom-cd-button without-bg color-green w-auto" (click)="upHomeDeliverySate(item.idHomeDelivery)">
+                  <ion-text>
+                    {{ item.status === 'ONROUTE' ? 'Entregar' : item.status === 'COMPLETED' ? '' : 'Despachar' }}
+                  </ion-text>
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,31 @@
+export interface ProductModel {
+  idProducts: number;
+  idShop: number;
+  idOffice: number;
+  idCategory: any;
+  idWarehouse: number;
+  idIngredient: any;
+  unitName: string;
+  code: string;
+  name: string;
+  purchasePrice: string;
+  salesPrice: string;
+  status: string;
+  offSale: string;
+  barCode: string;
+  qr: string;
+  size: string;
+  weight: string;
+  color: string;
+  mqty: number;
+  qty: number;
+  ingredientType: number;
+  expirationDate: string;
+  ingredients: string;
+  description: string;
+  images: string[];
+  image: any[];
+  files: string;
+  dateCreated: string;
+  dateUpdated: string;
+}

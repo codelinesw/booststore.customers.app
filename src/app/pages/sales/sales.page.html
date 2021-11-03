@@ -1,0 +1,132 @@
+<app-header></app-header>
+<ion-content>
+  <ion-row class="w-95 m-auto mt-25 ion-padding">
+  <ion-row class="w-95 m-auto ion-padding-horizontal ion-justify-content-between ion-align-items-center mb-15">
+      <div class="col w-75">
+        <div>
+          <ion-text>
+            <h1>Ordenes</h1>
+          </ion-text>
+          <ion-text color="medium">
+            <p>En esta seccion puedes visualizar las ordenes de tus clientes o prospectos te han realizado</p>
+          </ion-text>
+        </div>
+      </div>
+      <div class="col w-25">
+        <ion-button class="custom-cd-button border-green bg-green" (click)="utils.goToPage('/new-sale')">
+          <ion-text>Nueva orden</ion-text>
+        </ion-button>
+      </div>
+  </ion-row>  
+  <ion-row class="w-100 mb-15">
+   <div class="w-100 m-auto">
+      <div class="search-bar m-auto">
+        <ion-label class="mb-15">Filtra tus ordenes</ion-label>
+        <div class="container-search mt-15  d-flex justify-content-between align-items-center">
+          <div class="container-input m-auto w-100 mr-15 mb-15">
+            <div class="container-icon w-10">
+              <ion-icon class="icon-input" name="person-circle-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none" class="w-90">
+              <div class="input-group">
+                <ion-input type="text" placeholder="Ingresa el nombre del usuario"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+          <div class="container-input m-auto w-100 mr-15 mb-15">
+            <div class="container-icon w-10">
+              <ion-icon class="icon-input" name="accessibility-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none" class="w-90">
+              <div class="input-group">
+                <ion-input type="text" placeholder="Ingresa el nombre del cliente"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+          <div class="container-input m-auto w-100 mr-15 mb-15">
+            <div class="container-icon w-10">
+              <ion-icon class="icon-input" name="calendar-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none" class="w-90">
+              <div class="input-group">                
+                <ion-datetime  value="currentDate" displayFormat="DD MMM YYYY" pickerFormat="DD-MMM-YY HH:mm" placeholder="Seleccione una fecha de Inicio" monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre" display-timezone="utc"></ion-datetime>
+              </div>
+            </ion-item>
+          </div>
+          <div class="container-input m-auto w-100 mr-15 mb-15">
+            <div class="container-icon w-10">
+              <ion-icon class="icon-input" name="calendar-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none" class="w-90">
+              <div class="input-group">                
+                <ion-datetime  value="currentDate" displayFormat="DD MMM YYYY" pickerFormat="DD-MMM-YY HH:mm" placeholder="Seleccione una fecha Fin" monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre" display-timezone="utc"></ion-datetime>
+              </div>
+            </ion-item>
+          </div>                      
+          <ion-button class="custom-cd-button border-green bg-green w-10 mb-15 mt-0" (click)="utils.goToPage('/create-product')">
+            <ion-text>Filtrar</ion-text>
+          </ion-button>
+        </div>          
+      </div>
+   </div>
+  </ion-row> 
+  <div class="container-table other-style">
+    <div class="header">
+      <h3 class="title-third-nevel">Listado de ordenes</h3>
+    </div>
+    <div class="body" style="position:relative;height:3000px;overflow-y: inherit !important;">
+      <table class="table other-style">
+        <thead>
+          <tr class="table-header">
+            <th scope="col" class="visible-td">
+              <ion-checkbox></ion-checkbox>
+            </th>
+            <!-- <th scope="col">Sede</th> -->
+            <th scope="col" class="visible-td">Cliente</th>
+            <th scope="col" class="visible-td">Usuario</th>
+            <th scope="col">Productos</th>
+            <!-- <th scope="col">Cantidad</th> -->
+            <th scope="col" class="visible-td">Total</th>
+            <th scope="col" class="visible-td">Fecha de venta</th>
+            <th scope="col" class="visible-td">Tipo de orden</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <!-- <tr class="row" *ngFor="let item of warehouseSupply; let i = index;"> -->
+          <tr class="row" *ngFor="let item of Sales">  
+            <th scope="row" class="visible-td">
+              <ion-checkbox></ion-checkbox>
+            </th>
+            <!-- <th scope="row">San andresito</th> -->
+            <th scope="row" class="visible-td">{{ item.clientName }}</th>
+            <th scope="row" class="visible-td">{{ item.username }}</th>
+            <td class="d-flex justify-content-start align-items-center">
+              <span class="circle-icon bg-yellow">
+                <ion-icon name="bookmark-outline"></ion-icon>
+              </span>
+              <div>
+                <p>Productos</p>
+                <p class="bold">{{ item.qtySold }} vendidas</p>
+              </div>
+            </td>
+            <!-- <td>0</td> -->
+            <td class="visible-td">{{ utils.addCurrencyFormat(item.totalSale) }}</td>
+            <td class="visible-td">{{ item.dateCreated }}</td>
+            <td class="visible-td">{{ item.orderName }}</td>
+            <td style="position: relative;">
+              <ion-button class="custom-cd-button border-dark without-bg w-auto" (click)="utils.action($event,item)">
+                <ion-icon name="ellipsis-vertical-outline" class="w-mr"></ion-icon>
+              </ion-button>
+              <div class="submenu-options">
+                <div class="option" *ngIf="item.idOrderType	=== '2' || item.idOrderType === 2" (click)="openPopUpProcessDelivery(item.idSale, item.idClient, item.salesAddress)">Procesar</div>
+                <div class="option">Reversar</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </ion-row>
+</ion-content>

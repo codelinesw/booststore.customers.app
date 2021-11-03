@@ -1,0 +1,171 @@
+<app-header title="Mi tienda"></app-header>
+<ion-content>
+  <ion-grid class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
+    <ion-row class="w-100">
+      <ion-card class="full m-auto rounded-border bg-white">
+        <!-- <ion-card-header class="banner-store" [style.background-image]="'url(' + Shop.banner  + ')'"> -->
+        <ion-card-header class="banner-store" [style.background-image]="'url(' + Shop.banner  + ') !important'">
+          <ion-row>
+            <ion-row class="w-100 bg-primary ion-justify-content-center rounded-border">
+              <ion-col class="ion-padding-top">
+                <ion-avatar class="m-auto storeLogoType w-78">
+                  <img [src]="Shop.image">
+                   <input type="file" #fileinputImage id="fileinputImage" accept="image/x-png,image/gif,image/jpeg;capture=camera" hidden (change)="uploadImage($event,currentImageIndex)" />
+                  <button class="custom-cd-button bg-yellow buttonEdit" (click)="chooseImage(0)">
+                    <ion-icon class="icon-input" name="pencil-outline"></ion-icon>
+                  </button>
+                </ion-avatar>
+                <ion-card-title color="light" class="ion-text-center mt-15 mb-15 color-white">{{ Shop.name }}</ion-card-title>
+                <div class="w-100 d-flex justify-content-center">
+                  <span class="tag dark mb-15" style="position: unset !important;">{{Shop.openingHours + " - " + Shop.closingTime}}</span>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="w-100 d-flex ion-justify-content-center rounded-border">
+              <ion-text class="ion-text-center">{{Shop.slogan}}</ion-text>
+            </ion-row>
+          </ion-row>
+           <input type="file" #fileinputBanner id="fileinputBanner" accept="image/x-png,image/gif,image/jpeg;capture=camera" hidden (change)="uploadBanner($event,currentImageIndex)" />
+          <button class="custom-cd-button bg-yellow editBanner" (click)="chooseBanner(0)">
+            <ion-icon class="icon-input" name="pencil-outline"></ion-icon>
+          </button>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row class="w-100 mb-15 mt-15">
+            <ion-row class="w-90 m-auto">
+              <ion-row class="w-100 mb-15">
+                <ion-label>Nombre de tu negocio</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="storefront-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el nombre de tu negocio" [(ngModel)]="Shop.name" (ionFocus)="utils.addAnimation($event,false)"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Sector para tu negocio</ion-label>
+                <div class="container-input m-auto w-100">
+                  <div class="container-icon">
+                    <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none">
+                    <div class="input-group">
+                      <ion-select [(value)]="Shop.idClassification" placeholder="Selecciona la opcion que se acomode mas a tu negocio" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeClassification($event)">
+                        <ion-select-option value="1">Restaurante</ion-select-option>
+                        <ion-select-option value="2">Bar</ion-select-option>
+                        <ion-select-option value="3">SPA</ion-select-option>
+                        <ion-select-option value="4">Tienda/Revuelteria</ion-select-option>
+                        <ion-select-option value="5">Tienda de calzado</ion-select-option>
+                        <ion-select-option value="6">Tienda de tecnologia</ion-select-option>
+                        <ion-select-option value="7">Tienda de calzado,ropa</ion-select-option>
+                        <ion-select-option value="8">Tienda de ropa</ion-select-option>
+                        <ion-select-option value="9">No tengo negocio fisico pero quiero crear mi tienda online</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Nit/Identificación del responsable</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="receipt-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el numero del documento" [(ngModel)]="Shop.nit" (ionFocus)="utils.addAnimation($event,false)"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>                                     
+            </ion-row>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row class="mt-15 w-100">
+      <ion-card class="full m-auto rounded-border bg-white">
+        <ion-card-header>
+          <ion-row class="w-90 d-block text-left m-auto">
+           <h2 class="w-100">Información adicional</h2>
+           <ion-text class="w-100 color-semiDark">En esta seccion puedes actualizar información adicional de tu tienda como redes sociales,eslogan, horario de atencion</ion-text>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row class="w-100 mb-15">
+            <ion-row class="w-90 m-auto">
+              <ion-row class="w-100 mb-15">
+                <ion-label>Numero celular del negocio</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="phone-portrait-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el numero de celular" [(ngModel)]="Shop.cellPhoneNumber"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Correo electrónico</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="mail-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa un correo electrónico" [(ngModel)]="Shop.email"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <div class="w-100 d-flex justify-content-between align-items-center mb-15">
+                <ion-row class="w-90 mr-10">
+                  <ion-label>Dirección</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="location-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa la dirección donde se encuentra ubicado tu negocio" [(ngModel)]="Shop.address"></ion-input>
+                      </div>
+                    </ion-item>
+                  </div>
+                </ion-row>
+                <ion-button class="custom-cd-button border-green bg-green d-flex justify-content-between align-content-center w-20 ty-13" (click)="openMap()">
+                  <ion-icon name="map-outline" class="mr-15"></ion-icon>
+                  <ion-text>Mapa</ion-text>
+                </ion-button>
+              </div>
+              <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+                <ion-text>Guardar cambios</ion-text>
+              </ion-button>                                    
+            </ion-row>
+          </ion-row>           
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <!-- <ion-row class="mt-15">
+      <ion-card class="w-80 m-auto rounded-border bg-white">
+        <ion-card-header>
+          <ion-row class="w-90 d-block text-left m-auto">
+           <h2 class="w-100">Horario de atencion</h2>
+           <ion-text class="w-100 color-semiDark">En esta seccion puedes actualizar la informacion de la atencion de tu negocio, recuerda que esta informacion estara visible para tus clientes</ion-text>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row class="w-100 mb-15">
+            <ion-row class="w-90 m-auto">                                                   
+            </ion-row>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>        -->
+  </ion-grid>
+</ion-content>

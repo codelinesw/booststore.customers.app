@@ -1,0 +1,79 @@
+<ion-menu side="start" menuId="first" contentId="{{contentId}}" class="sidebar">
+      <ion-header class="bg-white" *ngIf="login">
+        <ion-toolbar mode="md" class="bg-white" class="d-flex justify-content-center align-items-center">
+          <div class="d-flex justify-content-center align-items-center w-80 m-auto">
+            <img [src]="storeLogoType" class="storeLogoType" />
+            <ion-title class="company-name">{{ storesName }}</ion-title>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list lines="none">
+          <br>
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'home' ? 'active-item' : 'item'" (click)="goToPage('/home')" lines="none" *ngIf="!login" >
+            <ion-icon name="home-outline"></ion-icon>
+            <p>Inicio</p>
+          </ion-item>
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'signup-shop' ? 'active-item' : 'item'" (click)="goToPage('/signup-shop')" lines="none" *ngIf="!login" >
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <p>Registrarme</p>
+          </ion-item>
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'signout' ? 'active-item' : 'item'" (click)="signOut()" lines="none" *ngIf="!login" >
+            <ion-icon name="storefront-outline"></ion-icon>
+            <p>Tiendas</p>
+          </ion-item>
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'signin' ? 'active-item' : 'item'" (click)="goToPage('/signin')" lines="none" *ngIf="!login" >
+            <ion-icon name="person-outline"></ion-icon>
+            <p>Iniciar sesión</p>
+          </ion-item>
+          <div class="d-block w-100" *ngFor="let item of options">
+            <ion-item button  lines="none" color="none" [ngClass]="currentPath === item.route || currentPath === '' ? 'active-item' : 'item'" (click)="item.option === 'Inventario' ? showSection('inventorySection') : item.option === 'Administración' ? showSection('adminSection') : goToPage('/'+item.route)" lines="none" color="none">
+              <ion-icon [name]="item.icon"></ion-icon>
+              <p>{{ item.option }}</p>          
+            </ion-item>
+            <ion-list no-margin class="section-collapse inventorySection" #inventorySection id="inventorySection" *ngIf="item.option === 'Inventario'">
+              <ion-item button [ngClass]="currentPath === 'warehouse'? 'active-item' : 'item'" (click)="goToPage('/warehouse')" lines="none" *ngIf="shopType == 1 || shopType == '1'">
+                <ion-icon name="cloud-outline"></ion-icon>
+                <p>Almacenes</p>
+              </ion-item>
+              <ion-item button [ngClass]="currentPath === 'units'? 'active-item' : 'item'" (click)="goToPage('/units')" *ngIf="idClassification === 1 || idClassification == 3" lines="none">
+                <ion-icon name="library-outline"></ion-icon>
+                <p>Unidades</p>
+              </ion-item>              
+              <ion-item button [ngClass]="currentPath === 'ingredients'? 'active-item' : 'item'" (click)="goToPage('/ingredients')" *ngIf="idClassification === 1 || idClassification == 3" lines="none">
+                <ion-icon name="reader-outline"></ion-icon>
+                <p>Ingredientes</p>
+              </ion-item>            
+              <ion-item button [ngClass]="currentPath === 'products'? 'active-item' : 'item'" (click)="goToPage('/products')" lines="none">
+                <ion-icon name="cube-outline"></ion-icon>
+                <p>Productos</p>
+              </ion-item>
+              <ion-item button [ngClass]="currentPath === 'warehouse-supply'? 'active-item' : 'item'" (click)="goToPage('/warehouse-supply')" lines="none">
+                <ion-icon name="shuffle-outline"></ion-icon>
+                <p>Movimientos</p>
+              </ion-item>              
+            </ion-list>
+            <ion-list no-margin class="section-collapse inventorySection" #adminSection id="adminSection" *ngIf="item.option === 'Administración'">
+              <ion-item button [ngClass]="currentPath === 'cashbox'? 'active-item' : 'item'" (click)="goToPage('/cashbox')" lines="none">
+                <ion-icon name="file-tray-outline"></ion-icon>
+                <p>Caja</p>
+              </ion-item>
+              <ion-item button [ngClass]="currentPath === 'expenses-type'? 'active-item' : 'item'" (click)="goToPage('/expenses-type')" lines="none">
+                <ion-icon name="grid-outline"></ion-icon>
+                <p>Tipo de Gastos</p>
+              </ion-item>              
+              <ion-item button [ngClass]="currentPath === 'expenses'? 'active-item' : 'item'" (click)="goToPage('/expenses')" lines="none">
+                <ion-icon name="cash-outline"></ion-icon>
+                <p>Gastos</p>
+              </ion-item>              
+            </ion-list>            
+          </div>        
+          <ion-item button lines="none" color="none" [ngClass]="currentPath === 'signout' ? 'active-item' : 'item'" (click)="signOut()" lines="none" *ngIf="login" >
+            <ion-icon name="log-out-outline"></ion-icon>
+            <p>Cerrar sesión</p>
+          </ion-item>
+        </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- <p>SideBar works!</p> -->

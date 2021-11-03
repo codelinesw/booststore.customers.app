@@ -1,0 +1,104 @@
+<app-header-section title="Configuraciones"></app-header-section>
+<ion-content>
+<ion-row class="d-flex justify-content-between">
+  <div class="visible-td w-25">
+    <ion-list lines="none" style="background:none !important;">
+        <br>
+        <div class="d-block w-100" *ngFor="let item of Options">
+          <ul>
+            <li [ngClass]="currentOption === item.option ? 'item-button active' : 'item item-button'" (click)="showSection(item.option)">
+              <div class="w-100 d-flex justify-content-start align-items-center">
+                <ion-icon [name]="item.icon"></ion-icon>
+                <p class="ml-15">{{ item.option }}</p>
+              </div>
+              <p class="w-100 description">{{ item.description }}</p>
+            </li>
+          </ul>
+        </div>
+    </ion-list>
+  </div>
+  <div class="w-70 full">
+    <ion-row class="w-100 fullWidth m-auto">
+        <ion-row class="full m-auto mb-15">
+          <h1>Configura tu metodo de pago</h1>
+          <p class="color-semiDark">En esta seccion puedes activar el metodo de pago que mas se ajuste a tu negocio, recuerda que al hacer uso de alguno de estos metodos de pagos no se te cobrara ninguna tarifa</p>
+          <div class="w-100 d-flex justify-content-center">
+            <ul class="w-100 padding-0">
+              <li class="item item-button fullWidth" (click)="showSection('item.option')">
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <ion-img src="assets/Icons/PaymentMethods/credit.png"></ion-img>
+                  <p class="ml-15">Tarjeta de credito/debito</p>
+                </div>
+                <p class="w-100 description">Visa, Mastercard y American Express</p>
+                <ion-toggle></ion-toggle>
+              </li>
+              <li class="item item-button fullWidth" (click)="showSection('item.option')">
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <ion-img src="assets/Icons/PaymentMethods/nequi.png"></ion-img>
+                  <p class="ml-15">Nequi</p>
+                </div>
+                <p class="w-100 description">Transacciones usando nequi</p>
+                  <ion-toggle></ion-toggle>
+              </li>
+              <li class="item item-button fullWidth" (click)="showSection('item.option')">
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <ion-img src="assets/Icons/PaymentMethods/dollar-bills.png"></ion-img>
+                  <p class="ml-15">Contra entrega</p>
+                </div>
+                <p class="w-100 description">El cliente solo pagara cuando recibe el dinero</p>
+                <ion-toggle checked></ion-toggle>
+              </li>          
+            </ul>
+          </div>
+        </ion-row>
+        <ion-row class="full m-auto mb-15">
+          <h1>Copia de seguridad</h1>
+          <p class="color-semiDark">En esta seccion puedes activar el modo offline, es decir que si en algun momento pierde conexion a internet los datos quedaran almacenados localmente y una vez que recupere la conectividad, puede dar click en la opcion sincronizar y los datos de tu negocio se colocaran al dia tanto en linea como localmente</p>
+          <div class="w-100 d-flex justify-content-center">
+            <ul class="w-100 padding-0">
+              <li class="item item-button fullWidth" (click)="showSection('item.option')">
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <ion-img src="assets/Icons/backup.png"></ion-img>
+                  <p class="ml-15">Modo Offline</p>
+                </div>
+                <p class="w-100 description">Guarde los datos de manera local</p>
+                <ion-toggle></ion-toggle>
+              </li>          
+            </ul>
+          </div>
+        </ion-row>        
+        <ion-row class="full m-auto">
+          <h1>Cambia contraseña</h1>
+          <p class="color-semiDark">En esta seccion puedes restaurar la contraseña del usuario con el que te has registrado o la contraseña de un usuario de tu tienda que haya extraviado tu contraseña</p>
+          <ion-card class="w-100">
+            <ion-card-content class="w-100">
+              <ion-row class="w-100 ion-padding-vertical">
+                <ion-label>Correo electrónico</ion-label>
+                <div class="w-100 d-flex">
+                  <div  [ngClass]="!edit ? 'disabledInput container-input m-auto w-75' : 'container-input m-auto w-75'">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="mail-open-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el correo del usuario que desea reestablecer su contraseña" [(ngModel)]="email" [readonly]="!edit"></ion-input>
+                      </div>
+                    </ion-item>
+                  </div>
+                  <ion-button class="custom-cd-button border-green bg-green w-25" (click)="enabled()">
+                    <ion-text>{{ !edit ? 'Editar' : 'Terminar'}}</ion-text>
+                  </ion-button>
+                </div>               
+              </ion-row>
+              <div class="w-100">
+                <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+                  <ion-text>Recuperar contraseña</ion-text>
+                </ion-button>
+              </div>              
+            </ion-card-content>
+          </ion-card>
+        </ion-row>                      
+    </ion-row>
+  </div>
+</ion-row>
+</ion-content>

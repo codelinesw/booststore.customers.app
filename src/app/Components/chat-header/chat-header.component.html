@@ -1,0 +1,16 @@
+<div class="container-view-message">
+  <div class="header-conversation">
+    <div class="panel-left">
+      <ion-button (click)="goBack('messages')" color="white" class="menu-toggle mr-15">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-avatar style="width:45px; height:45px;margin:0px;transform: translateY(-2px);">
+        <img [src]="userAvatar">
+      </ion-avatar>
+    </div>
+    <div class="panel-right ml-15">
+      <p class="name-user">{{ nameUser }}</p>
+      <p class="time-message">Activo hace 5 minutos</p>
+    </div>
+  </div>
+</div>

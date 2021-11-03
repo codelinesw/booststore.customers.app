@@ -1,0 +1,2508 @@
+@font-face {
+    font-family: "Poppins Regular";
+    src: url('./assets/Fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Poppins SemiBold";
+    src: url('./assets/Fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url('./assets/Fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins ExtraBold";
+    src: url('./assets/Fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+$bgOrange: #ff812c;
+$orange:#f79300;
+$google:#c71610;
+$dark:#5c688a;//#605f64;
+$semiDark:#969fb6;
+$light:#bac6d5;//#9a9aa9;
+$gray:#f9faff;
+$grayDark:#5d7987;
+$grayLight:#f6f5fa;
+$pink:#e11d60;
+$redDark:#ce0000;
+$purpleNormal:#9726aa;
+$yellow:#fdb221;
+$blueOcean:#0ff0ff;
+$blueOceanLight:#51ecd0;
+$white:#fff;
+$purple:#6f4ef7;
+$lightPurple:#ae96f7;
+$colorText:rgb(33, 34, 39);
+$colorTextSecond:rgb(150, 150, 150);
+$light:#c9cacb;
+$greenDiferent:#009184;
+$greenApple:#4aa94e;
+$greenTree:#87bd48;
+$completed:#b1ddb0;
+$completedDark:#32a933;
+$confirmed:#c7f3ff;
+$confirmedDark:#06b1ff;
+$sended:#fff2c9;
+$sendedDark:#eeb126;
+
+// base colors
+// $success:#00eb94;
+//$danger:#fc376b;
+//$warning:#febc2f;
+$bgDisabled:#e4e4e4;
+$colorDisabled:#88888f;
+
+
+$danger: #e95a4d;
+$dangerLight: #ffd0cb;
+
+$success:#3bc179;
+$successLight:#c5f7dd;
+
+$blue:#3e84e5;
+$blueLight: #cbe2ff;
+
+$warning:#e8a029;
+$warningLight:#ffe8c3;
+
+body,html,ion-content{
+    background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+    --background:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+ion-content{
+
+    --ion-background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+
+:root{
+    --ion-color-orange:#ff812c;
+    --ion-color-google:#c71610;
+    --ion-color-facebook:#3b5998;
+    --ion-color-text: $colorText;
+    --ion-color-textSecond:$colorTextSecond;
+    --ion-color-customPurple:#6f4ef7;
+    --ion-color-lightPurple:#ae96f7;
+
+}
+
+.ion-color-orange{
+    --ion-color-base: var(--ion-color-orange) !important;
+}
+
+.ion-color-facebook{
+    --ion-color-base: var(--ion-color-facebook) !important;
+}
+
+
+.ion-color-google{
+    --ion-color-base: var(--ion-color-google) !important;
+}
+
+.ion-color-text{
+    --ion-color-base:var(--ion-color-text) !important;
+}
+
+.ion-color-textSecond{
+    --ion-color-base:var(--ion-color-textSecond) !important;
+}
+
+.ion-color-customPurple{
+    --ion-color-base:var(--ion-color-customPurple) !important;
+}
+
+.ion-color-lightPurple{
+    --ion-color-base:var(--ion-color-lightPurple) !important;
+}
+
+.bg-primary{
+    background-color:var(--ion-color-primary) !important;
+}
+
+.bg-white{
+    background: $white !important;
+    --background:$white !important;
+}
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.color-white{
+    color:#fff;
+}
+
+:root{
+    --ion-color-purple:#d088f2;
+}
+
+//Styles for font type
+p,button,label,text,textarea,input,ion-text,ion-label{
+    font-family: "Poppins Regular";
+}
+
+h1,ion-card-title,ion-title{
+    font-family: "Poppins ExtraBold";
+    color:$dark;
+}
+
+h2,ion-card-subtitle{
+    color:$dark;
+    font-family: "Poppins Bold";
+}
+
+h3{
+    color:$dark;
+    font-family: "Poppins SemiBold";
+}
+
+ion-text.semiDark,p.semiDark{
+    color:$semiDark;
+}
+//Styles for margins
+.mt-0{
+    margin-top: 0px;
+}
+
+.m-auto{
+    margin:auto;
+}
+
+.mt-15{
+    margin-top: 15px;
+}
+
+.mt-45{
+    margin-top: 45px;
+}
+
+.mr-15{
+    margin-right: 15px;
+}
+
+.ml-15{
+    margin-left: 15px;
+}
+
+.mb-15{
+    margin-bottom: 15px;
+}
+
+
+//styles for paddings
+
+.padding-0{
+    padding: 0px !important;
+}
+.paddin-top-15{
+    padding-top: 15px;
+}
+
+.paddin-top-25{
+    padding-top: 25px;
+}
+
+.padding-bottom-25{
+    padding-bottom: 25px;
+}
+
+.padding-bottom-30{
+    padding-bottom: 30px;
+}
+//styles for width
+
+.w-17{
+    width: 17% !important;
+}
+
+.w-20{
+    width: 20% !important;
+}
+
+.w-34{
+    width: 34% !important;
+}
+
+.w-65{
+    width: 65% !important;
+}
+
+.w-76{
+    width: 76% !important;
+}
+
+.w-78{
+    width: 78% !important;
+}
+
+.w-80{
+    width: 78% !important;
+}
+
+.w-85{
+    width: 85% !important;
+}
+
+.w-95{
+    width: 95%;
+}
+
+.w-100{
+    width: 100% !important;
+}
+
+.h-45{
+    height: 45% !important;
+}
+
+.h-100{
+    height: 100% !important;
+}
+
+.bg-purple{
+    background-color:$purple !important;
+    --background:$purple !important;
+}
+
+//Styles for rounded border
+.rounded-border{
+    border-radius: 15px;
+}
+  
+ion-button.rounded-border{
+    border-radius: 15px;
+}
+  
+ion-button.circular-border{
+    width: 50.38px;
+    height: 50.37px;
+    --border-radius: 50%;
+}
+
+ion-card{
+    &.border-top{
+        border-top: 5px solid $purple;
+    }
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.category{
+    font-size: 14px;
+    transform: translateY(-4px);
+}
+
+.sc-ion-searchbar-md-h{
+    margin: auto;
+    --box-shadow:none;
+    text-align: start;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.d-block{
+    display: block;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-start{
+    justify-content: start;
+}
+
+.align-items-center{
+    align-items:center;
+}
+
+
+.col{
+    &.w-75{
+        width: 100% !important;
+    }
+    
+    &.w-25{
+        width: 100% !important;
+    }
+}
+
+.container-search{
+    position: relative;
+    width: 80%;
+    margin:auto;
+    padding:5px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: block !important;
+
+    &.w-95{
+        width: 95%;
+    }
+    ion-label{
+       margin-left:15px !important;
+       margin-top: 5px !important;
+    }
+    .search-bar{
+        width: 100%;
+    }
+
+    ion-searchbar{
+        background-color: #fff !important;
+        --background:#fff !important;
+        .searchbar-input-container{
+            background-color: #f6f7ff !important;
+            --background:#f6f7ff !important;
+            border-radius: 15px !important;
+        }
+    }
+}
+
+//Styles for category button
+ion-button.category-button{
+    position: relative;
+    display: block;
+    width: 100%;
+    height:100px;
+    margin: auto;
+    border-radius: 20px;
+
+    div{
+        position: relative;
+        width: 100%;
+        img{
+            text-align: center;
+            width: 47px;
+            height: 47px;
+            transform: translateY(-2px);
+            margin-bottom: 5px;
+        }
+
+        p{
+            margin: auto;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            font-size: 10px !important;
+            color:#fff !important;
+        }
+    }
+
+    &.purple{
+        background-color: #d088f2;
+    }
+}
+
+
+// styles for box Colors
+.box-color{
+    width: 40px;
+    height: 40px;
+    margin-right:15px;
+    border-radius:10px;
+
+    &.active{
+        position: relative;
+        &:before{
+            position: absolute;
+            top:-2px;
+            left:-2px;
+            content:"\2713";
+            width: 100%;
+            height:100%;
+            transform:scale(1.106);
+            border:2px solid $dark;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#fff;
+            font-size: 25px;
+            z-index: 2;
+            cursor:pointer;
+        }
+    }
+
+    &.black{
+        --background: #000;
+        background-color: #000;
+    }
+
+    &.gray{
+        --background: #dcdcdc;
+        background-color: #dcdcdc;
+    }
+
+    &.grayDark{
+        --background: $grayDark;
+        background-color: $grayDark;
+        &::part(native){
+            background-color: $grayDark;
+            --background: $grayDark;
+        }        
+    }    
+
+    &.green{
+        --background: green;
+        background-color: green;
+    }
+
+    &.greenDiferent{
+        --background: $greenDiferent;
+        background-color: $greenDiferent;
+        &::part(native){
+            --background: $greenDiferent;
+            background-color: $greenDiferent;
+        }
+    }
+    
+    &.greenApple{
+        --background: $greenApple;
+        background-color: $greenApple;
+        &::part(native){
+            --background: $greenApple;
+            background-color: $greenApple;
+        }
+    }
+    
+     &.greenTree{
+        --background: $greenTree;
+        background-color: $greenTree;
+        &::part(native){
+            --background: $greenTree;
+            background-color: $greenTree;
+        }
+    }
+    
+    &.green{
+        --background: green;
+        background-color: green;
+    }    
+
+    &.red{
+        --background: red;
+        background-color: red;
+    }
+
+    &.pink{
+        --background: pink;
+        background-color: pink;
+    }
+
+    &.blue{
+        background-color: #3880ff;
+        --background: #3880ff;
+    }
+
+    &.blueOcean{
+        background-color: $blueOcean;
+        --background: $blueOcean;
+        &::part(native){
+            background-color: $blueOcean;
+            --background: $blueOcean;
+        }
+    }
+
+    &.orange{
+        background-color:$bgOrange;
+        --background:$bgOrange;
+        &::part(native){
+            background-color: $bgOrange;
+            --background: $bgOrange;
+        }
+    }
+
+    &.orangeNormal{
+        background-color:$orange;
+        --background:$orange;
+        &::part(native){
+            background-color: $orange;
+            --background: $orange;
+        }
+    }    
+
+    &.yellow{
+        background-color:yellow;
+        --background:yellow;
+    }
+    
+    &.yellowDark{
+        background-color:$yellow;
+        --background:$yellow;
+        &::part(native){
+            background-color: $yellow;
+            --background: $yellow;
+        }   
+    }
+
+    &.brown{
+        background-color:brown;
+        --background:brown;
+    }
+
+    &.purple{
+        background-color:purple;
+        --background:purple;
+        &::part(native){
+            background-color: purple;
+            --background: purple;
+        }    
+    }
+
+    &.purpleLightNOne{
+        background-color:$purple;
+        --background:$purple;
+        &::part(native){
+            background-color: $purple;
+            --background: $purple;
+        }         
+    }
+
+}
+//Styles for cursors type
+.cursor-pointer{
+    cursor:pointer;
+}
+
+.container-products{
+    display: grid;
+    gap:0px;
+    grid-auto-rows: 460px;
+    grid-template-columns: repeat(auto-fill,minmax(350px, 0fr));
+    justify-content:center;
+}
+// Styles for box product
+.box-products{
+    position: relative;
+    width: 295.85px;
+    height:429.883px;
+    background-color:white !important;
+    ion-card-header{
+        .container-slide-images{
+            position: relative;
+            width: 100%;
+            height:170px;
+            ion-slides{
+              position: absolute;
+              width: 100%;
+              height:100%;
+              top:0px;
+
+              .swiper-wrapper{
+                  position: relative;
+                //   background-color: red;
+                //   --background:red;
+
+               ion-slide{
+                    width: 100%;
+                    height: 100%;
+                    background-color: green;
+                    --background:green;
+                    .product-image{
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                }
+              }
+            }
+        }
+    }
+    ion-card-content{
+        .name-product{
+            font-size:20px;
+            font-family: "Poppins SemiBold";
+        }
+    }
+    
+    .button-add{
+        position: absolute;
+        right:15px;
+        bottom:15px;
+    }
+}
+
+
+//Styles for page View product
+.image-product{
+    display: block;
+    width: 85%;
+    height:600px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.color-button,.button-size{
+    position: relative;
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.button-size,ion-button.button-size{
+    border:2px solid #dedede;
+    border-radius: 10px;
+    .button-native{
+        width: 39px;
+        height: 39px;
+        background-color: transparent;
+    }
+}
+
+
+// Styles for custom button
+ion-button.custom-cd-button,button.custom-cd-button{
+    width: 100%;
+    height:45px;
+    border-radius: 10px;
+    text-transform: capitalize;
+
+    ion-text,ion-icon{
+        margin-right: 15px;
+        &.w-mr{
+            margin-right: 0px;
+        }
+    }
+
+
+    &.w-85{
+        width: 85% !important;
+    }
+
+    &.w-auto{
+        width: auto;
+        ion-text{
+            width: auto;
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+    }
+
+    &.without-bg{
+        background-color:transparent;
+        --background:transparent;
+        &:hover{
+            background:$purple;
+            --background:$purple;
+            color:$white;
+            ion-icon,ion-text,p{
+                color:$white !important;
+            }
+        }
+        ion-icon,ion-text,p{
+            color:$purple !important;
+        }
+    }
+
+    &.border-purple{
+        border:2px solid $purple;
+        ion-text{
+            color:$purple !important;
+        }
+    }
+
+    &.bg-purple{
+        background-color:$purple;
+        --background:$purple;
+        ion-text{
+            color:$white !important;
+        }
+        &.without-bg{
+            color:$purple;
+        }
+    }
+
+    &.bg-danger{
+        padding: 0px !important;
+        width: auto !important;
+        background-color:$danger !important;
+        --background:$danger !important;
+        border:2px solid $danger !important;
+        ion-text{
+            color:$white !important;
+        }
+    }
+
+    &.bg-warning{
+        display:inline-block;
+        padding: 0px !important;
+        width: auto !important;
+        background-color:$yellow !important;
+        --background:$yellow !important;
+        border:2px solid $yellow;
+        ion-text{
+            color:$white !important;
+        }
+    } 
+
+    &.bg-success{
+        display:inline-block;
+        padding: 0px !important;
+        width: auto !important;
+        background-color:$success !important;
+        --background:$success !important;
+        border:2px solid $success;
+        ion-text{
+            color:$white !important;
+        }
+    } 
+
+    &.whitout-bg-purple{
+        background-color:transparent;
+        --background:transparent;
+        border:2px solid $purple;
+        ion-text{
+            color:$purple !important;
+        }
+    }
+
+    &.change-image{
+        position: absolute;
+        width: auto !important;
+        right:11%;
+        top:10px;
+        z-index: 200;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        ion-icon{
+            margin-right:0px !important;
+        }
+    }
+    &:disabled,&.disabled{
+        cursor: no-drop;
+        background-color:$bgDisabled !important;
+        --background:$bgDisabled !important;
+        color:$colorDisabled !important;
+        ion-text{
+            color:$colorDisabled !important;
+        }
+    }
+}
+
+// Styles for custom input
+.container-custom-cd-input{
+    position: relative;
+    width: 100%;
+    height:52px;
+    display:flex;
+    padding: 5px;
+    margin:auto;
+    justify-content:center;
+    align-items:center;
+    border:1.4px solid $light;
+    border-radius: 5px;
+    margin-bottom: 13px;
+
+    &.active{
+        border:2px solid $purple;
+    }
+
+    &:hover{
+        border:2px solid $purple;
+    }
+    
+
+    ion-icon{
+        font-size: 22px;
+        color:$light;
+    }
+
+    .input-group{
+        position: relative;
+        width: 95%;
+        height:100%;
+        color:$light;
+
+        ion-label{
+            position: absolute;
+            left:15px;
+            top:10px !important;
+            transform: translateY(0px) !important;
+            transition: all .6s infinite linear;
+            z-index: -1px;
+
+            &.active{
+                transform: translateY(-30px) !important;
+                color:$purple;
+                font-size: 13px;
+                z-index: 1;
+                background-color:$white !important;
+                padding:2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all .2s ease-in-out;
+            }
+        }
+
+        input{
+            position: relative;
+            width: 98%;
+            height:100%;
+            margin:auto;
+            left:2%;
+            right:2%;
+            border:none;
+            outline:none;
+            transition: all .2s ease-in-out;
+            z-index: 2;
+            background-color:transparent !important;
+            color:$dark;
+
+            &::placeholder{
+                color:transparent !important;
+            }
+
+
+
+            &:focus{
+                border:none;
+                outline:none;
+
+                &::placeholder{
+                    color:$light;
+                }
+            }
+
+            &:focus ~ ion-label{
+                transform: translateY(-30px) !important;
+                color:$purple;
+                font-size: 13px;
+                z-index: 1;
+                background-color:$white !important;
+                padding:2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all .2s ease-in-out;
+            }
+
+            &:not(:placeholder-shown) ~ ion-label{
+                transform: translateY(-30px) !important;
+                color:rgba($dark,0.6);
+                font-size: 13px;
+                z-index: 1;
+                background-color:$white !important;
+                padding:2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all .2s ease-in-out;
+            }
+
+        }
+
+        ion-select::part(text){
+            color:$dark;
+        }
+
+        ion-datetime::part(text){
+            color:$dark;
+        }
+    }
+}
+
+//styles for own table
+.container-table{
+    position: relative;
+    width: 95%;
+    margin:auto;
+    display: block;
+    border-radius:10px;
+    padding:5px;
+    background-color:$white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    .header{
+        width: 100%;
+        position: relative;
+        display:block;
+        padding: 2px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: $white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .body{
+        width: 100%;
+        display:block;
+        background-color: white;
+        padding-bottom: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow-x: scroll;
+    }
+    &.other-style{
+        background:none !important;
+        box-shadow:none !important;
+        .header,.body{
+            background:none !important;
+        } 
+    }
+}
+.table{
+    margin:auto;
+    width: 100% !important;
+    border-radius: 5px !important;
+    background-color: $white !important;
+    // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    //box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 00.2),0 8px 10px 1px rgba(0,0,0,00.14),0 3px 14px 2px rgba(0,0,0,00.12);
+    //box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+
+    .table-header{
+        height: 56px;
+        background-color:#f9faff;
+        border-top: 1px solid rgba($light,0.6);
+        border-bottom: 1px solid rgba($light,0.6);
+
+        th{
+            color:$semiDark;
+            font-family: "Poppins Regular";
+            text-align: left;
+            padding-left: 24px;
+            border-bottom: 1px solid rgba($light,0.6);
+        }
+        // position: relative;
+        // width: 100%;
+        // display:flex;
+        // justify-content:space-between;
+        
+        // tr{
+        //     width: 100%;
+        //     background-color:red;
+        // }
+        // .col{
+        //     display:flex;
+        //     padding:10px;
+        //     color:$semiDark;
+        //     font-family: "Poppins Regular";
+        // }
+    }
+    .row{
+        height: 48px;
+        border-bottom: 1px solid rgba($light,0.6);
+        th,td{
+            text-align: left;
+            color:$dark;
+            font-family: "Poppins Regular";
+            padding-left: 24px;
+        }
+        &:last-child{
+            border: none;
+        }
+    }
+    &.other-style{
+        background: none !important;
+        border-collapse: separate;  
+        border-spacing: 0px 15px;
+        .table-header{
+            border:none !important;
+            border-radius: 10px;
+            th{
+                border:none !important;
+            }
+        }
+
+        .table-body{
+            .row{
+                position: relative;
+                height:65px !important;
+                background-color: transparent !important;
+                border-top-left-radius: 100px !important;
+                
+                td{
+                    div{
+                        p.bold{
+                            transform:translateY(0px) !important;
+                            margin-top: -20px !important;
+                        }
+                    }
+                }
+
+                &:after{
+                    position: absolute;
+                    left:0px;
+                    top:0px;
+                    content:"";
+                    width: 100%;
+                    height:100%;
+                    background:$white !important;
+                    border-radius: 10px !important;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+                    z-index:-1;
+                }
+            }
+            &:first-child{
+                margin-top: 15px !important;
+            }
+        }
+    }
+
+}
+// .ion-table{
+//     width: 95% !important;
+//     border-radius: 5px;
+//     background-color: #fff !important;
+//     border: 1px solid #d1d1d1;
+//     border-radius: 8px;
+//     box-shadow:  0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+
+//     .ion-header-table{
+//         display: flex;
+//         align-items: center;
+//         justify-content: start;
+//         height: 40px;
+//         &.bg-purple{
+//             position: relative;
+//             background-color: $purple !important;
+//             color:white !important;
+
+//             &:before{
+//                 position: absolute;
+//                 content:"";
+//                 left:-5px;
+//                 top:-5px;
+//                 width: 101%;
+//                 height: 111%;
+//                 background:$purple;
+//             }
+//             .col{
+//                 color:white !important;
+//             }
+//         }
+//        .row{
+//             position: relative;
+//             width: 100%;
+//             display: flex;
+//         }
+//         .col{
+//             position: relative;
+//             height:40px;
+//             display:flex;
+//             align-items: center;
+//             justify-content: start;
+//             padding-left: 10px;
+//             color:$dark;
+
+//             &.w-12{
+//                 width: 12%;
+//             }
+//             &.w-5{
+//                 width: 5%;
+//             }
+//         }
+//     }
+//     .ion-body-table{
+//         background-color:white !important;
+//         border-radius: 6px;
+//         .row{
+//             position: relative;
+//             width: 100%;
+//             height:65px;
+//             display: flex;
+//             &:hover{
+//                 position: relative;
+//                 border-left:4px solid $purple;
+//             }
+//         }
+//         .col{
+//             position: relative;
+//             height: 100%;
+//             display:flex;
+//             align-items: center;
+//             justify-content: start;
+//             padding-left: 10px;
+//             color:$semiDark;
+
+//             &.w-12{
+//                 width: 12%;
+//             }
+//             &.w-5{
+//                 width: 5%;
+//             }
+//         }
+//     }
+// }
+
+//styles for category slides
+ion-slides{
+    width: 100%;
+    ion-slide{
+        padding: 0px !important;
+        background-color: transparent !important;
+        box-shadow: 0px 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+}
+ion-item-divider{
+    background-color:$white !important;
+}
+ion-item-divider.divider-middle-text{
+    position: relative;
+    z-index: 100;
+    overflow: visible !important;
+
+    ion-label{
+        position: absolute;
+        display: block;
+        margin:auto;
+        transform: translateY(15px);
+        margin-left: 30%;
+        margin-right: 30%;
+        z-index: 200;
+        background-color:#fff !important;
+        padding:10px;
+    }
+}
+
+ion-segment-button.active{
+  color:var(--ion-color-primary);
+  ion-label{
+    color:var(--ion-color-primary);
+  }
+}
+
+// styles menu horiontal
+ion-toolbar.container-menu-horizontal{
+    position: relative;
+    border-top: 1px solid #dedede;
+    ion-segment{
+        background-color: #fff !important;
+        ion-segment-button.active{
+            color:$purple;
+              ion-label{
+                color:$purple;
+            }
+        }
+    }
+    span.bar{
+        position: absolute;
+        bottom:0px;
+        display:block;
+        padding:2px;
+        background-color:$purple;
+    }
+}
+
+.tag{
+    position: relative;
+    display: inline-block;
+    padding:10px 15px;
+    background-color:rgba(0,0,0,0.350);
+    color:#fff;
+    margin:auto;
+    border-radius:15px;
+    font-family: "Poppins Regular";
+    left:37%;
+    right: 37%;
+    margin-bottom: 15px;
+
+    &.state{
+        display:inline-block;
+        left:0%;
+        right: 0%;
+        padding:5px 15px;
+        height:35px;
+        font-size:13px;
+        margin-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+
+        .circle{
+            position: relative;
+            width: 10px;
+            height:10px;
+            border-radius:50%;
+            margin-right: 15px;
+        }
+
+        &.completed{
+            background-color:$completed;
+            color:$completedDark;
+            .circle{
+                background-color:$completedDark;
+            }
+        }
+
+        &.confirmed{
+            background-color:$confirmed;
+            color:$confirmedDark;
+            .circle{
+                background-color:$confirmedDark;
+            }
+        }
+
+        &.sended{
+            background-color:$sended;
+            color:$sendedDark;
+            .circle{
+                background-color:$sendedDark;
+            }
+        }
+
+        ion-icon{
+            transform:translateY(-3px);
+            font-size:20px;
+            margin-right: 5px;
+        }
+    }
+
+    span{
+        display: flex;
+        margin-top: -5px;
+    }
+}
+
+.circle-icon{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-right: 15px;
+
+    &.bg-purple{
+        background-color:$purple;
+        ion-icon{
+            color:$white !important;
+            --color:$white !important;
+            font-size: 19px;
+        }
+    }
+}
+
+ion-button.menu-toggle{
+    background-color:#fff !important;
+    box-shadow:none !important;
+    --box-shadow:none !important;
+    button.button-native{
+        box-shadow:none !important;
+    }
+}
+
+.submenu-options{
+    position: absolute;
+    left:-5px;
+    display: none;
+    padding:15px 20px;
+    background:$white !important;
+    border-radius: 6px;
+    z-index: 500 !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    
+    .option{
+        position: relative;
+        width: 100%;
+        display:block;
+        padding:2px;
+        font-family: "Poppins Regular";
+        color:$dark;
+        cursor:pointer;
+        &:hover{
+            color:$purple;
+        }
+    }
+    &.active{
+        display: block;
+    }
+
+    &.full-width{
+        position: relative !important;
+        display: block;
+        width: 100%;
+        height:auto;
+        max-height:256px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding:0px !important;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+        border-radius: 6px;
+
+        .option{
+            transform:translateX(10px);
+            width: 100%;
+            height: 48px;
+            padding:0px !important;
+            
+            &:hover{
+                width: 100%;
+                color:$purple;
+                background-color:rgba(0,0,0,0.040) !important;
+            }
+        }
+    }
+}
+
+.container-image-slide{
+    position: relative;
+    ion-slides{
+        ion-slide{
+            width: 100%;
+        }
+    }
+}
+
+// styles for image slide
+.slide-image{
+    position: relative;
+    width: 85%;
+    margin:auto;
+    height:250px;
+    background-color:rgba($lightPurple,.150);
+    border-radius:15px;
+
+    div{
+        .image-product{
+            width: 160px;
+            height: 130px;
+            margin:auto;
+            transform: translateY(30%);
+        }
+        .image-information{
+            transform: translateY(45px);
+            color:$colorTextSecond;
+        }
+    }
+}
+
+// styles for container controls
+.container-controls{
+    position: relative;
+    width: 100%;
+    display:flex;
+    padding:5px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .control{
+        position: relative;
+        display:block;
+        width: 10px;
+        height:10px;
+        background-color:#dedede;
+        border-radius:50%;
+        margin-left: 5px;
+        margin-right: 5px;
+        &.active{
+            background-color: $purple;
+        }
+    }
+}
+
+// styles for Vectors
+.image-vector-sign-up{
+    position: relative;
+    display: block;
+    text-align: center;
+    margin:auto;
+    width: 500px;
+    height:520px;
+    transform: translateY(-25px)
+}
+
+
+.stepper{
+    color:#dedede;
+    transform:translateY(15px);
+}
+
+.container-input{
+    position: relative;
+    width: 100%;
+    height:52px;
+    display: flex;
+    justify-content:space-between;
+    padding: 10px;
+    border-radius: 4px;
+    border:1px solid #cdcdcd59;
+    background:transparent;
+    margin-bottom: 15px !important;
+
+    &.without-border{
+        border:none!important;
+    }
+    
+	&.w-12{
+		width: 12% !important;
+	}
+
+	&.w-90{
+		width: 85% !important;
+	}
+
+    &:hover{
+        border:1px solid #838383;
+
+        ion-icon.icon-input,ion-input{
+            color: #838383;
+        }
+        ion-input{
+            input{
+                &::placeholder{
+                   color: #333;
+                }
+            }
+        }
+    }
+
+    &.active{
+        border:1px solid $purple;
+
+        ion-icon.icon-input{
+            visibility: hidden;
+            width: 0% important;
+            &.w-5{
+                visibility: hidden;
+                width: 0% !important;
+            }
+            &.icon-select{
+                visibility: visible;
+                width: 0% !important;
+                font-size:1px !important;
+            }
+        }
+
+        ion-item{
+            width: 100% !important;
+            height:100%;
+            transition: all .3s;
+
+            &.w-95{
+                width: 100% !important;
+            }
+
+            &.select-active{
+                width: 95% !important;
+            }
+        }
+    }
+
+    ion-icon.icon-input{
+        position: absolute;
+        left:10px;
+        top:12px;
+        width: 10%;
+        font-size: 25px;
+        color:#cdcdcd59;
+
+        &.w-10{
+            width: 10% !important;
+        }
+
+        &.w-5{
+            width: 10% !important;
+        }
+    }
+
+    ion-item{
+        position: absolute;
+        top:0px;
+        right:0px;
+        width: 90% !important;
+        height: 100% !important;
+        overflow:visible !important;
+        --background:transparent !important;
+        transition: all .3s;
+
+        &.w-90{
+            width: 90% !important;
+        }
+
+        &.w-95{
+            width: 90% !important;
+        }
+
+		&.w-100{
+			width: 100% !important;
+	    }
+
+		ion-select{
+		    position: absolute;
+			left:-5px;
+			top:0px;
+			width: 100%;
+			height: 100%;
+		}
+    }
+
+    .input-group{
+        position: relative;
+        width: 98%;
+        display:block !important;
+        background:transparent;
+
+
+        &.input-select{
+            display:flex !important;
+            justify-content:space-between;
+            align-items:center;
+
+            ion-label{
+                transform:translateX(10px);
+            }
+        }
+
+        span{
+            position: absolute;
+            left: 7px;
+            bottom:2px;
+            display:inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: all .2s;
+            z-index: -1;
+            text-align: left;
+            padding-left: 10px;
+            padding-right: 10px;
+
+
+            &.active{
+                display:inline-block;
+                padding:2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all .2s;
+                transform: translateY(-25px);
+                font-size: 12px;
+                background-color: #fff;
+                color:$purple;
+                z-index: 1;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        ion-select{
+            width: 95% !important;
+            height: 100% !important;
+            z-index: 2;
+            background:transparent !important;
+
+            &::part(text){
+                transform: translateX(-10px);
+                text-align: left !important;
+            }
+        }
+
+        input,ion-input{
+            z-index: 2;
+            background:transparent;
+            color:#838383;
+
+            &::placeholder{
+               color:#838383;
+            }
+
+            &:focus{
+                &::placeholder{
+                    color:#838383;
+                }
+            }
+        }
+      
+        ion-datetime{
+            display:flex;
+            justify-content:flex-start;
+            padding-left: 10px;
+
+            input.aux-input{
+                &:not(:empty) + span{
+                    display:block;
+                    padding:2px;
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    transition: all .2s;
+                    transform: translateY(-25px);
+                    font-size: 12px;
+                    background-color: #fff;
+                    color:$purple;
+                    z-index: 1;
+                    width: auto;
+                }
+            }
+        }
+
+    }
+
+    ion-textarea{
+        height:50px;
+        .textarea-wrapper{
+            height:50px;
+            textarea{
+                height:50px;
+            }
+        }
+    }
+}
+
+// styles for button options textarea
+.container-options{
+    padding: 5px;
+    border:1px solid #dedede;
+    border-radius:6px;
+    margin-bottom:15px;
+
+    .button-option{
+        transform: translateY(-2px);
+        background-color:white;
+        --background:white;
+        color:#838383;
+        &.active{
+            background-color:$purple;
+            --background:$purple;
+            color:white !important;
+            border-radius:4px;
+        }
+
+        ion-img{
+            width: 17px;
+            height: 17px;
+        }
+    }
+}
+
+// styles for text editor
+.container-textarea{
+    position: relative;
+    width: 100%;
+
+    .textarea{
+        position: relative;
+        width: 100%;
+        padding:10px;
+        // height:150px;
+        height:auto !important;
+        //padding-bottom: 10px;
+        border:1px solid #dedede;
+        border-radius:10px;
+        color:#333;
+        font-family: "Poppins Regular";
+        background-color:transparent !important;
+
+        &:before{
+            position: absolute;
+            left:0px;
+            top:0px;
+            width: 100%;
+            padding:10px;
+            height:100%;
+            content:"Escribe algo...";
+            z-index: -1;
+        }
+
+        &:focus{
+            border:1px solid $purple;
+            &:before{
+                content:""
+            }
+        }
+
+        &.active{
+            &:before{
+                content:"";
+            }
+        }
+        
+        // &.resize{
+        //     height:auto !important;
+        //     padding-bottom: 10px;
+        // }
+
+        div,p{
+            color:#333;
+            font-family: "Poppins Regular";
+        }
+        p{
+            // height:5px;
+            padding: 0px !important;
+            margin-bottom: 0px !important;
+            transform:translateY(-15px) !important;
+        }
+
+    }
+}
+
+.panel-weight-left{
+    width: 30% !important;
+}
+
+.panel-weight-right{
+    width: 60% !important;
+}
+
+.container-panels{
+    position: relative;
+    display: flex;
+    .panel-left{
+        width: 65%;
+    }
+    .panel-right{
+        width: 30%;
+        .container-sale-information{
+           ion-card{
+                background-color:white!important;
+           }
+        }
+    }
+}
+.position-absolute-right{
+    position: absolute;
+    right:10px;
+}
+
+ion-menu.sidebar{
+    background-color: white !important;
+    --background:white;
+    --background: white !important; 
+    ion-content{            
+        --background: white !important; 
+        ion-list-header,ion-list{ 
+            --background: white !important;
+            --color: #FFFFFF !important;   
+        }
+        ion-list{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            .section-collapse{
+                background-color:$gray !important;
+                ion-item{
+                    background-color:$gray !important;
+                    --background: $gray !important;
+                }
+            }
+        }
+        ion-item{
+            --background: white !important;
+        }
+    }
+}
+
+
+// styles for chatbox
+.container-chat{
+    position: relative;
+    display:flex;
+    justify-content:space-between;
+    width: 90%;
+    height:85%;
+    margin:auto;
+    transform: translateY(80px);
+
+    .panel-left{
+        position: relative;
+        width: 35%;
+        height:100%;
+        padding: 15px;
+        border-radius: 15px;
+        margin-right: 15px;
+
+        .panel-header{
+            position: relative;
+            width: 100%;
+            height:34%;
+
+            .panel-title{
+                position: relative;
+                width: 100%;
+                height:auto;
+                display:flex;
+                margin-bottom: 15px;
+
+                .panel-left{
+                    position: relative;
+                    width: 60%;
+                    height:100%;
+                    display:block;
+                    border-radius: 0px;
+
+                    .title,p{
+                        margin-top: 0px;
+                        margin-left: 15px;
+                    }
+                }
+                .panel-right{
+                    position: relative;
+                    width: 35%;
+                    height:100%;
+                    display:block;
+                }
+            }
+        }
+        .panel-body{
+            position: relative;
+            width: 100%;
+            height:66%;
+            .conversations{
+                position: relative;
+                width: 100%;
+                height:100%;
+                overflow-y: scroll;
+                display:block;
+                .box-conversation{
+                    position: relative;
+                    width: 90%;
+                    padding: 10px !important;
+                    max-height:170px;
+                    margin:auto;
+                    background-color:white !important;
+                    border-radius:15px;
+                    display: block;
+                    margin-bottom: 15px;
+
+                    .panel-body{
+                        position: relative;
+                        width: 100%;
+                        height:95%;
+                        padding:10px;
+                        color:$dark;
+                        padding-bottom: 20px;
+                        p{
+                            margin-top:0px;
+                            transform:translateY(0px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+    .header-conversation{
+        width: 100%;
+        height:60px;
+        display:flex;
+        .panel-left{
+           position: relative;
+           width: 20%;
+           height:100%;
+        }
+        
+        .panel-right{
+            position: relative;
+            width: 85%;
+            height:100%;
+            display:block;
+
+                p{
+                  margin-top:0px;
+                  height:20px;
+                  transform:translateY(0px);
+                }
+
+               .name-user{
+                   color:$dark;
+                   transform:translateY(10px);
+                   font-family: "Poppins SemiBold";
+                }
+               
+                .time-message{
+                   color:$semiDark;
+                   transform:translateY(-5px);
+                }
+        }
+    }
+                    
+    .panel-right{
+        position: relative;
+        width: 55%;
+        height:100%;
+
+        .container-view-message{
+            width: 85%;
+            height:100%;
+            margin:auto;
+            border-radius: 15px;
+            background-color:#f9f9f9 !important;
+            .header-conversation{
+                height:9%;
+                background-color:white;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                .panel-left{
+                    width: 10%;
+                }
+                .panel-right{
+                    width: 75%;
+                }
+            }
+            .body-conversation{
+                height:83%;
+            }
+            .bottom-conversation{
+                width: 100%;
+                height:9%;
+                display:flex;
+                background-color:white !important;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                .panel-left{
+                    position: relative;
+                    width: 88%;
+                    height: 100%;
+                    padding:10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    button{
+                        margin-right: 5px;
+                        margin-left:5px;
+                    }
+
+                    .box-text{
+                        position: relative;
+                        width: 90%;
+                        height: 90%;
+                        color:$dark;
+                        outline:none;
+                        padding-top: 10px;
+                        padding-left: 10px;
+                        cursor:text;
+                        background-color: #f6f6f6;
+                        border-radius:10px;
+
+                        &:before{
+                            position: absolute;
+                            left:0px;
+                            width: 100%;
+                            height: 100%;
+                            content:"Escribe algo...";
+                            color:$dark;
+                            padding-left: 10px;
+                        }
+                    }
+                }
+                .panel-right{
+                    width: 18%;
+                    height:100%;
+                    display:flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+// styles for toast
+.custom-toast{
+    position: fixed;
+    left:35%;
+    top:-70px;
+    width: 25%;
+    display: flex;
+    justify-content:space-between;
+    padding: 5px;
+    border-radius:15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 2000 !important;
+    visibility: hidden;
+    transform: translateY(-50%) !important;
+    
+    .panel-left{
+        position:relative;
+        width: 12%;
+        height:55px;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+    .panel-right{
+        position: relative;
+        width: 88%;
+        height:55px;
+        display:block;
+        p{
+          color:$dark;
+          line-height:18px;
+
+          &.title{
+              font-family: "Poppins Bold";
+              margin-top: -7px;
+              transform: translateY(17px);
+          }
+        }
+    }
+
+    &.success{
+        border-left: 6px solid $success;
+        background-color:$successLight;
+        .panel-left{
+            ion-icon{
+                color:$success !important;
+            }
+        }
+    }
+
+    &.error{
+        border-left: 6px solid $danger;
+        background-color:$dangerLight;
+        .panel-left{
+            ion-icon{
+                color:$danger !important;
+            }
+        }
+    }
+
+    &.info{
+        border-left: 6px solid $blue;
+        background-color:$blueLight;
+        .panel-left{
+            ion-icon{
+                color:$blue !important;
+            }
+        }
+    }
+
+    &.info{
+        border-left: 6px solid $warning;
+        background-color:$warningLight;
+        .panel-left{
+            ion-icon{
+                color:$warning !important;
+            }
+        }
+    }
+
+    &.show{
+        visibility:visible;
+        animation: fadeInOut 3s;
+    }
+}
+
+@keyframes fadeInOut {
+    5%,95%{
+        opacity: 1;
+        top: 130px;
+    }
+    15%,85%{
+        opacity: 1;
+        top:110px;
+    }
+}
+//styles for desktop screen
+@media screen and (min-width: 991px){
+
+    .container-search{
+        .search-bar{
+            display: flex !important;
+            justify-content:space-between;
+            align-items:center;
+        }
+        &.search-with-filters{
+            .search-bar{
+                ion-searchbar{
+                    .searchbar-input-container{
+                        width: 95% !important;
+                        height: 50px !important;
+                        border-radius: 10px;
+                        input{
+                            border-radius: 10px;
+                            height: 50px !important;
+                        }
+                        ion-icon{
+                         transform: translateY(5px) !important;
+                        }
+                    }
+                }
+                ion-row,ion-button{
+                    width: 20% !important;
+                    margin-right: 15px;
+                    transform: translateY(-10px) !important;
+                }
+            }
+        }
+    }
+    .col{
+        &.w-75{
+            width: 75% !important;
+        }
+    
+        &.w-25{
+            width: 25% !important;
+        }
+    }
+
+    // styles for panels
+    .panel-weight-left{
+        width: 10% !important;
+    }
+
+    .panel-weight-right{
+        width: 88% !important;
+    }
+
+    ion-menu.sidebar{
+        max-width: 300px;
+        background-color: white !important;
+        --background:white;
+        --background: white !important; 
+    }
+
+    ion-button.category-button{
+        position: relative;
+        display: block;
+        width: 110px;
+        height:140px;
+        border-radius: 20px;
+        --border-radius:20px;
+        color:#fff;
+
+        div{
+            text-align: center;
+            img{
+                display: block;
+                width: 65px;
+                height: 65px;
+                margin:auto;
+                margin-bottom: 15px;
+            }
+            
+            ion-text{
+                text-align: center;
+                font-size: 11px;
+                color:#fff;
+            }
+        }
+    }
+
+    //styles for category slides
+  ion-slides{
+      width: 100%;
+    ion-slide{
+      width: 112px;
+      padding: 0px !important;
+      background-color: transparent !important;
+      box-shadow: 0px 0 !important;
+    }
+  }
+
+	ion-label{
+		transform:translateY(-10px);
+		color: #0c0c0c3b;
+		font-family: "Poppins SemiBold";
+		transition: all .2s ease-in-out;
+
+		&.active{
+			color:$purple;
+			transition: all .2s ease-in-out;
+		}
+	}
+// styles for Vectors
+.image-vector-sign-up{
+    position: relative;
+    display: block;
+    text-align: center;
+    margin:auto;
+    // width: 650px;
+    // height: 670px;
+    //transform: translateY(-105px);
+}
+
+.less-top{
+    transform: translateY(-185px);
+}
+
+
+// styles for container form
+.container-form{
+  	width:100%;
+	  -webkit-perspective: 700;
+    -moz-perspective: 700;
+    perspective: 700;
+}
+
+.form{
+  position:relative;
+  display:block;
+  padding:10px;
+  width:690px;
+  margin:auto;
+  background:#fff;
+  //box-shadow:0px 4px 6px rgba(0,0,0,0.160),0px 8px 12px rgba(0,0,0,0.190);
+	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  border-radius:15px;
+  animation-name: rotateAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-direction: ease-in-out;
+  transform-style: preserve-3d;
+  top:30px;
+  transition: all .3s;
+}
+
+	// styles for custom inputs
+.container-input{
+    position: relative;
+    width: 100%;
+    height:52px;
+    display: flex;
+    justify-content:space-between;
+    padding: 10px;
+    border-radius: 4px;
+    border:1px solid #cdcdcd59;
+    background:transparent;
+    margin-bottom: 15px !important;
+
+    &.without-border{
+        border:none!important;
+    }
+    
+	&.w-12{
+		width: 12% !important;
+	}
+
+	&.w-90{
+		width: 85% !important;
+	}
+
+    &:hover{
+        border:1px solid #838383;
+
+        ion-icon.icon-input,ion-input{
+            color: #838383;
+        }
+        ion-input{
+            input{
+                &::placeholder{
+                   color: #333;
+                }
+            }
+        }
+    }
+
+    &.active{
+        border:1px solid $purple;
+
+        ion-icon.icon-input{
+            visibility: hidden;
+            width: 0% important;
+            &.w-5{
+                visibility: hidden;
+                width: 0% !important;
+            }
+            &.icon-select{
+                visibility: visible;
+                width: 5% !important;
+                font-size:25px !important;
+            }
+        }
+
+        ion-item{
+            width: 100% !important;
+            height:100%;
+            transition: all .3s;
+
+            &.w-95{
+                width: 100% !important;
+            }
+
+            &.select-active{
+                width: 95% !important;
+            }
+        }
+    }
+
+    ion-icon.icon-input{
+        position: absolute;
+        left:10px;
+        top:12px;
+        width: 10%;
+        font-size: 25px;
+        color:#cdcdcd59;
+
+        &.w-10{
+            width: 10% !important;
+        }
+
+        &.w-5{
+            width: 5% !important;
+        }
+    }
+
+    ion-item{
+        position: absolute;
+        top:0px;
+        right:0px;
+        width: 90% !important;
+        height: 100% !important;
+        overflow:visible !important;
+        --background:transparent !important;
+        transition: all .3s;
+
+        &.w-90{
+            width: 90% !important;
+        }
+
+        &.w-95{
+            width: 95% !important;
+        }
+
+		&.w-100{
+			width: 100% !important;
+	    }
+
+		ion-select{
+		    position: absolute;
+			left:-5px;
+			top:0px;
+			width: 100%;
+			height: 100%;
+		}
+    }
+
+    .input-group{
+        position: relative;
+        width: 98%;
+        display:block !important;
+        background:transparent;
+
+
+        &.input-select{
+            display:flex !important;
+            justify-content:space-between;
+            align-items:center;
+
+            ion-label{
+                transform:translateX(10px);
+            }
+        }
+
+        span{
+            position: absolute;
+            left: 7px;
+            bottom:2px;
+            display:inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: all .2s;
+            z-index: -1;
+            text-align: left;
+            padding-left: 10px;
+            padding-right: 10px;
+
+
+            &.active{
+                display:inline-block;
+                padding:2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all .2s;
+                transform: translateY(-25px);
+                font-size: 12px;
+                background-color: #fff;
+                color:$purple;
+                z-index: 1;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        ion-select{
+            width: 95% !important;
+            height: 100% !important;
+            z-index: 2;
+            background:transparent !important;
+
+            &::part(text){
+                transform: translateX(-10px);
+                text-align: left !important;
+            }
+        }
+
+        input,ion-input{
+            z-index: 2;
+            background:transparent;
+            color:#838383;
+
+            &::placeholder{
+               color:#838383;
+            }
+
+            &:focus{
+                &::placeholder{
+                    color:#838383;
+                }
+            }
+        }
+      
+        ion-datetime{
+            display:flex;
+            justify-content:flex-start;
+            padding-left: 10px;
+
+            input.aux-input{
+                &:not(:empty) + span{
+                    display:block;
+                    padding:2px;
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    transition: all .2s;
+                    transform: translateY(-25px);
+                    font-size: 12px;
+                    background-color: #fff;
+                    color:$purple;
+                    z-index: 1;
+                    width: auto;
+                }
+            }
+        }
+
+    }
+}
+
+    .customModal{
+        .modal-wrapper {
+        width:924px !important;
+    }
+    }
+}
+

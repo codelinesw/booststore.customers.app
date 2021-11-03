@@ -1,0 +1,224 @@
+<app-header></app-header>
+<ion-content>
+   <ion-grid class="ion-padding-top ion-padding-horizontal" style="height:100%;">
+    <ion-row>
+      <ion-col class="w-25 showElement">
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="10">
+              <ion-row class="ion-padding-top">
+                <ion-title color="customPurple" class="ion-text-start" style="font-size:35px;transform:translateX(-15px);">Boostore</ion-title>
+              </ion-row>
+              <ion-row class="ion-justify-content-center">
+                <ion-text style="font-size:22px;">Solo falta poco para que finalices el proces de registro, diligencia los campo restantes del formulario para terminar el registro</ion-text>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-img src="assets/Vectors/Profile-picture.svg" style="transform:translateY(-40px);"></ion-img>
+        </ion-row>
+      </ion-col>
+      <ion-col class="w-75">
+        <ion-row class="ion-justify-content-center">
+          <div>
+            <ion-row class="mb-15">
+              <h3 class="stepper w-100">1 Paso de 2</h3>
+              <h1 class="ion-text-start w-100">Crea tu cuenta gratis</h1>
+              <!-- <ion-text>Cuentanos cual es el motivo por el cual vas usar booststore</ion-text> -->
+              <ion-text>Cuentanos cual de estas opciones se acomoda mejor para el proceso de tu inventario, dale no pierdas el impulso solo falta poco</ion-text>
+            </ion-row>
+            <ion-row class="ion-justify-content-center" *ngIf="formProgress === 0">
+              <ion-row class="w-100 mb-15">
+                <ion-label>Nombre de tu negocio</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="storefront-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el nombre de tu negocio" [(ngModel)]="Shop.name"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100">
+                <ion-label>Sector para tu negocio</ion-label>
+                <div class="container-input m-auto w-100">
+                  <div class="container-icon">
+                    <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none">
+                    <div class="input-group">
+                      <ion-select [(value)]="Shop.idClassification" placeholder="Selecciona la opcion que se acomode mas a tu negocio" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeClassification($event)">
+                        <ion-select-option value="1">Restaurante</ion-select-option>
+                        <ion-select-option value="2">Bar</ion-select-option>
+                        <ion-select-option value="3">SPA</ion-select-option>
+                        <ion-select-option value="4">Tienda/Revuelteria</ion-select-option>
+                        <ion-select-option value="5">Tienda de calzado</ion-select-option>
+                        <ion-select-option value="6">Tienda de tecnologia</ion-select-option>
+                        <ion-select-option value="7">Tienda de ropa</ion-select-option>
+                        <ion-select-option value="8">Miselania</ion-select-option>
+                        <ion-select-option value="9">Tienda online</ion-select-option>
+                      </ion-select>
+                    </div>
+                  </ion-item>
+                </div>
+              </ion-row>                                             
+              <div class="mt-15 w-100">
+                <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+                  <ion-text>Siguiente</ion-text>
+                </ion-button>
+              </div>                       
+            </ion-row>
+            <ion-row class="ion-justify-content-center" *ngIf="formProgress === 1">
+              <ion-row class="w-100 mb-15">
+                <ion-label>Nit/Identificación del responsable</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="receipt-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el numero del documento" [(ngModel)]="Shop.nit"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Numero celular del negocio</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="phone-portrait-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa el numero de celular" [(ngModel)]="Shop.cellPhoneNumber"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Correo electrónico</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="mail-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa un correo electrónico" [(ngModel)]="Shop.email"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <div class="w-100 d-flex justify-content-between align-items-center mb-15">
+                <ion-row class="w-90 mr-10">
+                  <ion-label>Dirección</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="location-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa la dirección donde se encuentra ubicado tu negocio" [(ngModel)]="Shop.address"></ion-input>
+                      </div>
+                    </ion-item>
+                  </div>
+                </ion-row>
+                <ion-button class="custom-cd-button border-green bg-green d-flex justify-content-between align-content-center w-20 ty-13" (click)="openMap()">
+                  <ion-icon name="map-outline" class="mr-15"></ion-icon>
+                  <ion-text>Mapa</ion-text>
+                </ion-button>
+              </div>              
+              <div class="mt-15 w-100 d-flex justify-content-between align-items-center">
+              <ion-button class="custom-cd-button border-green without-bg w-50 border-green mr-15 color-green" (click)="goBack()">
+                  <ion-text>Atras</ion-text>
+                </ion-button>              
+                <ion-button class="custom-cd-button border-green bg-green w-50" (click)="save()">
+                  <ion-text>Siguiente</ion-text>
+                </ion-button>
+              </div>            
+            </ion-row>
+            <ion-row class="ion-justify-content-center" *ngIf="formProgress === 2">     
+              <ion-row class="w-100 mb-15">
+                <ion-label>Usuario</ion-label>
+                  <div class="container-input m-auto w-100">
+                    <div class="container-icon">
+                      <ion-icon class="icon-input" name="person-circle-outline"></ion-icon>
+                    </div>
+                    <ion-item lines="none" color="none">
+                      <div class="input-group">
+                        <ion-input type="text" placeholder="Ingresa un nombre de usuario" [(ngModel)]="Shop.username"></ion-input>
+                      </div>
+                    </ion-item>
+                </div>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-label>Contraseña</ion-label>
+                <div class="container-input m-auto w-100">
+                  <div class="container-icon">
+                    <ion-icon class="icon-input" name="lock-closed-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none">
+                    <div class="input-group">
+                      <ion-input [type]="inputType" placeholder="Ingresa la contraseña para ingresar a tu tienda" [(ngModel)]="Shop.password"></ion-input>
+                      <button class="custom-cd-button border-green without-bg w-10 buttonViewPassword" (click)="viewPassword()">
+                        <ion-icon [name]="iconPassword" class="color-green" style="font-size: 26px !important;"></ion-icon>
+                      </button>                
+                    </div>
+                  </ion-item>
+                </div>
+              </ion-row>              
+              <div class="mt-15 w-100 d-flex justify-content-between align-items-center">
+              <ion-button class="custom-cd-button border-green without-bg w-50 border-green mr-15 color-green" (click)="goBack()">
+                  <ion-text>Atras</ion-text>
+                </ion-button>              
+                <ion-button class="custom-cd-button border-green bg-green w-50" (click)="save()">
+                  <ion-text>Siguiente</ion-text>
+                </ion-button>
+              </div>            
+            </ion-row>          
+            <ion-row class="ion-justify-content-center" *ngIf="formProgress === 3">            
+              <ion-row class="w-100 mb-15">
+                <div class="container-access d-block">
+                  <ion-radio-group allow-empty-selection="true" name="radio-group" [(value)]="Shop.saleType" (ionChange)="onChangeSaleType($event)" #radioGroup>
+                    <div class="box-access w-90 mb-10" *ngFor="let item of listSalesType">
+                      <ion-radio class="mr-10" [value]="item.id"></ion-radio>
+                      <ion-text class="w-100">{{item.text}}</ion-text>
+                    </div>
+                  </ion-radio-group>                                             
+                </div>
+              </ion-row>
+              <div class="mt-15 w-100 d-flex justify-content-between align-items-center">
+              <ion-button class="custom-cd-button border-green without-bg w-50 border-green mr-15 color-green" (click)="goBack()">
+                  <ion-text>Atras</ion-text>
+                </ion-button>              
+                <ion-button class="custom-cd-button border-green bg-green w-50" (click)="save()">
+                  <ion-text>{{  textButton }}</ion-text>
+                </ion-button>
+              </div>            
+            </ion-row>          
+            <ion-row class="ion-justify-content-center" *ngIf="formProgress === 4 && Shop.idClassification != 2 && Shop.idClassification != 3 && Shop.idClassification != 4">
+              <ion-row class="w-100 mb-15">
+                <div class="container-access d-block">
+                  <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="onChangeShopType($event)" #radioGroup>
+                      <div class="box-access w-90 mb-10" *ngFor="let shopType of listShopType">
+                        <ion-radio class="mr-10" [value]="shopType.id"></ion-radio>
+                        <ion-text class="w-100">{{shopType.text}}</ion-text>
+                      </div>
+                  </ion-radio-group>                                
+                </div>
+              </ion-row>
+              <div class="mt-15 w-100 d-flex justify-content-between align-items-center">
+              <ion-button class="custom-cd-button border-green without-bg w-50 border-green mr-15 color-green" (click)="goBack()">
+                  <ion-text>Atras</ion-text>
+                </ion-button>              
+                <ion-button class="custom-cd-button border-green bg-green w-50" (click)="save()">
+                  <ion-text>Finalizar registro</ion-text>
+                </ion-button>
+              </div>            
+            </ion-row>          
+          </div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

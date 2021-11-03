@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BoostStore App </title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+
+<body>
+  <div id="custom-toast" class="custom-toast">
+    <div class="panel-left">
+      <ion-icon name="checkmark-done-circle-outline" class="toast-icon" id="toastIcon" #toastIcon></ion-icon>
+    </div>
+    <div class="panel-right">
+      <p class="title" id="title"></p>
+      <p id="message"></p>
+    </div>
+  </div>  
+  <app-root></app-root>
+</body>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS-hVjp-mOvXj3tOT4JWO7na9HI9Noo8I">
+</script>
+
+</html>

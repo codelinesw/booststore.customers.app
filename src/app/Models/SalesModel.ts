@@ -1,0 +1,29 @@
+export interface SalesModel {
+  idSale: number;
+  idStoreUser: number;
+  idShop: number;
+  idOffice: number;
+  idWarehouse: number;
+  idClient: number;
+  username: string;
+  clientName: string;
+  products: string;
+  idProducts: string;
+  qtySold: number;
+  amountSale: string;
+  amountPaid: string;
+  amountExchange: string;
+  balance: string;
+  paymentDateLimit: string;
+  tableNumber: number;
+  discount: string;
+  saleTax: string;
+  dateSale: string;
+  idOrderType: number;
+  idMethodPayment: number;
+  idTypeSale: number;
+  salesAddress: string;
+  idClassification: string;
+  dateCreated: string;
+  dateUpdated: string;
+}

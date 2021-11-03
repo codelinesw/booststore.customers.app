@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePop()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Selecciona la ubicación de tu tienda</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="contenedor">
+      <div id="mapa" style="width: 100%;height: 100%;">
+        </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+      <ion-row>
+          <ion-col size="12" class="d-flex ion-justify-content-end">
+              <ion-button class="custom-cd-button without-bg color-green border-green mr-10" (click)="closePop()">
+                <ion-text>Cancelar</ion-text>
+              </ion-button>
+              <ion-button class="custom-cd-button bg-green color-white" (click)="aceptar()">
+                <ion-text>Aceptar</ion-text>
+              </ion-button>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-footer>

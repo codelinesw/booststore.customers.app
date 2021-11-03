@@ -1,0 +1,32 @@
+export interface SessionModel {
+  idShop: number;
+  nit: string;
+  idOffice: number;
+  idWarehouse: number;
+  uuid: string;
+  fullName: string;
+  officeName: string;
+  cellPhoneNumber: string;
+  email: string;
+  address: string;
+  status: string;
+  slogan: string;
+  image: string;
+  description: string;
+  username: string;
+  password: string;
+  name: string;
+  onLine: number;
+  options: string;
+  userActions: string;
+  rolName: string;
+  lastLoginDate: string;
+  openingHours: string;
+  closingTime: string;
+  banner: string;
+  idClassification: any;
+  saleType: number;
+  shopType: number;
+  dateCreated: Date;
+  dateUpdated: Date;
+}

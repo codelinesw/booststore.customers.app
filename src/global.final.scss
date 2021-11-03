@@ -1,0 +1,377 @@
+@font-face {
+    font-family: "Poppins Regular";
+    src: url('./assets/Fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Poppins SemiBold";
+    src: url('./assets/Fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url('./assets/Fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins ExtraBold";
+    src: url('./assets/Fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+// color base
+
+$yellow:#FFD42C;
+$yellowLight:#FFE26C;
+$dark:#263133;
+$semiDark:#979da4;
+$light:#a6afb6;
+$white:#FFF;
+
+$blue:#6E99EA;
+$blueLight:#82ADFF;
+
+$bgDisabled:#e4e4e4;
+$colorDisabled:#88888f;
+
+
+$danger: #e95a4d;
+$dangerLight: #ffd0cb;
+
+$success:#3bc179;
+$successLight:#c5f7dd;
+
+$blue:#3e84e5;
+$blueLight: #cbe2ff;
+
+$warning:#e8a029;
+$warningLight:#ffe8c3;
+
+body,html,ion-content{
+    background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+    --background:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+ion-content{
+
+    --ion-background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+
+:root{
+    --ion-color-orange:#ff812c;
+    --ion-color-google:#c71610;
+    --ion-color-facebook:#3b5998;
+    --ion-color-text: $colorText;
+    --ion-color-textSecond:$colorTextSecond;
+    --ion-color-customPurple:#6f4ef7;
+    --ion-color-lightPurple:#ae96f7;
+
+}
+
+.ion-color-orange{
+    --ion-color-base: var(--ion-color-orange) !important;
+}
+
+.ion-color-facebook{
+    --ion-color-base: var(--ion-color-facebook) !important;
+}
+
+
+.ion-color-google{
+    --ion-color-base: var(--ion-color-google) !important;
+}
+
+.ion-color-text{
+    --ion-color-base:var(--ion-color-text) !important;
+}
+
+.ion-color-textSecond{
+    --ion-color-base:var(--ion-color-textSecond) !important;
+}
+
+.ion-color-customPurple{
+    --ion-color-base:var(--ion-color-customPurple) !important;
+}
+
+.ion-color-lightPurple{
+    --ion-color-base:var(--ion-color-lightPurple) !important;
+}
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root{
+    --ion-color-purple:#d088f2;
+}
+
+//Styles for font type
+p,button,label,text,textarea,input,ion-text,ion-label{
+    font-family: "Poppins Regular";
+}
+
+h1,ion-card-title,ion-title{
+    font-family: "Poppins ExtraBold";
+    color:$dark;
+}
+
+h2,ion-card-subtitle{
+    color:$dark;
+    font-family: "Poppins Bold";
+}
+
+h3{
+    color:$dark;
+    font-family: "Poppins SemiBold";
+}
+
+ion-text.semiDark,p.semiDark{
+    color:$semiDark;
+}
+//Styles for margins
+
+.m-auto{
+    margin:auto;
+}
+
+// margin top
+
+.mt-0{
+    margin-top: 0px;
+}
+
+.mt-15{
+    margin-top: 15px;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+// margin right
+
+.mr-15{
+    margin-right: 15px;
+}
+
+// margin left
+
+.ml-15{
+    margin-left: 15px;
+}
+
+// margin bottom
+
+.mb-15{
+    margin-bottom: 15px;
+}
+
+
+//styles for paddings
+
+.padding-0{
+    padding: 0px !important;
+}
+
+// padding top
+
+.paddin-top-15{
+    padding-top: 15px;
+}
+
+.paddin-top-25{
+    padding-top: 25px;
+}
+
+.paddin-top-30{
+    padding-top: 30px;
+}
+
+// padding bottom
+
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+
+.padding-bottom-25{
+    padding-bottom: 25px;
+}
+
+.padding-bottom-30{
+    padding-bottom: 30px;
+}
+
+//styles for width
+
+.w-15{
+    width: 15% !important;
+}
+
+.w-20{
+    width: 20% !important;
+}
+
+.w-100{
+    width: 100% !important;
+}
+
+// styles for height
+
+.h-50{
+    height: 50% !important;
+}
+
+.h-100{
+    height: 100% !important;
+}
+
+// styles for background
+
+.bg-yellow{
+    background-color:$yellow !important;
+    --background:$yellow !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-yellowLight{
+    background-color:$yellowLight !important;
+    --background:$yellowLight !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-blue{
+    background-color:$blue !important;
+    --background:$blue !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-blueLight{
+    background-color:$blueLight !important;
+    --background:$blueLight !important;
+    color:$white !important;
+    --color:$white !important;
+
+    ion-text{
+        color:$white !important;
+        --color:$white !important;
+    }
+}
+
+.bg-white{
+    background: $white !important;
+    --background:$white !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }    
+}
+
+//Styles for rounded border
+.rounded-border{
+    border-radius: 15px;
+}
+  
+ion-button.rounded-border{
+    border-radius: 15px;
+}
+  
+ion-button.circular-border{
+    width: 50.38px;
+    height: 50.37px;
+    --border-radius: 50%;
+}
+
+// styles for buttons
+
+
+
+// styles for sideBar
+ion-menu.sidebar{
+    background-color: white !important;
+    --background:white;
+    --background: white !important; 
+    ion-content{            
+        --background: white !important; 
+        ion-list-header,ion-list{ 
+            --background: white !important;
+            --color: #FFFFFF !important;   
+        }
+        ion-list{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            .section-collapse{
+                background-color:$gray !important;
+                ion-item{
+                    background-color:$gray !important;
+                    --background: $gray !important;
+                }
+            }
+        }
+        ion-item{
+            --background: white !important;
+        }
+    }
+}
+
+
+// Styles for product
+
+.container-products{
+    display: grid;
+    gap:0px;
+    grid-auto-rows: 460px;
+    grid-template-columns: repeat(auto-fill,minmax(350px, 0fr));
+    justify-content:center;
+}
+
+//styles for desktop screen
+@media screen and (min-width: 991px){
+    ion-menu.sidebar{
+        max-width: 300px;
+        background-color: white !important;
+        --background:white;
+        --background: white !important; 
+    }
+}

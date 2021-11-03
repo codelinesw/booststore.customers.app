@@ -1,0 +1,191 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePopUpPaymentMethod()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Metodo de pago</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-padding-horizontal ion-justify-content-between ion-align-items-center">
+    <ion-col>
+      <div>
+        <ion-text>
+          <h1>{{ title }}</h1>
+        </ion-text>
+        <ion-text color="medium">
+          <p>Ingresa todos los datos requeridos para completar la venta</p>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="w-95 m-auto mt-25 ion-padding">
+  <div>    
+    <ion-row class="w-100 mb-15">
+      <ion-label>Cantidad recibida</ion-label>
+      <div class="container-input m-auto w-100 mb-5">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="document-text-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">
+            <ion-input type="text" placeholder="¿Cuánto paga la cliente?" [(ngModel)]="amountToPay" (keyup)="refresInformation($event)"></ion-input>
+          </div>
+        </ion-item>
+      </div>
+      <ion-text class="ion-color-semiDark" style="font-size: 13px !important;">La cantidad recibida representa el monto con el cliente esta pagando</ion-text>
+    </ion-row>
+    <ion-row class="w-100 mb-15" *ngIf="typeSale === 1 && paymentMethod === 1">
+      <ion-label>Cuotas</ion-label>
+      <div class="container-input m-auto w-100">
+          <div class="container-icon">                      
+            <ion-icon class="icon-input" name="reader-outline"></ion-icon>
+          </div>
+          <ion-item lines="none" color="none">
+            <div class="input-group">
+              <ion-select [(value)]="cuota" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeCuota($event)">
+                <ion-select-option value="1">1 Cuota</ion-select-option>
+                <ion-select-option value="2">2 Cuota</ion-select-option>
+                <ion-select-option value="3">3 Cuota</ion-select-option>
+                <ion-select-option value="4">4 Cuota</ion-select-option>
+                <ion-select-option value="5">5 Cuota</ion-select-option>
+                <ion-select-option value="6">6 Cuota</ion-select-option>
+                <ion-select-option value="7">7 Cuota</ion-select-option>
+                <ion-select-option value="8">8 Cuota</ion-select-option>
+                <ion-select-option value="9">9 Cuota</ion-select-option>
+                <ion-select-option value="10">10 Cuota</ion-select-option>
+              </ion-select>
+            </div>
+        </ion-item>
+      </div>
+    </ion-row>
+    <ion-row class="w-100 mb-15" *ngIf="typeSale === 1 && paymentMethod === 1">
+      <ion-label>Fecha limite de pago</ion-label>
+      <div class="container-input m-auto w-100 mb-5">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="calendar-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">            
+            <ion-datetime  displayFormat="DD MMM YYYY" pickerFormat="DD-MMM-YY HH:mm" placeholder="Seleccione una fecha" monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"></ion-datetime>
+          </div>
+        </ion-item>
+      </div>
+      <ion-text class="ion-color-semiDark" style="font-size: 13px !important;">La cantidad recibida representa el monto con el cliente esta pagando</ion-text>
+    </ion-row>
+    <ion-row class="w-100 mb-15" *ngIf="typeSale === 2 && (paymentMethod === 2 || paymentMethod === 3)">
+      <ion-label>Codigo de la transacción</ion-label>
+      <div class="container-input m-auto w-100 mb-5">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="document-text-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">
+            <ion-input type="text" placeholder="00-00" (ionFocus)="utils.addAnimation($event,false)"></ion-input>
+          </div>
+        </ion-item>
+      </div>
+      <ion-text class="ion-color-semiDark" style="font-size: 13px !important;">El codigo de la transacción representa el identificador unico que es generado cuando se paga por medios electronicos</ion-text>
+    </ion-row>
+    <ion-item-divider style="transform:translateY(-20px) !important;"></ion-item-divider>
+    <ion-row class="w-100 mb-15" *ngIf="typeSale === 2 && (paymentMethod === 2 || paymentMethod === 3)">
+      <ion-label>Generar link de pago</ion-label>
+      <div class="d-flex w-100 justify-content-between align-center">
+        <div class="container-input m-auto w-90 mb-5 mr-10">
+          <div class="container-icon">
+            <ion-icon class="icon-input" name="document-text-outline"></ion-icon>
+          </div>
+          <ion-item lines="none" color="none">
+            <div class="input-group">
+              <ion-input type="text" placeholder="URL" (ionFocus)="utils.addAnimation($event,false)"></ion-input>
+            </div>
+          </ion-item>
+        </div>
+        <ion-button class="custom-cd-button border-green bg-green w-auto" (click)="save()">
+          <ion-text>Generar</ion-text>
+        </ion-button>
+      </div>
+      <ion-text class="ion-color-semiDark" style="font-size: 13px !important;">El Link o url generada le va permitir al cliente pagar con el metodo de pago seleccionado, el cliente no debera salir de la aplicacion o acceder a otro sitio web, desde nuestro portal podra realizar el pago</ion-text>
+    </ion-row>
+    <ion-row class="w-100 mb-15" *ngIf="orderType === 3 && (idClassification === 1 || idClassification === 3)">
+      <ion-label>Número de Mesa</ion-label>
+      <div class="container-input m-auto w-100 mb-5">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="storefront-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">
+            <ion-input type="text" placeholder="0" [(ngModel)]="tableNumber"></ion-input>
+          </div>
+        </ion-item>
+      </div>
+      <ion-text class="ion-color-semiDark" style="font-size: 13px !important;">Representa el número de la mesa donde se encuentra ubicado el cliente</ion-text>
+    </ion-row>               
+    <div class="w-100 d-flex justify-content-between align-items-center mb-15" *ngIf="orderType === 2">
+        <ion-row class="w-80 mr-15">
+          <ion-label>Ubicación de domicilio</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input" name="location-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-input type="text" placeholder="Ingresa la dirección donde se encuentra ubicada la sede" [(ngModel)]="salesAddress"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>
+        <ion-button class="custom-cd-button border-green bg-green d-flex justify-content-between align-content-center w-20" style="transform:translateY(15px);" (click)="openMap()">
+          <ion-icon name="map-outline" class="mr-15"></ion-icon>
+          <ion-text>Mapa</ion-text>
+        </ion-button>
+    </div>
+    <ion-row class="w-100 mb-15">
+      <ion-label>Generar factura</ion-label>
+      <div class="container-input m-auto w-100">
+          <div class="container-icon">                      
+            <ion-icon class="icon-input" name="reader-outline"></ion-icon>
+          </div>
+          <ion-item lines="none" color="none">
+            <div class="input-group">
+              <ion-select [(value)]="cuota" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeCuota($event)">
+                <ion-select-option value="1">Si</ion-select-option>
+                <ion-select-option value="2">No</ion-select-option>
+              </ion-select>
+            </div>
+        </ion-item>
+      </div>
+    </ion-row>
+    <ion-row class="w-100 mb-5 d-flex justify-content-start align-items-center">
+      <ion-label class="mr-10">Total</ion-label>
+      <ion-text class="ion-color-semiDark">{{ utils.addCurrencyFormat(total) }}</ion-text>
+    </ion-row>    
+    <ion-row class="w-100 mb-5 d-flex justify-content-start align-items-center">
+      <ion-label class="mr-10">Pago</ion-label>
+      <ion-text class="ion-color-semiDark">{{ utils.addCurrencyFormat(amountToPay) }}</ion-text>
+    </ion-row>
+    <ion-row class="w-100 mb-5 d-flex justify-content-start align-items-center">
+      <ion-label class="mr-10">Cambio</ion-label>
+      <ion-text class="ion-color-semiDark">{{ utils.addCurrencyFormat(amountExchange) }}</ion-text>
+    </ion-row>
+  </div>  
+  <ion-row class="w-100">
+    <ion-col>
+      <div class="mt-15 w-100">
+        <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+          <ion-text>Finalizar Venta</ion-text>
+        </ion-button>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="mt-15 w-100">
+        <ion-button class="custom-cd-button without-bg border-green w-100" (click)="closePopUpPaymentMethod()">
+          <ion-text>Cancelar</ion-text>
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>    
+  </ion-row>
+</ion-content>

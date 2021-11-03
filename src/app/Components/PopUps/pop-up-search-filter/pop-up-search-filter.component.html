@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePopUp()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Filtra tus productos</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-padding-horizontal ion-justify-content-between ion-align-items-center">
+    <ion-col>
+      <div>
+        <ion-text>
+          <h1>Busca tus productos</h1>
+        </ion-text>
+        <ion-text color="medium">
+          <p>Aplica alguno de estos filtros para que tu busqueda sea mas rapida</p>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>  
+  <ion-row class="w-95 m-auto mt-25 ion-padding">
+    <!-- <ion-row class="w-100">
+      <ion-button class="custom-cd-button without-bg border-green color-green active">
+       <ion-text>Por sede</ion-text>
+      </ion-button>
+      <ion-button class="custom-cd-button without-bg border-green color-green">
+       <ion-text>Por Bodega</ion-text>
+      </ion-button>
+    </ion-row> -->
+    <ion-row class="w-100">
+        <ion-row class="w-100 mb-15">
+          <ion-label>Sede</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input"  name="grid-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-select [(value)]="filter.idOffice" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeOffice($event)">
+                  <ion-select-option *ngFor="let item of Offices" [value]="item.idOffice">
+                      {{ item.name }}
+                  </ion-select-option>
+                </ion-select>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>
+        <ion-row class="w-100 mb-15">
+          <ion-label>Bodega</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input"  name="grid-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-select [(value)]="filter.idWarehouse" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeWarehouse($event)">
+                  <ion-select-option *ngFor="let item of Warehouses" [value]="item.idWarehouse">
+                      {{ item.name }}
+                  </ion-select-option>
+                </ion-select>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>        
+    </ion-row>           
+    <ion-row class="w-100">
+      <ion-col>
+        <div class="mt-15 w-100">
+          <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+            <ion-text>Aplicar Filtro</ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="mt-15 w-100">
+          <ion-button class="custom-cd-button without-bg border-green w-100" (click)="closePopUp()">
+            <ion-text>Cancelar</ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePopUpCreateClient()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Administra tus clientes</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-padding-horizontal ion-justify-content-between ion-align-items-center">
+    <ion-col>
+      <div>
+        <ion-text>
+          <h1>Registro de clientes</h1>
+        </ion-text>
+        <ion-text color="medium">
+          <p>En esta seccion puedes registrar y vincular tus clientes a una venta</p>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-item-divider></ion-item-divider>
+  <ion-row class="w-95 m-auto mt-25 ion-padding mb-15">
+    <ion-row class="w-100">
+      <ion-col>
+        <ion-row class="w-100">
+          <ion-label>Nombres</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input" name="person-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-input type="text" placeholder="Ingresa los nombres del usuario" [(ngModel)]="Client.name"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>        
+      </ion-col>
+      <ion-col>
+        <ion-row class="w-100">
+          <ion-label>Apellidos</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input" name="person-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-input placeholder="Ingresa el apellido del cliente" [(ngModel)]="Client.lastName"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>
+      </ion-col>      
+    </ion-row>
+    <div class="w-100 d-flex justify-content-between align-items-center mb-15">
+      <ion-row class="w-90 mr-15">
+        <ion-label>Documento</ion-label>
+        <div class="container-input m-auto w-100">
+          <div class="container-icon">
+            <ion-icon class="icon-input" name="document-text-outline"></ion-icon>
+          </div>
+          <ion-item lines="none" color="none">
+            <div class="input-group">
+              <ion-input type="text" placeholder="Ingresa el número de identificación" [(ngModel)]="Client.document"></ion-input>
+            </div>
+          </ion-item>
+        </div>
+      </ion-row>
+      <ion-button class="custom-cd-button border-green bg-green d-flex justify-content-between align-content-center w-10" style="transform:translateY(15px);" (click)="searchClientByDocument()">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-text>Buscar</ion-text>
+      </ion-button>
+    </div>    
+    <ion-row class="w-100 mb-15">
+      <ion-label>Correo electrónico</ion-label>
+      <div class="container-input m-auto w-100">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="mail-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">
+            <ion-input type="text" placeholder="Ingresa un correo electrónico" [(ngModel)]="Client.email"></ion-input>
+          </div>
+        </ion-item>
+      </div>    
+    </ion-row>
+    <ion-row class="w-100 mb-15">
+      <ion-label>Celular</ion-label>
+      <div class="container-input m-auto w-100">
+        <div class="container-icon">
+          <ion-icon class="icon-input" name="phone-portrait-outline"></ion-icon>
+        </div>
+        <ion-item lines="none" color="none">
+          <div class="input-group">
+            <ion-input type="text" placeholder="Ingresa un número celular" [(ngModel)]="Client.mobileNumberPhone"></ion-input>
+          </div>
+        </ion-item>
+      </div>    
+    </ion-row>
+    <ion-row class="w-100">
+      <ion-col>
+        <div class="mt-15 w-100">
+          <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+            <ion-text>Registrar cliente</ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="mt-15 w-100">
+          <ion-button class="custom-cd-button without-bg border-green w-100" (click)="closePopUpCreateClient()">
+            <ion-text>Cancelar</ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+  <div id="custom-toast" class="custom-toast">
+    <div class="panel-left">
+      <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+    </div>
+    <div class="panel-right">
+      <p class="title" id="title">éxito</p>
+      <p id="message">Se ha realizo la operacion correctamente</p>
+    </div>
+  </div>
+</ion-content>

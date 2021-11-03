@@ -1,0 +1,344 @@
+$dark:#263133;
+$semiDark:#979da4;
+
+.container-chat{
+    position: relative;
+    width: 95%;
+    height: 95%;
+    display:block;
+    justify-content: center;
+    margin:auto;
+    
+    .panel-left{
+      position: relative;
+      width: 100% !important;
+      height: 100%;
+
+      .container-panel-left{
+        position: relative;
+        width: 95% !important;
+        height: 95%;
+        margin:auto;
+        background-color:#fff;
+        border-radius:10px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+
+        .panel-header{
+            position: relative;
+            display: block;
+            padding:10px 15px;
+            h1{
+                color:$dark;
+            }
+            p{
+                color:$semiDark;
+            }
+        }
+
+        .panel-body{
+            position: relative;
+            width: 100%;
+            height:66%;
+            .conversations{
+                position: relative;
+                width: 100%;
+                height:100%;
+                overflow: hidden;
+                overflow-y: scroll;                
+                display:block;
+
+                .without-conversations{
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    display:block;
+                    padding:15px;
+                    text-align: center;
+
+                    ion-img{
+                        display:block;
+                        text-align: center;
+                        width: 37%;
+                        margin:auto;
+                        margin-bottom: 15px !important;
+                    }
+
+                    ion-text{
+                        text-align: center;
+                        font-size: 14px;
+                        color:$semiDark;
+                    }
+                }
+
+                .box-conversation{
+                    position: relative;
+                    width: 100%;
+                    padding: 10px !important;
+                    max-height:90px;
+                    margin:auto;
+                    //border-radius:15px;
+                    display: block;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.050);
+                    cursor: pointer;
+
+                    &:hover{
+                        .header-conversation{
+                            .panel-right{
+                                background-color: transparent !important;
+                            }
+                        }
+                        &:before{
+                            position: absolute;
+                            left:0px;
+                            top:0px;
+                            content:"";
+                            width: 100%;
+                            height:100%;
+                            background-color:rgba(0, 0, 0, 0.1) !important;
+                        }
+                    }
+
+                    .header-conversation{
+                        height:80px;
+
+                        .panel-left{
+                            width: 70px;
+                            height:100%;
+                            display:flex;
+                            justify-content:center;
+                            align-items: center;
+                        }
+
+                        .panel-right{
+                            position: relative;
+                            width: 260px;
+                            height:100%;
+                            display:block;
+                            background-color:white !important;
+
+                            .name-user{
+                             transform:translateY(-5px) !important;
+                             color:$dark;
+                             font-family: "Poppins semiBold";
+                            }
+                            
+                            .time-message{
+                                position: absolute;
+                                right: 5px;
+                                top:-2px;
+                                color:$semiDark;
+                                font-size:14px;
+                            }
+
+                            .content-message{
+                              transform:translateY(-20px) !important;
+                              line-height: 17px;
+                              color:$semiDark;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+      }
+    }
+
+    .panel-right{
+      position: relative;
+      width: 100% !important;
+      height: 100%;
+      background-color:transparent !important;
+
+      .container-view-message{
+          position: relative;
+          width: 95%;
+          height: 95%;
+          margin:auto;
+          background:transparent !important;
+
+          .header-conversation{
+              position: relative;
+              width: 100%;
+              height: 65px;
+              background-color:rgba(0, 0, 0, 0.050) !important;
+              display: flex;
+
+              .panel-left{
+                  position: relative;
+                  width: 10% !important;
+                  height:100%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+              }
+              .panel-right{
+                  width: 90% !important;
+                  height:100%;
+                  display:block;
+                  p{
+                      line-height: 5px !important;
+                  }
+                  p.name-user{
+                    color:$dark;
+                    font-family: "Poppins SemiBold";
+                  }
+              }
+          }
+
+          .body-conversation{
+              position: relative;
+              width: 100%;
+              height:84%;
+              padding-top: 15px !important;
+              overflow: hidden;
+              overflow-y: scroll;
+
+              .container-message{
+                  position: relative;
+                  width: 100%;
+                  max-height: 350px;
+                  display:flex;
+                  align-items: center;
+
+                     &.left{
+                        justify-content:start;
+                    }
+
+                    &.right{
+                        justify-content:end;
+                    }
+                  
+                  .message-bubble{
+                    position: relative;
+                    display: block;
+                    max-width: 360px;
+
+                    .message{
+                        position: relative;
+                        display: block;
+                        padding: 10px 15px;
+                        max-width: 360px;
+                        border-radius: 15px;
+
+                        &.white{
+                            background-color:white !important;
+                            color:$semiDark !important;
+                        }
+                        &.green{
+                            background-color:#345d5c !important;
+                            color:white !important;
+                        }
+                    }
+                    .message-time{
+                        position: relative;
+                        display:flex;
+                        justify-content: end;
+                        align-items: center;                      
+                        padding:2px;
+
+                        .time{
+                            position: relative;
+                            color:$semiDark;
+                            font-size:14px !important;
+                            transform:translateY(-5px) !important;
+                        }
+                    }
+                }
+              }
+              
+          }
+
+          .bottom-conversation{
+              position: relative;
+              display:flex;
+              width: 100%;
+              height:65px;
+              background-color:white !important;
+              border-radius: 15px;
+              box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 2px !important;
+              justify-content:space-between;
+              align-items: center;
+
+                button.button-upimage{
+                 position: relative;
+                 left:15px !important;
+                }
+
+                .container-boxtext{
+                    position: relative;
+                    width: 80% !important;
+                    margin-top:2px;
+                    max-height: 50px !important;
+                    padding-top: 3px !important;
+                    padding-left: 5px !important;
+
+                    .box-text{
+                        position: relative;
+                        min-height: 25px;
+                        max-height: 40px;
+                        outline:none;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: $dark;
+                        word-wrap: break-word;
+                        white-space: pre-wrap;
+                        outline: none;
+                        cursor: text;
+                        font-family: "Poppins Regular";
+
+                        &:before{
+                            position: absolute;
+                            top:-8px;
+                            left:6px;
+                            width: 100%;
+                            max-height:40px;
+                            padding-top: 5px !important;
+                            content:"Escribe un mensaje...";
+                            cursor: text;
+                            color:$semiDark;
+                            font-family: "Poppins Regular";
+                        }
+
+                        &.active{
+                            &:before{
+                                content:"";
+                            }
+                        }
+                    }
+
+                }
+
+                .button-send{
+                  position: relative;
+                  right:15px !important;
+                }
+              
+          }
+      }
+    }
+}
+
+@media screen and (min-width: 991px){
+    .container-chat{
+        display:flex;
+        justify-content: center;
+        margin:auto;
+        .panel-left{
+            width: 21% !important;
+        }
+        .panel-right{
+            width: 79% !important;
+            .container-view-message{
+                .bottom-conversation{
+                    .container-boxtext{
+                        position: relative;
+                        width: 90% !important;
+                    }                
+                }
+            }
+        }
+    }
+}

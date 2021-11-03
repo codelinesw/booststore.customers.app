@@ -1,0 +1,64 @@
+<app-header></app-header>
+<ion-content>
+  <ion-grid class="ion-padding-top ion-padding-horizontal">
+    <ion-col class="width-sign">
+      <ion-row class="ion-padding-top">
+        <ion-title class="ion-text-center">Inicia sesión</ion-title>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col>
+          <ion-row class="w-100 mb-15">
+            <ion-label>Correo electrónico</ion-label>
+            <div class="container-input m-auto w-100">
+              <div class="container-icon">
+                <ion-icon class="icon-input" name="mail-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-input type="text" placeholder="Ingresa el correo electrónico del dueño" [(ngModel)]="Session.username" (ionFocus)="utils.addAnimation($event,false)"></ion-input>
+                </div>
+              </ion-item>
+            </div>
+          </ion-row>
+          <ion-row class="w-100 mb-15">
+            <ion-label>Contraseña</ion-label>
+            <div class="container-input m-auto w-100">
+              <div class="container-icon">
+                <ion-icon class="icon-input" name="lock-closed-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-input [type]="inputType" placeholder="Ingresa la contraseña" [(ngModel)]="Session.password"></ion-input>
+                  <button class="custom-cd-button border-green w-10 buttonViewPassword" (click)="viewPassword()">
+                    <ion-icon [name]="iconPassword" style="font-size: 26px !important;"></ion-icon>
+                  </button>                
+                </div>
+              </ion-item>
+            </div>
+          </ion-row>
+          <ion-row>
+            <div class="mt-15 w-100 mb-15">
+              <ion-button class="custom-cd-button border-green bg-green w-100" (click)="signIn()">
+                <ion-text>Ingresar</ion-text>
+              </ion-button>
+            </div>
+          </ion-row>
+          <ion-row>
+            <div class="w-100">
+              <ion-button class="custom-cd-button border-green bg-green w-100 without-bg with-border color-green fontWeightBold" (click)="goToPage('/restore-password')">
+                <ion-text class="fontWeightBol">Olvidé mi contraseña</ion-text>
+              </ion-button>
+            </div>
+          </ion-row>
+          <ion-row>
+            <div class="w-100 mb-15">
+              <ion-button class="custom-cd-button border-green bg-green w-100 without-bg with-border color-green fontWeightBold" (click)="goToPage('/signup-shop')">
+                <ion-text>No tengo cuenta, crear una tienda</ion-text>
+              </ion-button>
+            </div>
+          </ion-row>                    
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

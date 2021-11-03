@@ -1,0 +1,3091 @@
+@font-face {
+    font-family: "Poppins Regular";
+    src: url('./assets/Fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Poppins SemiBold";
+    src: url('./assets/Fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url('./assets/Fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins ExtraBold";
+    src: url('./assets/Fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+// color base
+
+$yellow:#FFD42C;
+$yellowLight:#FFE26C;
+$dark:#263133;
+$semiDark:#979da4;
+$light:#a6afb6;
+$white:#FFF;
+$gray:#f9faff;
+$grayDark:#5d7987;
+$grayLight:#f6f5fa;
+$green:#345d5c;
+$greenLight:#345d5c;
+
+$blue:#6E99EA;
+$blueLight:#82ADFF;
+
+$bgDisabled:#e4e4e4;
+$colorDisabled:#88888f;
+
+$completed:#b1ddb0;
+$completedDark:#32a933;
+
+$confirmed:#c7f3ff;
+$confirmedDark:#06b1ff;
+
+$sended:#fff2c9;
+$sendedDark:#eeb126;
+
+$danger: #e95a4d;
+$dangerLight: #ffd0cb;
+
+$success:#3bc179;
+$successLight:#c5f7dd;
+
+$blue:#3e84e5;
+$blueLight: #cbe2ff;
+
+$warning:#e8a029;
+$warningLight:#ffe8c3;
+
+$greenDiferent:#009184;
+$greenApple:#4aa94e;
+$greenTree:#87bd48;
+
+$pink:#e11d60;
+$redDark:#ce0000;
+$purpleNormal:#9726aa;
+$yellow:#fdb221;
+$blueOcean:#0ff0ff;
+$blueOceanLight:#51ecd0;
+
+$bgOrange: #ff812c;
+$orange:#f79300;
+$purple:#6f4ef7;
+
+body,html,ion-content{
+    background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+    --background:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+ion-content{
+
+    --ion-background-color:#f2f7fa;//#f1f4f9;//#f3f4fb;
+}
+
+:root{
+    --ion-color-orange:#ff812c;
+    --ion-color-google:#c71610;
+    --ion-color-facebook:#3b5998;
+    --ion-color-text: #191e26;
+    --ion-color-textSecond:#979da4;
+    --ion-color-title:#191e26;
+    --ion-color-dark:#191e26;
+    --ion-color-semiDark:#979da4;
+    --ion-color-dark:#191e26;
+    --ion-color-yellow:#FFD42C;
+    --ion-color-yellowLight:#FFE26C;
+    --ion-color-white:#ffffff;
+    --ion-color-brown:rgba(0,0,0,0.540) !important;//#757575;
+    --ion-color-white:#ffffff;
+    --ion-color-green:#345d5c;
+}
+
+.ion-color-orange{
+    --ion-color-base: var(--ion-color-orange) !important;
+}
+
+.ion-color-facebook{
+    --ion-color-base: var(--ion-color-facebook) !important;
+}
+
+
+.ion-color-google{
+    --ion-color-base: var(--ion-color-google) !important;
+}
+
+.ion-color-text{
+    --ion-color-base:var(--ion-color-text) !important;
+}
+
+.ion-color-textSecond{
+    --ion-color-base:var(--ion-color-textSecond) !important;
+}
+
+.ion-color-customPurple{
+    --ion-color-base:var(--ion-color-customPurple) !important;
+}
+
+.ion-color-lightPurple{
+    --ion-color-base:var(--ion-color-lightPurple) !important;
+}
+
+.ion-color-semiDark{
+    color:var(--ion-color-semiDark) !important;
+    --color:var(--ion-color-semiDark) !important;
+}
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root{
+    --ion-color-purple:#d088f2;
+}
+
+//Styles for font type
+p,button,label,text,textarea,input,ion-text,ion-label{
+    font-family: "Poppins Regular";
+}
+
+h1,ion-card-title,ion-title{
+    font-family: "Poppins ExtraBold";
+    color:$dark;
+}
+
+h2,ion-card-subtitle{
+    color:$dark;
+    font-family: "Poppins Bold";
+}
+
+h3{
+    color:$dark;
+    font-family: "Poppins SemiBold";
+}
+
+ion-text.semiDark,p.semiDark{
+    color:$semiDark;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.text-left{
+    text-align: left !important;
+}
+
+p.bold{
+    font-family: "Poppins Bold";
+}
+
+// Styles for display Type
+.d-flex{
+    display: flex !important;
+}
+
+.d-block{
+    display: block !important;
+}
+
+// styles for justify-content
+.justify-content-start{
+    justify-content:start;
+}
+
+.justify-content-center{
+    justify-content:center;
+}
+
+.justify-content-between{
+    justify-content: space-between !important;
+}
+
+// styles for align types
+.align-items-center{
+    align-items: center !important;
+}
+
+//Styles for margins
+
+.m-auto{
+    margin:auto !important;
+}
+
+// margin top
+
+.mt-0{
+    margin-top: 0px !important;
+    transform: translateY(0px) !important;
+}
+
+.mt-15{
+    margin-top: 15px;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.ty-13{
+    transform: translateY(13px) !important;
+}
+// margin right
+
+.mr-10{
+    margin-right: 10px;
+}
+
+.mr-15{
+    margin-right: 15px !important;
+}
+
+// margin left
+
+.ml-15{
+    margin-left: 15px;
+}
+
+// margin bottom
+
+.mb-0{
+    margin-bottom: 0px !important;
+}
+
+.mb-5{
+    margin-bottom: 5px !important;
+}
+
+.mb-10{
+    margin-bottom: 10px !important;
+}
+
+.mb-15{
+    margin-bottom: 15px !important;
+}
+
+
+//styles for paddings
+
+.padding-0{
+    padding: 0px !important;
+}
+
+.padding-x15{
+  padding:0px 15px !important;
+}
+// padding top
+
+.paddin-top-15{
+    padding-top: 15px;
+}
+
+.paddin-top-25{
+    padding-top: 25px;
+}
+
+.paddin-top-30{
+    padding-top: 30px;
+}
+
+// padding bottom
+
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+
+.padding-bottom-25{
+    padding-bottom: 25px;
+}
+
+.padding-bottom-30{
+    padding-bottom: 30px;
+}
+
+// styles for positions 
+.position-relative{
+    position: relative !important;
+}
+
+//styles for width
+.w-10{
+    width: 10% !important;
+}
+
+.w-15{
+    width: 15% !important;
+}
+
+.w-20{
+    width: 20% !important;
+}
+
+.w-text-rpassword{
+    width: 30% !important;
+}
+
+.w-50{
+    width: 50% !important;
+}
+
+.w-80{
+    width: 80% !important;
+}
+
+.w-70{
+    width: 70% !important;
+}
+
+.w-90{
+    width: 90% !important;
+}
+
+.w-95{
+    width: 95% !important;
+}
+
+.w-100{
+    width: 100% !important;
+}
+
+.fullWidth{
+    width: 90% !important;
+}
+
+.middle{
+  width: 100% !important;
+}
+
+.w-30{
+    width: 100% !important;
+}
+
+.w30{
+ width: 30% !important;
+}
+
+.full{
+  width: 100% !important
+}
+// styles for height
+
+.h-50{
+    height: 50% !important;
+}
+
+.h-100{
+    height: 100% !important;
+}
+
+// styles for color text
+.color-white{
+    color:#fff !important;
+    --ion-color:#fff !important;
+    --color:#fff !important;
+}
+
+// styles for background
+
+.bg-yellow{
+    background-color:$yellow !important;
+    --background:$yellow !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-yellowLight{
+    background-color:$yellowLight !important;
+    --background:$yellowLight !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-greenLight{
+    background-color:$greenLight !important;
+    --background:$greenLight !important;
+    color:$white !important;
+    --color:$white !important;
+
+    ion-text{
+        color:$white !important;
+        --color:$white !important;
+    }
+}
+
+.bg-blue{
+    background-color:$blue !important;
+    --background:$blue !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }
+}
+
+.bg-blueLight{
+    background-color:$blueLight !important;
+    --background:$blueLight !important;
+    color:$white !important;
+    --color:$white !important;
+
+    ion-text{
+        color:$white !important;
+        --color:$white !important;
+    }
+}
+
+.bg-white{
+    background: $white !important;
+    --background:$white !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text{
+        color:$dark !important;
+        --color:$dark !important;
+    }    
+}
+
+.color-semiDark,ion-text.color-semiDark{
+    color:var(--ion-color-semiDark) !important;
+    --ion-color:var(--ion-color-semiDark) !important;
+    --color:var(--ion-color-semiDark) !important;
+}
+
+.bg-dark{
+    background: $dark !important;
+    --background:$dark !important;
+    color:$dark !important;
+    --color:$dark !important;
+
+    ion-text,ion-icon{
+        color:$white !important;
+        --color:$white !important;
+    }
+}
+
+.bg-green{
+    background-color:$green !important;
+    --background:$green !important;
+    color:#fff !important;
+    --color:#fff !important;
+    
+
+    ion-text{
+        color:#fff !important;
+        --color:#fff !important;
+    }
+}
+
+.bg-disabled{
+    background-color:#c5c5c5 !important;
+    --background:#c5c5c5 !important;
+    color:#828282 !important;
+    --color:#828282 !important;
+    cursor: no-drop;
+
+    ion-text{
+         cursor: no-drop;
+        color:#828282 !important;
+        --color:#828282 !important;
+    }
+}
+
+.without-bg{
+    background-color:transparent !important;
+    --background:transparent !important;
+    color:var(--ion-color-semiDark) !important;
+    --ion-color:var(--ion-color-semiDark) !important;
+
+    ion-text,ion-icon{
+        color:var(--ion-color-semiDark) !important;
+        --ion-color:var(--ion-color-semiDark) !important;
+    }
+
+    &.color-green{
+        ion-text,ion-icon{
+         color:var(--ion-color-green) !important;
+         --ion-color:var(--ion-color-green) !important;
+        }
+    }
+
+    &.fontWeightBold{
+        font-weight: bold !important;
+        ion-text{
+         font-weight: bold !important;
+        }
+    }
+
+    &:hover{
+     background-color:rgba(#345d5c, 0.2) !important;
+     --background:rgba(#345d5c, 0.2) !important;
+        ion-text,ion-icon{
+            color:white !important;
+            --ion-color:white !important;
+        }
+    }
+
+    &.active {
+        background-color:#345d5c !important;
+        --background:#345d5c !important;
+        ion-text,ion-icon{
+            color:white !important;
+            --ion-color:white !important;
+        }        
+    }
+}
+
+
+// Styles for border
+.border-dark{
+    border:2px solid var(--ion-color-dark);
+    color:var(--ion-color-dark);
+    --ion-color:var(--ion-color-dark);
+}
+
+.border-green{
+    border:2px solid var(--ion-color-green);
+    color:var(--ion-color-green);
+    --ion-color:var(--ion-color-green);
+
+    &:hover{
+        background-color: $green !important;
+        color:$white !important;
+        --ion-color:var(--ion-color-white) !important;
+    }
+}
+
+.fontWeightBold{
+    font-weight: bold !important;
+    ion-text{
+      font-weight: bold !important;
+      color:red !important;
+    }
+}
+
+.with-border{
+    border:2px solid transparent !important;
+}
+
+//Styles for rounded border
+.rounded-border{
+    border-radius: 15px;
+}
+
+.rounded-borderx6{
+  border-radius: 6px;
+}
+  
+ion-button.rounded-border{
+    border-radius: 15px;
+}
+  
+ion-button.circular-border{
+    width: 50.38px;
+    height: 50.37px;
+    --border-radius: 50%;
+}
+
+// styles for buttons
+ion-button.custom-cd-button,button.custom-cd-button{
+    border-radius: 4px;
+    height:47px;
+    text-transform: capitalize;
+
+    &.wauto{
+      width:auto !important;
+      display: inline-block;
+    }
+
+    &.button-favorite{
+      height: 40px !important;
+      &:hover{
+        ion-icon{
+            color:red !important;
+            --ion-color:red !important;
+            --color:red !important;
+        }
+      }
+    }
+
+}
+
+ion-segment-button{
+  text-align: left !important;
+  display: flex !important;
+  justify-content: start !important;
+  align-self: center !important;
+
+  ion-label{
+    text-align: left !important;
+  }
+}
+
+// styles for sideBar
+ion-menu.sidebar{
+    background-color: var(--ion-color-white) !important;
+    --background:var(--ion-color-white);
+    --background: var(--ion-color-white) !important; 
+    ion-content{            
+        --background: var(--ion-color-white) !important; 
+        ion-list-header,ion-list{ 
+          --background: var(--ion-color-white) !important;
+          --color: var(--ion-color-yellow) !important;   
+        }
+        ion-list{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            .section-collapse{
+                background-color:rgba(0,0,0,0.010) !important;
+                display: none;
+                ion-item{
+                    background-color:rgba(0,0,0,0.010) !important;
+                    --background: rgba(0,0,0,0.010) !important;
+                }
+
+                &.showSection{
+                    display:block;
+                }
+            }
+        }
+        ion-item{
+            --background: var(--ion-color-white) !important;
+            ion-icon{
+                margin-right: 5px !important;
+            }
+        }
+    }
+}
+
+.container-sidebar-shopping-cart{
+    position: fixed;
+    top:0px;
+    display: block;
+    right:-100%;
+    z-index: 888888 !important;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.55) !important;
+
+    .sidebar-shopping-cart{
+        position: absolute;
+        display: none;
+        top:0px;
+        right:0px;
+        width: 36%;
+        height: 100%;
+        background-color: $white !important;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.040) !important;
+
+        .sidebar-header{
+            position: relative;
+            width: 100%;
+            height: 7%;
+            p{
+             transform: translateY(-10px) !important;
+            }
+        }
+
+        .sidebar-body{
+          position: relative;
+          width: 100%;
+          height: 93%;
+
+          .informationDelivery{
+            position: relative;
+            width: 100% !important;
+            height: 87%;
+
+            .list-product{
+                position: relative;
+                width:100%;
+                height: 90%;
+            }
+
+          }
+
+          .container-total{
+            position: fixed;
+            bottom:10px;
+            width: 390px !important;
+          }
+
+        }
+    }
+
+    &.active{
+        display: block;
+        right: 0% !important;
+    }
+}
+
+ion-content{
+  ion-list{
+    background:var(--ion-color-white) !important;
+    --background: var(--ion-color-white) !important;
+    div{
+        ion-item{
+
+          ion-icon{
+            color: var(--ion-color-brown);
+            --color: var(--ion-color-brown);
+          }
+
+          ion-text,p{
+           display: block !important;
+            color: var(--ion-color-brown);
+          }
+
+          &.active-item{
+            position: relative !important;
+            min-width: 79% !important;
+            max-width: 85% !important;
+            margin: auto;
+            background-color: rgba(#FFD42C,0.2) !important;
+            --background-color: rgba(#FFD42C,0.2) !important;
+            --background: rgba(#FFD42C,0.2) !important;
+            background: rgba(#FFD42C,0.2) !important;
+            border-radius: 6px !important;
+            overflow:visible !important;
+
+                ion-icon{
+                  color: var(--ion-color-yellow);
+                }
+
+                ion-text,p{
+                   color: var(--ion-color-yellow) !important;
+                   font-family: "Poppins SemiBold";
+                }
+
+                &:before{
+                   position: absolute !important;
+                   top:0px;
+                    content:"";
+                   left:-6px;
+                   width: 4px !important;
+                   background-color: var(--ion-color-yellow) !important;
+                   height:100%;
+                   z-index: 2;
+                }
+            }
+        }
+     }
+  }  
+
+  &:hover{
+
+   ion-header{
+      ion-toolbar{
+        div{
+          ion-title.company-name{
+            display:block;
+          }
+        }
+      }
+    }
+
+    ion-content{
+        ion-list{
+           background:var(--ion-color-white) !important;
+           --background: var(--ion-color-white) !important;
+           ion-item{
+               position: relative;
+               width: 100%;                   
+               cursor: pointer;
+
+               ion-icon{
+                  margin-right: 7px;
+                  color: var(--ion-color-brown);
+                  --color: var(--ion-color-brown);
+               }
+
+              ion-text,p{
+                display:block !important;
+                color: var(--ion-color-brown);
+                --color: var(--ion-color-brown);
+              }
+
+              &.active-item{
+                position: relative !important;
+                min-width: 79% !important;
+                max-width: 85% !important;
+                margin: auto;
+                background-color: rgba(#FFD42C,0.2) !important;
+                --background-color: rgba(#FFD42C,0.2) !important;
+                --background: rgba(#FFD42C,0.2) !important;
+                background: rgba(#FFD42C,0.2) !important;
+                border-radius: 6px !important;
+                overflow:visible !important;
+
+                  ion-icon{
+                   color: var(--ion-color-yellow);
+                  }
+
+                  ion-text,p{
+                    color: var(--ion-color-yellow) !important;
+                    font-family: "Poppins SemiBold";
+                  }
+
+                  &:before{
+                     position: absolute !important;
+                     top:0px;
+                     content:"";
+                     left:-7px;
+                     width: 4px !important;
+                     background-color: var(--ion-color-yellow) !important;
+                     height:100%;
+                     z-index: 2;
+                 }
+            }            
+         }
+      }
+   }
+ }
+}
+
+// styles for divider
+ion-item-divider{
+    background-color: transparent !important;
+    --background:transparent !important;
+    background: transparent !important;
+}
+// styles for component search
+.search-bar{
+    width: 100%;
+    height:auto;
+    min-height: 141px !important;
+    max-height: 550px !important;
+    background-color:$white !important;
+    border-radius:10px;
+    display:block;
+    padding:20px 15px;
+    .container-search{
+        display: block !important;
+        justify-content: space-between;
+        align-items: center;
+        .search{
+          width:100% !important;
+          margin-bottom: 15px !important;
+        }
+
+        .w-20{
+            width:100% !important;
+        }
+        ion-button{
+          transform: translateY(0px) !important;
+          width:100% !important;
+
+          &.wauto{
+            width:100% !important;
+            display: inline-block;
+          }
+
+          .show{
+              display: block;
+          }
+
+          ion-text{
+              margin-right: 5px !important;
+          }
+
+        }
+    }
+}
+
+// styles for label
+ion-label,label{
+    font-family: "Poppins Bold";
+    color:$dark;
+    margin-bottom: 5px;
+}
+// styles for inputs
+.container-input{
+    position: relative;
+    width: 100%;
+    height:48px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border:1px solid $dark;
+    border-radius:3px;
+    margin-bottom: 15px;
+
+
+    &.disabledInput{
+        background-color: #f3f3f3 !important;
+        --background-color: #f3f3f3 !important;
+        --background: #f3f3f3 !important;
+    }
+    
+    .container-icon{
+        position: relative;
+        width: 15%;
+        height:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        .icon-input{
+            width: 25px;
+            height:25px;
+            transform: translateX(5px);
+        }
+    }
+
+    ion-item{
+        position: relative;
+        width: 85%;
+        height:100%;
+
+        .input-group{
+            position: relative;
+            width: 100%;
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+            ion-textarea{
+              min-height: 100px !important;
+              .textarea-wrapper{
+                  min-height: 100px !important;
+                  .native-textarea{
+                    min-height: 100px !important;
+                  }
+              }
+            }
+        }
+
+        ion-datetime{
+            &::part(placeholder),&::part(text){
+                position: absolute;
+                left:5px;
+                top:15px;
+            }
+        }
+
+        ion-select{
+            // position: relative;
+            // width: 100% !important;
+            // max-width: 100% !important;
+
+            &::part(text){
+                position: absolute !important;
+                left:5px !important;
+                top:15px !important;
+            }
+
+            &::part(icon){
+                position: absolute !important;
+                right:5px !important;
+                top:15px !important;
+            }
+
+            &::part(placeholder),label{
+                position: absolute !important;
+                left:5px !important;
+                //top:15px !important;
+            }
+        }
+
+        &.item-textarea{
+            height: auto !important;
+            min-height: 100px !important;
+        }
+    }
+
+    &.input-textarea{
+        height: auto !important;
+        min-height: 100px !important;
+    }
+}
+
+// Styles for product
+
+.container-products{
+    display: grid;
+    gap:0px;
+    grid-auto-rows: 160px;
+    grid-template-columns: repeat(auto-fill,minmax(378px, 0fr));
+    //grid-template-columns: repeat(auto-fill,minmax(344px, 0fr));
+    justify-content:center;
+}
+
+ion-card{
+    background: $white !important;
+    background-color: $white !important;
+    --background:$white !important;
+
+    ion-card-header.banner-store{
+        background: $green !important;
+        background-color: $green !important;
+        --background:$green !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        --background-size: cover !important;
+        --background-repeat: no-repeat !important;
+
+        ion-text{
+            color:$white !important;
+        }
+
+        &:hover{
+            button.editBanner{
+              display: block !important;
+            }
+        }
+    }
+}
+
+// style for single box product
+.box-product{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height:150px;
+    background-color:$white !important;
+    border-radius:15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    .panel-left{
+        position: relative;
+        width: 150px;
+        height:150px;
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        overflow: hidden;
+
+        .imageProduct{
+            //position: absolute;            
+            // width: 175px;
+            width: 86%;
+            // height: 150px;
+            // max-height: 150px;
+            height: 86%;
+            border-radius: 15px;
+            object-fit: cover;
+            // border-bottom-left-radius:15px;
+            // border-top-left-radius: 15px;
+        }
+
+        .tag{
+            position: absolute;
+            left:5px;
+            top:35px;
+            width: 100px;
+            height:35px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            border-radius:0px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 200;
+        }
+    }
+    .panel-right{
+        width: 57%;
+        height:100%;
+        position: relative;
+        padding: 0px 15px;
+        
+        
+        .panel-price{
+         position:absolute;
+         bottom: -18px;
+         transform: translateY(5px) !important;
+         height:32px !important;
+        }
+
+        .nameProduct{
+            transform: translateY(-10px) !important;
+            font-size:17px !important;
+            font-family: "Poppins SemiBold";
+        }
+
+        .description{
+            transform: translateY(-17px) !important;
+            color:$semiDark;
+            font-size:13.6px;
+        }
+
+        .salesPrice{
+            color:$green;
+            font-family: "Poppins Bold";
+            position: relative;
+            top: -30px !important;
+            margin-right: 18px !important;
+        }
+
+        .qty{
+            font-size:13px !important;
+            transform:translateY(-25px) !important;
+            color:$semiDark;
+            font-family: "Poppins SemiBold";
+        }
+
+        .container-controls{
+            height:33px !important;
+            background-color:$grayLight !important;
+            border-radius: 30px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(-25px) !important;
+
+            ion-button,ion-input{
+                height:29px !important;
+            }
+
+            ion-button{
+                background-color: transform !important;
+                --background:transparent !important;
+                color:$green !important;
+                box-shadow:none !important;
+                --box-shadow: none !important;
+                font-size: 16px;
+            }
+
+            ion-input{
+                border:1px solid transparent !important;
+            }
+        }        
+    }
+}
+
+.container-view-products{
+    position: relative;
+    width: 95%;
+    max-height: 1640px;
+    margin: auto;
+
+    .panel-left{
+      width: 100% !important;
+      display: block;
+
+      .image-main{
+        transform: translateY(-35px) !important;
+        border-radius: 6px !important;
+      }
+      
+      .container-all-images{
+        width: 95% !important;
+        margin:auto;
+        transform: translateY(-15px) !important;
+        .box-image{
+            width: 75px !important;
+            height: 60px !important;
+            border-radius: 6px !important;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px !important;
+
+            img{
+                display: block;
+                position: relative;
+                width: 90% !important;
+                height: 90% !important;
+                margin: auto;
+                border-radius: 6px !important;          
+            }
+
+            &.active{
+             border:2px solid #838383;
+              img{
+                transform: translateY(1px) !important;
+              }
+            }
+        }      
+      }
+    }
+
+    .panel-right{
+      width: 100% !important;
+      display: block;
+
+      .price{
+        font-family: "Poppins SemiBold";
+        font-size: 30px !important;
+        color:$green !important;
+        --color:$green !important;
+        --ion-color:$green !important;
+     }
+    }
+}
+
+.container-description-product{
+    width: 100% !important;
+    .fullWidth{
+        width: 95% !important;
+        ion-text{
+            width: 100% !important;
+        }
+    }
+}
+
+.container-payment-method{
+    width: 100% !important;
+}
+
+//styles for own table
+.container-table{
+    position: relative;
+    width: 95%;
+    margin:auto;
+    display: block;
+    border-radius:10px;
+    padding:5px;
+    background-color:$white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    .header{
+        width: 100%;
+        position: relative;
+        display:block;
+        padding: 2px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: $white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .body{
+        width: 100%;
+        display:block;
+        background-color: white;
+        padding-bottom: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow-x: scroll;
+    }
+    &.other-style{
+        background:none !important;
+        box-shadow:none !important;
+        .header,.body{
+            background:none !important;
+        } 
+    }
+}
+.table{
+    margin:auto;
+    width: 100% !important;
+    border-radius: 5px !important;
+    background-color: $white !important;
+
+    .table-header{
+        height: 56px;
+        background-color:#f9faff;
+        border-top: 1px solid rgba($light,0.6);
+        border-bottom: 1px solid rgba($light,0.6);
+
+        th{
+            color:$semiDark;
+            font-family: "Poppins Regular";
+            text-align: left;
+            padding-left: 24px;
+            border-bottom: 1px solid rgba($light,0.6);
+        }
+    }
+    .row{
+        height: 48px;
+        border-bottom: 1px solid rgba($light,0.6);
+        th,td{
+            text-align: left;
+            color:$dark;
+            font-family: "Poppins Regular";
+            padding-left: 24px;
+        }
+        &:last-child{
+            border: none;
+        }
+    }
+    &.other-style{
+        background: none !important;
+        border-collapse: separate;  
+        border-spacing: 0px 15px;
+        .table-header{
+            border:none !important;
+            border-radius: 10px;
+            th{
+                border:none !important;
+            }
+        }
+
+        .table-body{
+            .row{
+                position: relative;
+                height:65px !important;
+                background-color: transparent !important;
+                border-top-left-radius: 100px !important;
+                
+                td{
+                    div{
+                        p.bold{
+                            transform:translateY(0px) !important;
+                            margin-top: -20px !important;
+                            font-family: "Poppins Bold";
+                        }
+
+                        p.nameOffice{
+                            font-size:15px !important;
+                        }
+
+                        p.addressOffice{
+                            font-size:14px !important;
+                        }
+                    }
+                }
+
+                &:after{
+                    position: absolute;
+                    left:0px;
+                    top:0px;
+                    content:"";
+                    width: 100%;
+                    height:100%;
+                    background:$white !important;
+                    border-radius: 10px !important;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+                    z-index:-1;
+                }
+            }
+            &:first-child{
+                margin-top: 15px !important;
+            }
+        }
+    }
+
+}
+
+// styles for tag
+.tag{
+    position: relative;
+    display: inline-block;
+    padding:10px 15px;
+    background-color:rgba(0,0,0,0.350);
+    color:#fff;
+    margin:auto;
+    border-radius:15px;
+    font-family: "Poppins Regular";
+    // left:37%;
+    // right: 37%;
+    margin-bottom: 15px;
+
+    &.state{
+        display:inline-block;
+        left:0%;
+        right: 0%;
+        padding:5px 15px;
+        height:35px;
+        font-size:13px;
+        margin-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+
+        .circle{
+            position: relative;
+            width: 10px;
+            height:10px;
+            border-radius:50%;
+            margin-right: 15px;
+
+            
+        }
+
+        &.circle-small{
+            position: relative !important;
+            width: 13px !important;
+            height: 13px !important;
+            border-radius:100px;
+            margin-right: 5px;
+            padding:0px !important;
+            transform:translateY(-20px) !important;
+        }
+
+        ion-icon{
+            transform:translateY(-3px);
+            font-size:20px;
+            margin-right: 5px;
+        }
+    }
+
+    span{
+        display: flex;
+        margin-top: -5px;
+    }
+
+
+    &.completed{
+     background-color:$completedDark;        
+    }
+
+    &.confirmed{
+      background-color:$confirmedDark;  
+    }
+
+    &.sended{
+     background-color:$sended;
+    }
+
+    &.outOfLine{
+     background-color:$dangerLight;
+    }
+
+    &.categories{
+     height: 40px !important;
+     padding:10px 15px !important;
+     background-color: #fff !important;
+     background: #fff !important;
+     color:#838383 !important;
+     cursor: pointer;
+    }
+
+}
+
+.circleState{
+    display:block;
+    width:13px; 
+    height:13px; 
+    background-color:transparent !important;
+    border-radius: 50%;
+}
+
+.completed{
+    background-color:$completed !important;
+    color:$completedDark;
+    .circle{
+      background-color:$completedDark !important;
+    }
+}
+
+.confirmed{
+    background-color:$confirmed !important;
+    color:$confirmedDark;
+    .circle{
+      background-color:$confirmedDark !important;
+    }
+}
+
+.sended{
+    background-color:$sended !important;
+    color:$sendedDark;
+    .circle{
+      background-color:$sendedDark !important;
+    }
+}
+
+.outOfLine{
+    background-color:$dangerLight !important;
+    color:$danger;
+    .circle{
+       background-color:$danger !important;
+    }
+}
+// styles for circle icon
+.circle-icon{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-right: 15px;
+
+    &.bg-yellow{
+        background-color:$yellow;
+        ion-icon{
+            color:$white !important;
+            --color:$white !important;
+            font-size: 19px;
+        }
+    }
+}
+
+// styls for list home delivery
+.card-accordion{
+    width: 100%;
+    max-height: 350px !important;
+    background:$white !important;
+    border-radius: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    margin-bottom: 15px !important;
+
+    .accordion-header{
+        height:60px !important;
+        padding: 0px 15px !important;
+        display:flex;
+        justify-content:between;
+        align-items:center;
+
+        .info-shop{
+            p{
+                line-height:3px !important;
+            }
+        }
+    }
+
+    .accordion-body{
+
+        .info-address{
+            height:30px !important;
+
+            &:last-child{
+                margin-bottom: 5px !important;
+                padding-bottom: 5px !important;
+            }
+        }
+
+        .circle-icon{
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            text-align: center;
+
+            &.from{
+              background-color:#345d5c !important;
+            }
+            &.to{
+              background-color:$warningLight !important;
+            }
+            
+        }
+    }
+
+    .accordion-footer{
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+
+        .vertical-divider{
+            width: 2px;
+            height:40px;
+            transform: translateY(5px) !important;
+            background-color:$green !important;
+        }
+
+        ion-button{
+          height:40px !important;
+        }
+    }
+}
+
+ion-button.menu-toggle{
+    background-color:#fff !important;
+    box-shadow:none !important;
+    --box-shadow:none !important;
+    button.button-native{
+        box-shadow:none !important;
+    }
+}
+
+ion-button.button-close{
+ position: absolute;
+ right:5px !important;
+ top:5px !important;
+}
+
+.subMenuOptions{
+    display: none;
+
+    &.active{
+        display: block;
+    }
+}
+.submenu-options{
+    position: absolute;
+    left:-5px;
+    display: none;
+    padding:15px 20px;
+    background:$white !important;
+    border-radius: 6px;
+    z-index: 500 !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    
+    .option{
+        position: relative;
+        width: 100%;
+        display:block;
+        padding:2px;
+        font-family: "Poppins Regular";
+        color:$dark;
+        cursor:pointer;
+        &:hover{
+            color:$green;
+        }
+    }
+    &.active{
+        display: block;
+    }
+
+    &.full-width{
+        position: relative !important;
+        display: block;
+        width: 100%;
+        height:auto;
+        max-height:256px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding:0px !important;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+        border-radius: 6px;
+
+        .option{
+            transform:translateX(10px);
+            width: 100%;
+            height: 48px;
+            padding:0px !important;
+            
+            &:hover{
+                width: 100%;
+                color:$green;
+                background-color:rgba(0,0,0,0.040) !important;
+            }
+        }
+    }
+}
+
+
+// styles for search submenu
+.search-submenu{
+  position:relative;
+  min-height:0px;
+  max-height: 80px !important;
+}
+
+// styles for container-access
+.container-access{
+    position:relative;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    
+    .box-access{
+        display:flex;
+        justify-content:start;
+        align-items: center;
+        padding:5px 15px;
+        width: 20%;
+        height:55px;
+        background-color:$white !important;
+        border-radius:6px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;        
+        margin-right: 15px;
+        cursor: pointer;
+
+        &:hover{
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,.3),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+        }
+
+        &.roles{
+            display: block;
+            width: 150px;
+            height: 140px;
+            text-align: center;
+
+            ion-icon{
+                display:block;
+                text-align:center;
+                margin:auto;
+                transform: translateY(15px);
+                font-size: 30px;
+                color:$semiDark;
+                margin-bottom: 15px !important;          
+            }
+
+            h4{
+                transform: translateY(15px);
+                font-size: 15px !important;
+                text-align: center;
+                font-family: "Poppins SemiBold";
+                margin-bottom: 15px !important;
+            }
+
+            ion-text{
+                font-size: 14px;
+                text-align: center;
+                color:$semiDark;
+            }
+
+            &:hover{
+                ion-icon,h4{
+                    color:$green;
+                }
+            }
+
+            &.active{
+                background-color:$green !important;
+                ion-icon,ion-text{
+                    color:$white !important;
+                }
+                h4{
+                    color:#dedede;
+                }
+            }
+        }
+
+        &.buttonSize{
+            width: auto !important;
+            min-width: 60px !important;
+            display:inline-block !important; 
+            height: auto !important; 
+            padding: 10px !important;
+            text-align: center;
+
+            &:hover{
+                color:var(--ion-color-green) !important;
+            }
+        }
+    }
+}
+
+
+// style for textarea
+.container-textarea{
+    position: relative;
+    width: 100%;
+    padding:10px;
+    border-radius: 10px;
+    max-height: 200px;
+
+    ion-textarea{
+        position: relative;
+        width: 100%;
+        padding:10px;
+        border-radius: 10px;
+        max-height: 200px;
+        border:1px solid $semiDark;
+        font-family: "Poppins Regular";
+        color:$semiDark;
+    }
+}
+
+
+.slide-image{
+    position: relative;
+    width: 80%;
+    margin:auto;
+    height:250px;
+    background-color:rgba(#345d5c,0.3);
+    border-radius:15px;
+    margin-bottom: 15px !important;
+
+    div{
+        .image-product{
+            display:block;
+            width: 160px;
+            height: 130px;
+            margin:auto;
+            text-align: center;
+            transform: translateY(15px);
+        }
+        .image-information{
+            color:$semiDark;
+            transform:translateY(-6px) !important;
+        }
+
+        ion-button{
+            transform:translateY(-10px) !important;
+        }
+    }
+}
+
+.box-image{
+    width: 135px;
+    height:195px;
+    display:block;
+
+    .image-product{
+        display: block;
+        width: 132px;
+        height:132px;
+        margin:auto;
+        border-radius:15px;
+        text-align: center;
+    }
+}
+
+// styles for slide
+ion-slides{
+    width: 100%;
+    ion-slide{
+        padding: 0px !important;
+        background-color: transparent !important;
+        box-shadow: 0px 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// styles for box Colors
+.box-color{
+    width: 40px;
+    height: 40px;
+    margin-right:15px;
+    border-radius:10px;
+
+    &.active{
+        position: relative;
+        &:before{
+            position: absolute;
+            top:-2px;
+            left:-2px;
+            content:"\2713";
+            width: 100%;
+            height:100%;
+            transform:scale(1.106);
+            border:2px solid $dark;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#fff;
+            font-size: 25px;
+            z-index: 2;
+            cursor:pointer;
+        }
+    }
+
+    &.black{
+        --background: #000;
+        background-color: #000;
+    }
+
+    &.gray{
+        --background: #dcdcdc;
+        background-color: #dcdcdc;
+    }
+
+    &.grayDark{
+        --background: $grayDark;
+        background-color: $grayDark;
+        &::part(native){
+            background-color: $grayDark;
+            --background: $grayDark;
+        }        
+    }    
+
+    &.green{
+        --background: green;
+        background-color: green;
+    }
+
+    &.greenDiferent{
+        --background: $greenDiferent;
+        background-color: $greenDiferent;
+        &::part(native){
+            --background: $greenDiferent;
+            background-color: $greenDiferent;
+        }
+    }
+    
+    &.greenApple{
+        --background: $greenApple;
+        background-color: $greenApple;
+        &::part(native){
+            --background: $greenApple;
+            background-color: $greenApple;
+        }
+    }
+    
+     &.greenTree{
+        --background: $greenTree;
+        background-color: $greenTree;
+        &::part(native){
+            --background: $greenTree;
+            background-color: $greenTree;
+        }
+    }
+    
+    &.green{
+        --background: green;
+        background-color: green;
+    }    
+
+    &.red{
+        --background: red;
+        background-color: red;
+    }
+
+    &.pink{
+        --background: pink;
+        background-color: pink;
+    }
+
+    &.blue{
+        background-color: #3880ff;
+        --background: #3880ff;
+    }
+
+    &.blueOcean{
+        background-color: $blueOcean;
+        --background: $blueOcean;
+        &::part(native){
+            background-color: $blueOcean;
+            --background: $blueOcean;
+        }
+    }
+
+    &.orange{
+        background-color:$bgOrange;
+        --background:$bgOrange;
+        &::part(native){
+            background-color: $bgOrange;
+            --background: $bgOrange;
+        }
+    }
+
+    &.orangeNormal{
+        background-color:$orange;
+        --background:$orange;
+        &::part(native){
+            background-color: $orange;
+            --background: $orange;
+        }
+    }    
+
+    &.yellow{
+        background-color:yellow;
+        --background:yellow;
+    }
+    
+    &.yellowDark{
+        background-color:$yellow;
+        --background:$yellow;
+        &::part(native){
+            background-color: $yellow;
+            --background: $yellow;
+        }   
+    }
+
+    &.brown{
+        background-color:brown;
+        --background:brown;
+    }
+
+    &.purple{
+        background-color:purple;
+        --background:purple;
+        &::part(native){
+            background-color: purple;
+            --background: purple;
+        }    
+    }
+
+    &.purpleLightNOne{
+        background-color:$purple;
+        --background:$purple;
+        &::part(native){
+            background-color: $purple;
+            --background: $purple;
+        }         
+    }
+
+}
+
+// styles for toast
+.custom-toast{
+    position: fixed;
+    left:35%;
+    top:-70px;
+    width: 95% !important;
+    display: flex;
+    justify-content:space-between;
+    padding: 5px;
+    border-radius:15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 2000 !important;
+    visibility: hidden;
+    transform: translateY(-50%) !important;
+    
+    .panel-left{
+        position:relative;
+        width: 12%;
+        max-height:85px;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+    .panel-right{
+        position: relative;
+        width: 88%;
+         max-height:85px;
+        display:block;
+        p{
+          color:$dark;
+          line-height:18px;
+
+          &.title{
+              font-family: "Poppins Bold";
+              margin-top: -7px;
+              transform: translateY(17px);
+          }
+        }
+    }
+
+    &.success{
+        border-left: 6px solid $success;
+        background-color:$successLight;
+        .panel-left{
+            ion-icon{
+                color:$success !important;
+            }
+        }
+    }
+
+    &.error{
+        border-left: 6px solid $danger;
+        background-color:$dangerLight;
+        .panel-left{
+            ion-icon{
+                color:$danger !important;
+            }
+        }
+    }
+
+    &.info{
+        border-left: 6px solid $blue;
+        background-color:$blueLight;
+        .panel-left{
+            ion-icon{
+                color:$blue !important;
+            }
+        }
+    }
+
+    &.warning{
+        border-left: 6px solid $warning;
+        background-color:$warningLight;
+        .panel-left{
+            ion-icon{
+                color:$warning !important;
+            }
+        }
+    }
+
+    &.show{
+        visibility:visible;
+        animation: fadeInOut 4s;
+    }
+}
+
+// styles for item sidebar
+.item-button{
+    position: relative;
+    display: block !important;
+    min-width: 60%;
+    min-height: 90px !important;
+    max-height: 90px !important;
+    padding:0px 15px;
+    border-radius: 10px;    
+    margin-bottom: 15px !important;
+    text-align: start !important;
+    cursor: pointer;
+
+    &:hover{
+        background-color:$white !important;
+        div{
+            ion-icon{
+                color:$green !important;
+            }
+        }
+
+        p{
+            color:$dark !important;
+        }
+    }
+
+    div{
+        ion-icon{
+            font-size:30px !important;
+            color:$semiDark;
+        }
+
+        ion-img{
+            width:30px !important;
+
+        }
+
+        p{
+            font-family: "Poppins SemiBold";
+            color:$dark;
+        }
+    }
+
+    p.description{
+        font-family: "Poppins Regular";
+        color:$semiDark;
+        margin-top: -5px !important;
+        margin-bottom: 15px !important;
+        font-size: 13.8px !important;
+        transform:translateY(-2px) !important;
+    }
+
+    ion-toggle{
+        position: absolute;
+        right:10px;
+        top:20px;
+    }
+
+    &.fullWidth{
+        min-width: 100% !important;
+        background-color:$white !important;
+    }
+
+    &.active{
+        background-color:$white !important;
+        div{
+            ion-icon,p{                
+                color:$green !important;
+            }
+        }
+        p{
+            color:$dark !important;
+        }
+    }
+}
+
+// animation for alert toast
+@keyframes fadeInOut {
+    5%,95%{
+        opacity: 1;
+        top: 130px;
+    }
+    15%,85%{
+        opacity: 1;
+        top:110px;
+    }
+}
+
+.menu-content-open{
+    cursor: default !important;
+    pointer-events:fill !important;
+}
+
+
+// styles for button view password
+.buttonViewPassword{
+ position: absolute;
+ right:5px !important;
+ top:5px;
+ width: 45px !important;
+ height:40px !important;
+ --background-color:transparent !important;
+ --background:transparent !important;
+ background: transparent !important;
+ border:none !important;
+ z-index: 3000 !important;
+
+    ion-icon{
+        color:$semiDark !important;
+    }
+}
+
+// styles for store profile
+
+// styles for mobile sidebar menu
+// .split-pane-side{
+//     width: 304px !important;
+//     min-width: 304px !important;
+//     --min-width: 304px !important;
+//     max-width: 230px !important;
+//     --max-width: 230px !important;
+//     transition:  all .2s ease-in-out;
+
+//         &:hover{
+//             transition:  all .2s ease-in-out;
+//             width: 304px !important;
+//             max-width: 304px !important;
+//             --max-width: 304px !important;
+//             min-width: 304px !important;        
+//             --min-width: 304px !important;
+//         }
+
+//         // styles for sidebar Menu
+//         ion-menu.sidebar{
+//             // max-width: 199px;
+//             width: 304px !important;
+//             max-width: 304px !important;
+//             min-width: 304px !important;
+//             --max-width: 304px !important;
+//             --min-width: 304px !important;
+//             background-color: $white !important;
+//             --background:$white;
+//             --background: $white !important;
+//             transition:  all .2s ease-in-out;
+//             // z-index: -1 !important;
+//             // --z-index: -1 !important;
+
+//             ion-header{
+//                 ion-toolbar{
+//                     div{
+//                         ion-title.company-name{
+//                             display:none;
+//                         }
+//                     }
+//                 }
+//             }
+
+//             ion-content{
+//                 ion-list{
+//                     background:var(--ion-color-white) !important;
+//                         --background: var(--ion-color-white) !important;
+//                     ion-item{
+//                         ion-icon{
+//                             color: var(--ion-color-brown);
+//                             --color: var(--ion-color-brown);
+//                         }
+//                         ion-text,p{
+//                             display: none !important;
+//                             color: var(--ion-color-brown);
+//                             --color: var(--ion-color-brown);
+//                         }
+
+//                         &.active-item{
+//                                 position: relative !important;
+//                                 min-width: 79% !important;
+//                                 max-width: 85% !important;
+//                                 margin: auto;
+//                                 background-color: rgba(#FFD42C,0.2) !important;
+//                                 --background-color: rgba(#FFD42C,0.2) !important;
+//                                 --background: rgba(#FFD42C,0.2) !important;
+//                                 background: rgba(#FFD42C,0.2) !important;
+//                                 border-radius: 6px !important;
+//                                 overflow:visible !important;
+
+//                                 ion-icon{
+//                                     color: var(--ion-color-yellow);
+//                                 }
+
+//                                 ion-text,p{
+//                                     color: var(--ion-color-yellow) !important;
+//                                     font-family: "Poppins SemiBold";
+//                                 }
+
+//                                 &:before{
+//                                     position: absolute !important;
+//                                     top:0px;
+//                                     content:"";
+//                                     left:-6px;
+//                                     width: 4px !important;
+//                                     background-color: var(--ion-color-yellow) !important;
+//                                     height:100%;
+//                                     z-index: 2;
+//                                 }
+//                             }
+//                     }
+//                 }
+//             }
+
+//             &:hover{
+//                 transition:  all .2s ease-in-out;
+//                 width: 230px !important;
+//                 max-width: 230px !important;
+//                 min-width: 230px !important;
+//                 --max-width: 230px !important;
+//                 --min-width: 230px !important;
+
+//                 ion-header{
+//                     ion-toolbar{
+//                         div{
+//                             ion-title.company-name{
+//                                 display:block;
+//                             }
+//                         }
+//                     }
+//                 }
+
+//                 ion-content{
+//                     ion-list{
+//                         background:var(--ion-color-white) !important;
+//                         --background: var(--ion-color-white) !important;
+//                         ion-item{
+//                             position: relative;
+//                             width: 100%;                   
+//                             cursor: pointer;
+
+//                             ion-icon{
+//                                 margin-right: 7px;
+//                                 color: var(--ion-color-brown);
+//                                 --color: var(--ion-color-brown);
+//                             }
+
+//                             ion-text,p{
+//                                 display:block !important;
+//                                 color: var(--ion-color-brown);
+//                                 --color: var(--ion-color-brown);
+//                             }
+
+//                             &.active-item{
+//                                 position: relative !important;
+//                                 min-width: 79% !important;
+//                                 max-width: 85% !important;
+//                                 margin: auto;
+//                                 background-color: rgba(#FFD42C,0.2) !important;
+//                                 --background-color: rgba(#FFD42C,0.2) !important;
+//                                 --background: rgba(#FFD42C,0.2) !important;
+//                                 background: rgba(#FFD42C,0.2) !important;
+//                                 border-radius: 6px !important;
+//                                 overflow:visible !important;
+
+//                                 ion-icon{
+//                                     color: var(--ion-color-yellow);
+//                                 }
+
+//                                 ion-text,p{
+//                                     color: var(--ion-color-yellow) !important;
+//                                     font-family: "Poppins SemiBold";
+//                                 }
+
+//                                 &:before{
+//                                     position: absolute !important;
+//                                     top:0px;
+//                                     content:"";
+//                                     left:-7px;
+//                                     width: 4px !important;
+//                                     background-color: var(--ion-color-yellow) !important;
+//                                     height:100%;
+//                                     z-index: 2;
+//                                 }
+//                             }            
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+// }
+
+.mainNav{
+    width: 80px !important;
+    .buttonNav{
+        width: 80px !important;
+        &.button-store,&.avatar{
+          display:none;
+       }
+       &.button-bell{
+           width: 100% !important;
+           ion-icon{
+               font-size:26px !important;
+           }
+       }
+    }
+}
+
+.visible-tr,.visible-td{
+    display:none !important;
+}
+
+.visible{
+    display:none !important;
+}
+
+.visibleMobile{
+    display:block !important;
+}
+
+.w-70{
+   &.full{
+     width: 100% !important;
+   }
+}
+
+.fullW{
+    width: 100% !important;
+}
+
+.list-detail{
+   p.product-name{
+     color:$dark;         
+   }
+
+   p.semiDark{
+      color:$semiDark !important;                
+   }
+
+   p.cantidad{                    
+    margin-top:-15px !important;
+    font-size:14px !important;
+  }      
+}
+
+p.colorGreen{
+    color:$green !important;
+    font-family: "Poppins SemiBold";
+}
+
+.list-pinfo{
+    &:last-child{
+        border-bottom: 1px solid rgba($semiDark,0.4);
+    }
+
+    .list-detail{
+        width: 60% !important;
+        //background-color:red !important;
+    }
+
+    .info-price{
+        width: 40% !important;
+        //background-color:$green !important;
+        text-align: right !important
+    }
+}
+
+.font-small{
+ font-size:14px !important;
+}
+
+.cost-detail{
+ height:25px !important;
+     .list-detail{
+        width: 60% !important;
+        //background-color:red !important;
+    }
+
+    .info-price{
+        width: 40% !important;
+        //background-color:$green !important;
+        text-align: right !important
+    }
+}
+//styles for desktop screen
+@media screen and (min-width: 991px){
+
+   .custom-toast{
+       width: 35% !important;
+   }
+
+   p.nameOffice{
+      font-size:17px !important;
+   }
+
+   p.addressOffice{
+      font-size:16px !important;
+   }    
+    // styles for component search
+    .search-bar{
+        width: 95% !important;
+        .container-search{
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            
+            .search{
+             width:90% !important;
+            }
+
+            .w-20{
+                width:20% !important;
+            }
+            ion-button{
+                transform: translateY(-10px) !important;
+                width:10% !important;
+
+                &.wauto{
+                    width:auto !important;
+                    display: inline-block;
+                }
+                .show{
+                    display: none;
+                }
+
+                &.mt-0{
+                    transform: translateY(-10px) !important;
+                    //transform: translateY(0px) !important;
+                    margin-top: 0 !important;
+                }
+            }
+        }
+    }
+    // modify modal style options
+    .alert-wrapper.sc-ion-alert-md{
+        min-width:350px !important;
+    }
+    
+    .mainNav{
+        position: absolute;
+        top:0px;
+        width: auto !important;
+        height:100%;
+        right:0px;
+        z-index:99999 !important;
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .buttonNav{
+            width: auto !important;
+            min-width: 50px !important;
+            height:50px !important;            
+            color:$semiDark;
+            font-weight: "Poppins SemiBold";
+            box-shadow: none !important;
+            --box-shadow:none !important;
+            padding:0px !important;
+            margin-right: 15px !important;
+
+            ion-icon{
+                font-size: 26px !important;
+            }
+
+            &:hover{
+                background-color:rgba($green,0.2) !important;
+                --background-color:rgba($green,0.2) !important;
+                --background:rgba($green,0.2) !important;
+                background:rgba($green,0.2) !important;
+
+                ion-icon{
+                    color:$green !important;
+                    --color:var(--ion-color-green) !important;
+                    font-family: "Poppins Bold" !important;
+                }
+            }
+
+            &.avatar{
+                min-width:45px !important;
+                width: 45px !important;
+                height: 45px !important;
+                border-radius:50% !important;
+                background-color: $semiDark !important;
+            }
+
+            &.button-store,&.button-bell,&.avatar{
+                display:block;
+            }
+        }
+    }
+    .split-pane-side{
+        width: 65px !important;
+        min-width: 65px !important;
+        --min-width: 65px !important;
+        max-width: 230px !important;
+        --max-width: 230px !important;
+        transition:  all .2s ease-in-out;
+
+        &:hover{
+            transition:  all .2s ease-in-out;
+            width: 230px !important;
+            max-width: 230px !important;
+            --max-width: 230px !important;
+            min-width: 230px !important;        
+            --min-width: 230px !important;
+        }
+    }
+
+    // styles for sidebar Menu
+        ion-menu.sidebar{
+            // max-width: 199px;
+            width: 65px !important;
+            max-width: 65px !important;
+            min-width: 65px !important;
+            --max-width: 65px !important;
+            --min-width: 65px !important;
+            background-color: $white !important;
+            --background:$white;
+            --background: $white !important;
+            transition:  all .2s ease-in-out;
+            // z-index: -1 !important;
+            // --z-index: -1 !important;
+
+            ion-header{
+                ion-toolbar{
+                    div{
+                        ion-title.company-name{
+                            display:none;
+                        }
+                    }
+                }
+            }
+
+            ion-content{
+                ion-list{
+                    background:var(--ion-color-white) !important;
+                        --background: var(--ion-color-white) !important;
+                    div{
+                        ion-item{
+                            ion-icon{
+                                color: var(--ion-color-brown);
+                                --color: var(--ion-color-brown);
+                            }
+                            ion-text,p{
+                                display: none !important;
+                                color: var(--ion-color-brown);
+                                --color: red;
+                            }
+
+                            &.active-item{
+                                position: relative !important;
+                                min-width: 79% !important;
+                                max-width: 85% !important;
+                                margin: auto;
+                                background-color: rgba(#FFD42C,0.2) !important;
+                                --background-color: rgba(#FFD42C,0.2) !important;
+                                --background: rgba(#FFD42C,0.2) !important;
+                                background: rgba(#FFD42C,0.2) !important;
+                                border-radius: 6px !important;
+                                overflow:visible !important;
+
+                                ion-icon{
+                                    color: var(--ion-color-yellow);
+                                }
+
+                                ion-text,p{
+                                    color: var(--ion-color-yellow) !important;
+                                    font-family: "Poppins SemiBold";
+                                }
+
+                                &:before{
+                                    position: absolute !important;
+                                    top:0px;
+                                    content:"";
+                                    left:-6px;
+                                    width: 4px !important;
+                                    background-color: var(--ion-color-yellow) !important;
+                                    height:100%;
+                                    z-index: 2;
+                                }
+                            }
+                    }
+                    }
+                }
+            }
+
+            &:hover{
+                transition:  all .2s ease-in-out;
+                width: 230px !important;
+                max-width: 230px !important;
+                min-width: 230px !important;
+                --max-width: 230px !important;
+                --min-width: 230px !important;
+
+                ion-header{
+                    ion-toolbar{
+                        div{
+                            ion-title.company-name{
+                                display:block;
+                            }
+                        }
+                    }
+                }
+
+                ion-content{
+                    ion-list{
+                        background:var(--ion-color-white) !important;
+                        --background: var(--ion-color-white) !important;
+                        ion-item{
+                            position: relative;
+                            width: 100%;                   
+                            cursor: pointer;
+
+                            ion-icon{
+                                margin-right: 7px;
+                                color: var(--ion-color-brown);
+                                --color: var(--ion-color-brown);
+                            }
+
+                            ion-text,p{
+                                display:block !important;
+                                color: var(--ion-color-brown);
+                                --color: var(--ion-color-brown);
+                            }
+
+                            &.active-item{
+                                position: relative !important;
+                                min-width: 79% !important;
+                                max-width: 85% !important;
+                                margin: auto;
+                                background-color: rgba(#FFD42C,0.2) !important;
+                                --background-color: rgba(#FFD42C,0.2) !important;
+                                --background: rgba(#FFD42C,0.2) !important;
+                                background: rgba(#FFD42C,0.2) !important;
+                                border-radius: 6px !important;
+                                overflow:visible !important;
+
+                                ion-icon{
+                                    color: var(--ion-color-yellow);
+                                }
+
+                                ion-text,p{
+                                    color: var(--ion-color-yellow) !important;
+                                    font-family: "Poppins SemiBold";
+                                }
+
+                                &:before{
+                                    position: absolute !important;
+                                    top:0px;
+                                    content:"";
+                                    left:-7px;
+                                    width: 4px !important;
+                                    background-color: var(--ion-color-yellow) !important;
+                                    height:100%;
+                                    z-index: 2;
+                                }
+                            }            
+                        }
+                    }
+                }
+            }
+        }
+
+    // styles for inputs
+    .container-input{
+        .container-icon{
+            width: 6%;
+
+            .icon-input{
+                width: 25px;
+                height:25px;
+            }
+        }
+
+        ion-item{
+            width: 94%;
+        }
+    }
+
+    .customModal{
+        .modal-wrapper {
+         width:924px !important;
+        }
+    }
+
+    .container-products{
+        display: grid;
+        gap:0px;
+        grid-auto-rows: 180px;
+        grid-template-columns: repeat(auto-fill,minmax(375px, 0fr));
+        //grid-template-columns: repeat(auto-fill,minmax(392px, 0fr));
+        justify-content:center;
+
+        &.strech-product{
+            grid-auto-rows: 180px;
+            grid-template-columns: repeat(auto-fill,minmax(370px, 0fr));
+
+            .box-product{
+              width: 360px !important;
+            }
+        }
+    }
+
+    // style for single box product
+    .box-product{
+        position: relative;
+        display: flex;
+        width: 368px;
+        height:170px;
+        margin-right: 15px !important;
+        background-color:$white !important;
+        border-radius:15px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+        .panel-left{
+            position: relative;
+            width: 150px;
+            height:170px;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            overflow: hidden;
+
+            .imageProduct{
+                //position: absolute;            
+                // width: 175px;
+                width: 86% !important;
+                // height: 150px;
+                // max-height: 150px;
+                height: 80% !important;
+                border-radius: 15px;
+                object-fit: cover;
+                // border-bottom-left-radius:15px;
+                // border-top-left-radius: 15px;
+            }
+
+            .tag{
+                position: absolute;
+                left:5px;
+                top:35px;
+                width: 100px;
+                height:35px;
+                display: flex;
+                justify-content:center;
+                align-items:center;
+                border-radius:0px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                z-index: 200;
+
+                &.show{
+                    display: flex;
+                }
+
+                &.hide{
+                    display: none;
+                }
+            }
+        }
+        .panel-right{
+            width: 57%;
+            height:100%;
+            position: relative;
+            padding: 5px 15px;
+
+            .nameProduct{
+               font-size:18px !important;
+               transform: translateY(0px) !important;
+               font-family: "Poppins SemiBold";
+               &:hover{
+                   cursor: pointer;
+                   color:$green !important;
+               }
+
+               &:target,&:focus{
+                 color:$green !important;
+               }
+               
+
+            }
+
+            .description{
+                transform: translateY(-12px) !important;
+                color:$semiDark;
+                font-size:13.8px;
+            }
+
+            .salesPrice{
+                position: relative;
+                top: -24px !important;
+                color:$green;
+                font-family: "Poppins Bold";
+                margin-right: 18px !important;
+            }
+
+            .qty{
+                font-size: 15px !important;
+                transform:translateY(-30px) !important;
+                color:$semiDark;
+                font-family: "Poppins SemiBold";
+            }
+
+            .container-controls{
+                transform: translateY(-20px) !important;
+            }
+
+        }
+    }
+
+    .container-view-products{
+        position: relative;
+        width: 95%;
+        min-height: 810px !important;
+        max-height: 910px !important;
+        margin: auto;
+
+        .panel-left{
+          width: 60% !important;
+          height: 100%;
+          display: block;
+          
+          .image-product{
+              position: relative;
+              display: block;
+              width: 85% !important;
+              margin: auto;
+              border-radius: 6px !important;
+              margin-bottom: 15px !important;         
+          }
+
+          .container-all-images{
+            width: 85% !important;
+            margin:auto;
+            .box-image{
+                width: 75px !important;
+                height: 75px !important;
+                border-radius: 6px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px !important;
+
+                img{
+                    display: block;
+                    position: relative;
+                    width: 90% !important;
+                    height: 90% !important;
+                    margin: auto;                    
+                }
+
+                &.active{
+                 border:2px solid #838383;
+                  img{
+                    transform: translateY(3px) !important;
+                  }
+                }
+            }      
+          }
+        }
+
+        .panel-right{
+          width: 40% !important;
+          height: 100%;
+          display: block;
+
+          .price{
+             font-family: "Poppins SemiBold";
+             font-size: 30px !important;
+             color:$green !important;
+             --color:$green !important;
+             --ion-color:$green !important;
+          }
+        }
+    }
+
+    .container-description-product{
+        width: 70% !important;
+    }
+    
+    .container-payment-method{
+        width: 30% !important;
+    }
+
+    .visible-tr {
+        display: table-row !important;
+    }
+
+    .visible-td {
+        display: table-cell !important;
+    }
+
+    .visible{
+        display: block !important;
+    }
+
+    .visibleMobile{
+        display: none !important;
+    }
+
+    .w-70{
+        width: 70% !important;
+        &.full{
+         width: 70% !important;
+        }
+    }
+
+    .fullWidth{
+        width: 80% !important;
+    }
+
+    .middle{
+        width: 50% !important;
+    }
+
+    .w-30{
+        width: 30% !important;
+    }
+
+    .full{
+        width: 95% !important
+    }
+
+    .fullW{
+        width: 100% !important;
+    }
+}
+
+button.buttonEdit{
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:40px !important;
+  height:40px !important;
+  margin:auto;
+  display:none;
+
+ ion-icon{
+    font-size: 25px !important;
+  }
+
+}
+
+button.editBanner{
+ position: absolute;
+ width:40px !important;
+ height:40px !important;
+ right:20px !important;
+ top:20px !important;
+ display: none !important;
+
+  ion-icon{
+    font-size: 25px !important;
+  }
+
+}
+
+.storeLogoType{
+    width:45px ;
+    height:45px;
+    border-radius: 50%;
+
+    &.w-78{
+        width: 78px !important;
+        height: 78px !important;
+        background-color:#fff !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+          width: 69px !important;
+          height: 69px !important;
+        }
+
+        &:hover{
+            button.buttonEdit{
+                display: block;
+            }
+        }
+    }
+}

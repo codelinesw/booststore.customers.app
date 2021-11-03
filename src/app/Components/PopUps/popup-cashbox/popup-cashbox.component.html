@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePop()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Cuadre de caja</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-divider></ion-item-divider>
+  <ion-row class="w-95 m-auto mt-25 ion-padding mb-15">
+      <ion-row class="w-100">
+        <ion-row class="w-100 mb-15">
+          <ion-label>Responsable</ion-label>
+          <div class="container-input m-auto w-100">
+              <div class="container-icon">                      
+                <ion-icon class="icon-input" name="person-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-select okText="Aceptar" [(value)]="CashBox.idStoreUser" cancelText="Cancelar" (ionChange)="OnChangeResponsable($event)">
+                    <ion-select-option *ngFor="let item of responsables" [value]="item.idStoreUser">{{ !item.name && !item.lastName ? item.username : item.name + " " + item.lastName }}</ion-select-option>
+                  </ion-select>
+                </div>
+            </ion-item>
+          </div>
+        </ion-row>
+        <ion-row class="w-100">
+          <ion-label>Identificación máquina:</ion-label>
+          <div class="container-input m-auto w-100">
+            <div class="container-icon">
+              <ion-icon class="icon-input" name="file-tray-full-outline"></ion-icon>
+            </div>
+            <ion-item lines="none" color="none">
+              <div class="input-group">
+                <ion-input type="text" placeholder="Ingresa los nombres del usuario" [(ngModel)]="CashBox.machineUuid"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row class="w-100">
+          <ion-row class="w-100 ion-padding-top">
+            <ion-title>Inicial</ion-title>
+          </ion-row>
+          <table class="table other-style">
+            <thead>
+              <tr class="table-header">
+                <th scope="col">Medio de pago</th>
+                <th scope="col">Inicial</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="row">
+                <td class="d-flex justify-content-start align-items-center" style="height:65px;">
+                  <div>
+                    <p>Efectivo</p>
+                  </div>
+                </td>
+                <td style="padding:5px !important;">
+                  <ion-row class="w-90">
+                    <div class="container-input m-auto w-100">
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="number" placeholder="$0" [(ngModel)]="CashBox.initialTotal"></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row class="w-100 mb-15" *ngIf="sales.length > 0">
+          <ion-row class="w-100 ion-padding-top">
+            <ion-title>Ventas</ion-title>
+          </ion-row>
+          <table class="table other-style">
+            <thead>
+              <tr class="table-header">
+                <th scope="col">#</th>
+                <th scope="col">Medio de pago</th>
+                <th scope="col">Canal</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="row" *ngFor="let item of sIngredients; let i = index;">
+              <th scope="row">{{ (i+1) }}</th>
+                <td class="d-flex justify-content-start align-items-center" style="height:65px;">
+                  <div>
+                    <p>{{ item.name.substring(0,25) }}</p>
+                  </div>
+                </td>
+                <td>{{ item.qty }}</td>
+                <td style="position: relative;">
+                  <ion-button class="custom-cd-button border-dark without-bg w-auto">
+                    <ion-icon name="trash-outline" class="w-mr"></ion-icon>
+                  </ion-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row class="w-100 mb-15" *ngIf="expenses.length > 0">
+          <ion-row class="w-100 ion-padding-top">
+            <ion-title>Gastos</ion-title>
+          </ion-row>
+          <table class="table other-style">
+            <thead>
+              <tr class="table-header">
+                <th scope="col">#</th>
+                <th scope="col">Tipo de gasto</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="row" *ngFor="let item of sIngredients; let i = index;">
+              <th scope="row">{{ (i+1) }}</th>
+                <td class="d-flex justify-content-start align-items-center" style="height:65px;">
+                  <div>
+                    <p>{{ item.name.substring(0,25) }}</p>
+                  </div>
+                </td>
+                <td>{{ item.qty }}</td>
+                <td style="position: relative;">
+                  <ion-button class="custom-cd-button border-dark without-bg w-auto">
+                    <ion-icon name="trash-outline" class="w-mr"></ion-icon>
+                  </ion-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row class="w-100 mb-15" *ngIf="expenses.length > 0 && sales.length > 0">
+          <ion-row class="w-100 ion-padding-top">
+            <ion-title>Resumen</ion-title>
+          </ion-row>
+          <table class="table other-style">
+            <thead>
+              <tr class="table-header">
+                <th scope="col">#</th>
+                <th scope="col">Tipo de gasto</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="row" *ngFor="let item of sIngredients; let i = index;">
+              <th scope="row">{{ (i+1) }}</th>
+                <td class="d-flex justify-content-start align-items-center" style="height:65px;">
+                  <div>
+                    <p>{{ item.name.substring(0,25) }}</p>
+                  </div>
+                </td>
+                <td>{{ item.qty }}</td>
+                <td style="position: relative;">
+                  <ion-button class="custom-cd-button border-dark without-bg w-auto">
+                    <ion-icon name="trash-outline" class="w-mr"></ion-icon>
+                  </ion-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-row>                      
+        <ion-row class="w-100">
+          <ion-col>
+            <div class="mt-15 w-100">
+              <ion-button class="custom-cd-button border-green bg-green w-100" (click)="save()">
+                <ion-text>Guardar cambios</ion-text>
+              </ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="mt-15 w-100">
+              <ion-button class="custom-cd-button without-bg border-green w-100" (click)="closePop()">
+                <ion-text>Cancelar</ion-text>
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+  </ion-row>
+</ion-content>

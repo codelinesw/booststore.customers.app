@@ -1,0 +1,131 @@
+
+$yellow:#FFD42C;
+$yellowLight:#FFE26C;
+$dark:#191e26;
+$semiDark:#979da4;
+$light:#a6afb6;
+$white:#FFF;
+$gray:#f9faff;
+
+
+:root{
+    --ion-color-orange:#ff812c;
+    --ion-color-google:#c71610;
+    --ion-color-facebook:#3b5998;
+    --ion-color-text: #191e26;
+    --ion-color-textSecond:#979da4;
+    --ion-color-title:#191e26;
+    --ion-color-dark:#191e26;
+    --ion-color-yellow:#FFD42C;
+    --ion-color-yellowLight:#FFE26C;
+    --ion-color-white:#ffffff;
+    --ion-color-brown:rgba(0,0,0,0.540) !important;//#757575;
+}
+// ion-content{
+//     ion-list{
+//         background:var(--ion-color-white) !important;
+//         --background: var(--ion-color-white) !important;
+//         ion-item{
+//             position: relative;
+//             width: 100%;                   
+//             cursor: pointer;
+
+//             ion-icon{
+//                 margin-right: 7px;
+//                 color: var(--ion-color-brown);
+//                 --color: var(--ion-color-brown);
+//             }
+
+//             ion-text{
+//                 color: var(--ion-color-brown);
+//                 --color: var(--ion-color-brown);
+//             }
+
+//             &.active-item{
+//                 position: relative !important;
+//                 width: 79% !important;
+//                 margin: auto;
+//                 background-color: rgba(#FFD42C,0.2) !important;
+//                 --background-color: rgba(#FFD42C,0.2) !important;
+//                 --background: rgba(#FFD42C,0.2) !important;
+//                 background: rgba(#FFD42C,0.2) !important;
+//                 border-radius: 6px !important;
+//                 overflow:visible !important;
+
+//                 ion-icon{
+//                     color: var(--ion-color-yellow);
+//                 }
+
+//                 ion-text{
+//                     color: var(--ion-color-yellow);
+//                     font-family: "Poppins SemiBold";
+//                 }
+
+//                 &:before{
+//                     position: absolute !important;
+//                     top:0px;
+//                     content:"";
+//                     left:-7px;
+//                     width: 4px !important;
+//                     background-color: var(--ion-color-yellow) !important;
+//                     height:100%;
+//                     z-index: 2;
+//                 }
+//             }            
+//         }
+//     }
+// }
+
+// ion-menu.sidebar{
+//         ion-content{
+//             ion-list{
+//                 ion-item{
+//                     ion-text{
+//                         display: none !important;
+//                     }
+//                 }
+//             }
+//         }
+
+//         &:hover{
+//             transition:  all .2s ease-in-out;
+//             width: 230px !important;
+//             max-width: 230px !important;
+//             min-width: 230px !important;
+//             --max-width: 230px !important;
+//             --min-width: 230px !important;
+
+//             ion-header{
+//                 ion-toolbar{
+//                     div{
+//                         ion-title.company-name{
+//                             display:block;
+//                         }
+//                     }
+//                 }
+//             }
+
+//             ion-content{
+//                 ion-list{
+//                     ion-item{
+//                         ion-text{
+//                             display: block !important;
+//                         }
+//                         &.active-item{
+//                           position: relative !important;
+//                           width: 88% !important;
+//                         }
+//                         &:before{
+//                             left:-14px !important;
+//                         }
+//                     }
+//                 }
+//              }
+//         }
+//     }
+
+// .storeLogoType{
+//     width:45px ;
+//     height:45px;
+//     border-radius: 50%;
+// }

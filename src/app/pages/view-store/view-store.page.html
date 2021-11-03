@@ -1,0 +1,245 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>viewStore</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-padding-horizontal ion-padding-top ion-padding-bottom">
+    <ion-row class="w-100 mb-15">
+      <ion-card class="full m-auto rounded-border bg-white">       
+        <ion-card-header class="banner-store" [style.background-image]="'url(https://olaclick.s3.amazonaws.com/companies/backgrounds/2e69a267-22e7-414f-8ff3-b17833edd44c.png) !important'">
+          <ion-row>
+            <ion-row class="w-100 bg-primary ion-justify-content-center rounded-border">
+              <ion-col class="ion-padding-top">
+                <ion-avatar class="m-auto storeLogoType w-78">
+                  <img src="https://olaclick.s3.amazonaws.com/companies/logos/1cafe8b9-2356-4c26-8e47-892a8a7de1ad.png">
+                </ion-avatar>
+                <ion-card-title color="light" class="ion-text-center mt-15 mb-15 color-white">Jugueteria teconologica</ion-card-title>
+                <div class="w-100 d-flex justify-content-center">
+                  <span class="tag dark mb-15" style="position: unset !important;">8:00 am -  9:00 pm</span>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="w-100 d-flex ion-justify-content-center rounded-border">
+              <ion-text class="ion-text-center">Con nosotros al mejor precio y con tiempos de entrega super rapido</ion-text>
+            </ion-row>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content class="padding-0">
+          <ion-row class="w-100">
+            <div class="search-bar m-auto" style="min-height: 40px !important;">
+              <div class="container-search d-flex justify-content-between align-items-center">
+                <div class="container-input m-auto w-90 mr-15">
+                  <div class="container-icon w-10">
+                    <ion-icon class="icon-input" name="search-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none" class="w-100">
+                    <div class="input-group">
+                      <ion-input type="text" placeholder="Que producto o negocio estas bucando?"></ion-input>
+                    </div>
+                  </ion-item>
+                </div>                      
+                <ion-button class="custom-cd-button border-green bg-green w-auto mt-0 position-relative" style="top:10px !important;">
+                  <ion-text>Filtrar</ion-text>
+                </ion-button>
+              </div>          
+            </div> 
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="w-100 mt-15 mb-15">
+        <div class="w-95 m-auto">
+          <div class="w-100">
+            <h4>Categorias</h4>
+          </div>
+          <ion-toolbar mode="md" color="light" class="container-menu-horizontal">
+            <ion-segment #segments id="segments" mode="md" [(ngModel)]="selectedTab" (ionChange)="selectTab($event,1)" [value]="selectedTab" scrollable>
+                <ion-segment-button id="MensajeroButton" value="0" (click)="selectTab($event,2)">
+                  <ion-label>Bafles</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="1" (click)="selectTab($event,3)">
+                  <ion-label>Audifonos</ion-label>
+                </ion-segment-button>              
+                <ion-segment-button  id="ClientsButton" value="3" (click)="selectTab($event,0)">
+                  <ion-label>Diademas audifonos</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="4" (click)="selectTab($event,1)">
+                  <ion-label>Mouse</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="4" (click)="selectTab($event,1)">
+                  <ion-label>Teclados</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="4" (click)="selectTab($event,1)">
+                  <ion-label>Tripodes</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="4" (click)="selectTab($event,1)">
+                  <ion-label>Audifonos i12</ion-label>
+                </ion-segment-button>                                                                            
+                <span class="bar active" id="bar"></span>
+            </ion-segment>
+          </ion-toolbar>
+        </div>
+      </ion-row>
+      <div class="w-100">
+        <div class="w-95 m-auto">
+          <div class="w-100">
+            <h3>Bafles</h3>
+          </div>
+          <div class="w-100 container-products strech-product mt-15">
+            <div class="box-product" (click)="goToPage('/view-products')">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg button-favorite">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="box-product">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg button-favorite">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="box-product">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>                            
+          </div>
+        </div>
+        <div class="w-95 m-auto">
+          <div class="w-100">
+            <h3>Audifonos</h3>
+          </div>
+          <div class="w-100 container-products strech-product mt-15">
+            <div class="box-product" (click)="goToPage('/view-products')">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg button-favorite">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="box-product">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg button-favorite">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="box-product">
+              <div class="panel-left">
+                <span class="tag bg-green hide">0 %</span>
+                <!-- <img [src]="item.image[0].baseFile" class="imageProduct" data-image="{{item.image[0].baseFile}}" />  -->
+                <img src="https://images.rappi.com/products/f21f3977-18da-4417-a6a7-3da219135af9-1621216261197.jpeg?d=128x104&?d=1080xundefined&e=webp" alt="" class="imageProduct">
+              </div>
+              <div class="panel-right">
+                <h4 class="nameProduct w-100">Tienda Nancy store</h4>
+                <p class="description w-100 text-left position-relative" style="top:2px !important;">Comida rapida . 3.5 km</p>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <b class="salesPrice" style="top:-10px !important;">4.5 Estrellas</b>                
+                </div>
+                <div class="w-100 d-flex justify-content-start align-items-center">
+                  <p class="position-relative font-small" style="top:-10px !important;"> 45 - 55 min</p>
+                </div>
+                <div 
+                class="qty" 
+                style="position:absolute;bottom:-5px !important;right:10px !important;transform:translateY(-10px) !important;">
+                  <ion-button class="custom-cd-button without-bg">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>                            
+          </div>
+        </div>        
+      </div>     
+    </ion-row>
+  </ion-grid>
+</ion-content>

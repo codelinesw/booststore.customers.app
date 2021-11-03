@@ -1,0 +1,161 @@
+<app-header title="Chats"></app-header>
+<ion-content>
+<div class="container-chat" style="transform: translateY(25px) !important;">
+  <div class="panel-left">
+    <div class="container-panel-left">
+      <div class="panel-header">
+        <div class="panel-title">
+          <h1 class="title">Conversaciones</h1>
+          <p>Todo en un solo lugar desde nuestra plataforma</p>
+        </div>
+        <div class="d-flex ion-justify-content-start ion-align-items-center w-100">
+            <div class="container-search w-100">
+              <ion-row class="w-100 mr-15 search">          
+                <div class="container-input m-auto w-100">
+                  <div class="container-icon w-10">
+                    <ion-icon class="icon-input" name="search-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none" class="w-90">
+                    <div class="input-group">
+                      <ion-input type="text" placeholder="Buscar..." (keyup)="searchItems($event)" (ionFocus)="utils.addAnimation($event,true)"></ion-input>
+                    </div>
+                  </ion-item>
+                </div>
+                <div #subMenuOptions id="subMenuOptions" class="w-100 subMenuOptions" style="position:relative;height:30px;">
+                  <div class="submenu-options full-width" style="position:relative;left:0px;bottom:0px;transform: translateY(-7px);">
+                    <ion-item class="option" lines="none" color="none" *ngFor="let item of Users" [attr.data-idUser]="item.uuid" (click)="chooseItem($event, item.uuid, item.name, item.lastName)">{{ item.name + " " + item.lastName }}</ion-item>
+                  </div>
+                </div>
+              </ion-row>
+            </div>
+        </div>
+         <ion-toolbar mode="md" color="light" class="container-menu-horizontal mt-15 mb-15">
+            <ion-segment #segments id="segments" mode="md" [(ngModel)]="selectedUserType" (ionChange)="selectedTab($event,1)" [value]="selectedUserType">
+                <ion-segment-button id="ClientsButton" value="1" (click)="selectedTab($event,0)">
+                  <ion-label>Clientes</ion-label>
+                </ion-segment-button>
+                <ion-segment-button id="MensajeroButton" value="2" (click)="selectedTab($event,1)">
+                  <ion-label>Mensajero</ion-label>
+                </ion-segment-button>
+                <span class="bar active" id="bar"></span>
+            </ion-segment>
+          </ion-toolbar>    
+      </div>
+      <div class="panel-body">
+        <div class="conversations">
+          <div class="without-conversations" *ngIf="Conversations.length === 0">
+            <ion-img src="assets/Icons/conversation.png" class="iconConversation"></ion-img>
+            <ion-text>Te bandeja de mensajes se encuentra vacia, selecciona un cliente o un mensajero para iniciar una</ion-text>
+          </div>
+          <div class="box-conversation" *ngFor="let item of Conversations" (click)="getCurrentMessages(item.contact.uuid,item.contact.displayName)">
+            <div class="header-conversation d-flex justify-content-between w-100">
+              <div class="panel-left" style="width:20% !important;">
+                <ion-avatar style="width:45px; height:45px;margin:0px;">
+                  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                </ion-avatar>
+              </div>
+              <div class="panel-right d-block" style="width:80% !important;">
+                <p class="name-user w-100">{{ item.contact.displayName }}</p>
+                <p class="time-message">{{ utils.getCurrentTime(item.dateCreated) }}</p>
+                <p class="content-message">{{ item.message.content.text.substring(0,35) + "..." }}</p>
+              </div>
+            </div>
+          </div>                        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-right" *ngIf="visible">
+    <div class="container-view-message" *ngIf="selectedUser.uuid">
+      <div class="header-conversation">
+        <div class="panel-left">
+          <ion-avatar style="width:45px; height:45px;margin:0px;transform: translateY(-2px);">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+        </div>
+        <div class="panel-right">
+            <p class="name-user">{{ selectedUser.name }}</p>
+            <p class="time-message">Activo hace 5 minutos</p>
+        </div>
+      </div>
+      <div class="body-conversation">
+        <div [ngClass]="item.contact.uuid !== uuid ? 'container-message left' : 'container-message right'" *ngFor="let item of CurrentMessages;">
+          <div class="message-bubble">
+            <span [ngClass]="item.contact.uuid !== uuid ? 'message white' : 'message green'">{{ item.message.content.text }}</span>
+            <span class="message-time">
+              <p class="time">{{ utils.getCurrentTime(item.dateCreated) }}</p>
+            </span>
+          </div>
+        </div>
+        <!-- <div class="container-message right">
+          <div class="message-bubble">
+            <span class="message green">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message left">
+          <div class="message-bubble">
+            <span class="message white">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message right">
+          <div class="message-bubble">
+            <span class="message green">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message left">
+          <div class="message-bubble">
+            <span class="message white">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message right">
+          <div class="message-bubble">
+            <span class="message green">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message left">
+          <div class="message-bubble">
+            <span class="message white">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div>
+        <div class="container-message right">
+          <div class="message-bubble">
+            <span class="message green">Hola buenos dias, sigue estando disponible</span>
+            <span class="message-time">
+              <p class="time">14:25</p>
+            </span>
+          </div>
+        </div> -->
+      </div>
+      <div class="bottom-conversation">
+        <button class="custom-cd-button border-purple bg-purple d-flex button-upimage" style="width:40px;height:37px;justify-content:center;align-items:center;">
+          <ion-icon name="images-outline" class="w-mr" style="font-size:20px; color:#898989;"></ion-icon>
+        </button>
+        <div class="container-boxtext">
+          <div class="box-text" #textarea id="textarea" contenteditable="true" (keyup)="setContent($event)" (keypress)="cleanPlaceholder($event)"></div>
+        </div>
+        <button class="custom-cd-button border-green bg-green d-flex button-send" style="width:45px;height:45px;justify-content:center;align-items:center;" (click)="save()">
+          <ion-icon name="paper-plane-outline" class="w-mr" style="font-size:20px; color:white;"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>

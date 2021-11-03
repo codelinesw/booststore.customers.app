@@ -1,0 +1,143 @@
+$dark:#263133;
+$semiDark:#979da4;
+
+
+.container-view-message{
+      position: relative;
+      width: 100%;
+      height: 95%;
+      margin:auto;
+      background:transparent !important;
+
+    .body-conversation{
+        position: relative;
+        width: 100%;
+        height:84vh;
+        padding-top: 15px !important;
+        overflow: hidden;
+        overflow-y: scroll;
+
+          .container-message{
+            position: relative;
+            width: 100%;
+            max-height: 350px;
+            display:flex;
+            align-items: center;
+
+             &.left{
+                justify-content:start;
+             }
+
+             &.right{
+                justify-content:end;
+             }
+                  
+            .message-bubble{
+                position: relative;
+                display: block;
+                max-width: 360px;
+
+                    .message{
+                      position: relative;
+                      display: block;
+                      padding: 10px 15px;
+                      max-width: 360px;
+                      border-radius: 15px;
+
+                        &.white{
+                            background-color:white !important;
+                            color:$semiDark !important;
+                        }
+                        &.green{
+                            background-color:#345d5c !important;
+                            color:white !important;
+                        }
+                    }
+                    .message-time{
+                        position: relative;
+                        display:flex;
+                        justify-content: end;
+                        align-items: center;                      
+                        padding:2px;
+
+                        .time{
+                            position: relative;
+                            color:$semiDark;
+                            font-size:14px !important;
+                            transform:translateY(-5px) !important;
+                        }
+                    }
+                }
+            }
+              
+          }
+
+          .bottom-conversation{
+              position: relative;
+              display:flex;
+              width: 100%;
+              height:65px;
+              background-color:white !important;
+              border-radius: 15px;
+              box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 2px !important;
+              justify-content:space-between;
+              align-items: center;
+
+                button.button-upimage{
+                 position: relative;
+                 left:15px !important;
+                }
+
+                .container-boxtext{
+                    position: relative;
+                    width: 80% !important;
+                    margin-top:2px;
+                    max-height: 50px !important;
+                    padding-top: 3px !important;
+                    padding-left: 5px !important;
+
+                    .box-text{
+                        position: relative;
+                        min-height: 25px;
+                        max-height: 40px;
+                        outline:none;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: $dark;
+                        word-wrap: break-word;
+                        white-space: pre-wrap;
+                        outline: none;
+                        cursor: text;
+                        font-family: "Poppins Regular";
+
+                        &:before{
+                            position: absolute;
+                            top:-8px;
+                            left:6px;
+                            width: 100%;
+                            max-height:40px;
+                            padding-top: 5px !important;
+                            content:"Escribe un mensaje...";
+                            cursor: text;
+                            color:$semiDark;
+                            font-family: "Poppins Regular";
+                        }
+
+                        &.active{
+                            &:before{
+                                content:"";
+                            }
+                        }
+                    }
+
+                }
+
+            .button-send{
+                position: relative;
+                right:15px !important;
+            }
+              
+    }
+}

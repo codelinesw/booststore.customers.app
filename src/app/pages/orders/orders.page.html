@@ -1,0 +1,145 @@
+<app-header></app-header>
+<ion-content>
+<ion-row class="ion-padding-horizontal">
+  <div>
+    <ion-text>
+      <h1>Ordenes Realizadas</h1>
+    </ion-text>
+    <ion-text color="medium" class="semiDark">
+      <p class="semiDark">En esta seccion puedes visualizar las ordenes de tus clientes o prospectos te han realizado</p>
+    </ion-text>
+  </div>
+</ion-row>
+<ion-item-divider></ion-item-divider>
+<ion-row class="w-100 m-auto mt-25 ion-padding">
+  <div class="row w-100 d-flex justify-content-between ion-padding">
+      <div class="d-flex ion-justify-content-start ion-align-items-center" style="width:90% !important;">
+        <div class="container-search d-flex ion-justify-content-between ion-align-items-center" style="width:80% !important;transform: translateX(0px);">
+          <ion-searchbar
+            placeholder="Ingresa producto que necesitas buscar"
+          >
+          </ion-searchbar>
+          <ion-button class="custom-cd-button border-purple bg-purple d-flex ion-justify-content-center ion-align-items-centter" style="width:7% !important;">
+            <ion-icon name="options" style="transform:  translateX(5px);"></ion-icon>
+          </ion-button>
+        </div>
+        <div style="width:20% !important"></div>
+      </div>
+      <div class="col w-25">
+        <ion-button class="custom-cd-button border-purple bg-purple">
+          <ion-text>Crear orden</ion-text>
+        </ion-button>
+      </div>
+    </div>
+  <ion-grid class="ion-table">
+    <div class="row ion-header-table  ion-padding ion-padding-bottom">
+      <div class="col" style="width:65px !important;max-width:65px !important;">
+        <ion-checkbox></ion-checkbox>
+      </div>
+      <div class="col" style="width:95px !important;max-width:95px !important;">
+        Orden #
+      </div>
+      <div class="col" style="width:200px !important; max-width:200px !important;">
+        Sede
+      </div>
+      <div class="col" style="width:300px !important; max-width:300px !important;">
+        Producto
+      </div>
+      <div class="col" style="width:200px !important; max-width:200px !important;">
+        Tipo de orden
+      </div>
+      <div class="col" style="width:140px !important; max-width:140px !important;">
+        Estado
+      </div>
+      <div class="col" style="width:140px !important; max-width:140px !important;">
+        Total
+      </div>       
+      <div class="col" style="width:190px !important; max-width:190px !important;">
+        Fecha creacion
+      </div>
+      <div class="col" style="width:190px !important; max-width:190px !important;">
+        Fecha Actualizacion
+      </div>      
+      <div class="col">
+        Acciones
+      </div>
+    </div>
+    <ion-row class="ion-body-table">
+      <div class="row w-100 ion-padding">
+        <div class="col" style="width:65px !important;max-width:65px !important;">
+          <ion-checkbox></ion-checkbox>
+        </div>
+        <div class="col" style="width:95px !important;max-width:95px !important;">
+          01
+        </div>
+        <div class="col" style="width:200px !important; max-width:200px !important;">
+          Sede del sur
+        </div>        
+        <div class="col" style="width:300px !important; max-width:300px !important;">
+          Hamburguesa doble carne
+        </div>
+        <div class="col" style="width:200px !important; max-width:200px !important;">
+          Domicilio
+        </div>
+        <div class="col" style="width:140px !important; max-width:140px !important;">
+          <span class="tag state sended" style="transform:  translateX(-30px);">
+            <span class="circle"></span>
+            <p>Despachado</p>
+          </span>
+        </div>
+        <div class="col" style="width:140px !important; max-width:140px !important;">
+          <p>$450.000</p>
+        </div>        
+        <div class="col" style="width:180px !important; max-width:180px !important; transform: translateX(20px);">
+          23/05/2021
+        </div>
+        <div class="col" style="width:190px !important; max-width:190px !important;transform: translateX(30px);">
+          24/05/2021
+        </div>        
+        <div class="col w-12">
+          <ion-button  fullWidth color="dark" style="transform: translateX(30px);">
+            ...
+          </ion-button>
+        </div>
+      </div>
+      <div class="row w-100 ion-padding">
+        <div class="col" style="width:65px !important;max-width:65px !important;">
+          <ion-checkbox></ion-checkbox>
+        </div>
+        <div class="col" style="width:95px !important;max-width:95px !important;">
+          01
+        </div>
+        <div class="col" style="width:200px !important; max-width:200px !important;">
+          Sede del sur
+        </div>        
+        <div class="col" style="width:300px !important; max-width:300px !important;">
+          Hamburguesa doble carne
+        </div>
+        <div class="col" style="width:200px !important; max-width:200px !important;">
+          Domicilio
+        </div>
+        <div class="col" style="width:140px !important; max-width:140px !important;">
+          <span class="tag state completed" style="transform:  translateX(-30px);">
+            <span class="circle"></span>
+            <p>completada</p>
+          </span>
+        </div>
+        <div class="col" style="width:140px !important; max-width:140px !important;">
+          <p>$450.000</p>
+        </div>        
+        <div class="col" style="width:180px !important; max-width:180px !important; transform: translateX(20px);">
+          23/05/2021
+        </div>
+        <div class="col" style="width:190px !important; max-width:190px !important;transform: translateX(30px);">
+          24/05/2021
+        </div>        
+        <div class="col w-12">
+          <ion-button fullWidth color="dark" style="transform: translateX(30px);">
+            ...
+          </ion-button>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-row>
+</ion-content>

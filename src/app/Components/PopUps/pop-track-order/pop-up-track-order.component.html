@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-left: 10px;">
+      <ion-button (click)="closePop()" color="white" class="menu-toggle">
+        <ion-icon name="arrow-back-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-title size="large">Seguimiento de la orden</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div id="contenedor">
+      <div class="container-track-order">
+        <div class="container-map">
+          <div class="map">
+            <div id="mapa" style="width: 100%;height: 100%;"></div>
+          </div>
+          
+        </div>
+      </div>
+      <div id="mapa" style="width: 100%;height: 100%;"></div>
+  </div> -->
+  <div id="contenedor">
+      <div id="mapa" #mapa style="width: 95%;height: 190px;margin:auto;border-radius:15px !important;transform:translateY(15px) !important;">
+      </div>
+      <ion-skeleton-text 
+       animated 
+       class="mapa"
+       *ngIf="show"
+      ></ion-skeleton-text>
+      <div class="estimated-time d-block">
+        <div class="w-100 d-flex m-auto info">
+          <div class="panel-left">
+            <p class="text">Tiempo estimado</p>
+            <h2 class="time" #viewTimeDuration id="viewTimeDuration">{{ timeDuration }}</h2>
+          </div>
+          <div class="panel-right">
+
+          </div>
+        </div>
+        <div class="w-100 container-progress">
+          <div class="container-progress-bar">
+            <div class="progress-bar">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="informationDelivery d-block w-90 m-auto">
+        <div class="w-100 d-flex justify-content-between">
+          <p class="order-number bold">#5665998</p>
+        </div>
+        <div class="w-100 d-block">
+          <div class="d-flex justify-content-between list-pinfo" *ngFor="let item of orderDetail">
+            <div class="w-70 list-detail">
+              <p class="product font-small">{{item.productName}}</p>
+              <p class="semiDark cantidad">{{item.qtySold}} Unidad</p>
+            </div>
+            <div class="w30 info-price">
+              <p class="colorGreen font-small">{{utils.addCurrencyFormat(item.amountSale)}}</p>
+            </div>
+          </div>
+          <div class="w-100" *ngIf="loaded">
+            <ion-item *ngFor="let item of loading">
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </div>
+          <!-- <div class="d-flex justify-content-between list-pinfo">
+            <div class="w-80 list-detail">
+              <p class="product">Hamburguesa doble carne</p>
+              <p class="semiDark cantidad">1 Unidad</p>
+            </div>
+            <div class="w-20">
+              <p class="colorGreen">$25.000</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between list-pinfo">
+            <div class="w-80 list-detail">
+              <p class="product">Hamburguesa doble carne</p>
+              <p class="semiDark cantidad">1 Unidad</p>
+            </div>
+            <div class="w-20">
+              <p class="colorGreen">$25.000</p>
+            </div>
+          </div>                     -->
+        </div>
+        <div class="w-100 d-block">
+          <div class="d-flex justify-content-between cost-detail">
+            <div class="w-70 list-detail">
+              <p class="product font-small">Sub Total</p>
+            </div>
+            <div class="w30 info-price">
+              <p class="colorGreen font-small">{{utils.addCurrencyFormat(total)}}</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between cost-detail">
+            <div class="w-80 list-detail">
+              <p class="product">Costo de domicilio</p>
+            </div>
+            <div class="w-20 info-price">
+              <p class="colorGreen font-small">{{utils.addCurrencyFormat('8000')}}</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between cost-detail">
+            <div class="w-70 list-detail">
+              <p class="product bold">Total</p>
+            </div>
+            <div class="w-30 info-price">
+              <p class="colorGreen font-small">{{utils.addCurrencyFormat(total)}}</p>
+            </div>
+          </div>                  
+        </div>      
+      </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+      <ion-row>
+          <ion-col size="12" class="d-flex ion-justify-content-end">
+              <ion-button class="custom-cd-button bg-green color-white" (click)="closePop()">Cerrar</ion-button>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-footer>
