@@ -10,10 +10,14 @@ import { URL_BASE } from "src/environments/environment";
 })
 export class ProductsService {
   private headerCustom: HttpHeaders;
-  constructor(
-    private fetch: Fetch,
-    private httpClient: HttpClient,
-  ) {}
+  constructor(private fetch: Fetch, private httpClient: HttpClient) {}
+
+  getProductsByCategories(product: any) {
+    return this.fetch.consumerPOST(
+      `${URL_BASE}/Products/listProductsByCategories`,
+      JSON.stringify(product)
+    );
+  }
 
   listProductsByShop(product: any) {
     return this.fetch.consumerPOST(
@@ -79,11 +83,14 @@ export class ProductsService {
   }
 
   searchItems(body: any) {
-    return this.httpClient.post<any[]>(`${URL_BASE}/Products/searchProduct`, body, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return this.httpClient.post<any[]>(
+      `${URL_BASE}/Products/searchProduct`,
+      body,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   }
-
 }

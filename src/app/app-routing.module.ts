@@ -10,13 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'view-products',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/view-products/view-products.module').then(
         (m) => m.ViewProductsPageModule
@@ -44,7 +42,6 @@ const routes: Routes = [
   },
   {
     path: 'view-store',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/view-store/view-store.module').then(
         (m) => m.ViewStorePageModule
@@ -104,7 +101,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/message/message.module').then((m) => m.MessagePageModule),
-  }
+  },
+  {
+    path: 'finalize-order',
+    loadChildren: () =>
+      import('./pages/finalize-order/finalize-order.module').then((m) => m.FinalizeOrderPageModule),
+  },
 ];
 
 @NgModule({

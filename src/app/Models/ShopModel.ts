@@ -10,9 +10,10 @@ export interface ShopModel {
   image: string;
   saleType: any;
   shopType: number;
-  idClassification: any;  
+  idClassification: any;
   username: string;
   password: string;
+  idPaymentMethod: number;
   dateCreated: Date;
   dateUpdated: Date;
 }

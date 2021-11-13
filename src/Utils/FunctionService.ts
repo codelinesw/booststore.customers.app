@@ -25,11 +25,11 @@ export class FunctionService {
     return this.menuOptionsDos$;
   }
 
-  setUserChat(info: any) {
+  addPToCart(info: any) {
     this.chat$.emit(info);
   }
 
-  getUserChat() {
+  getProductOnCart() {
     return this.chat$;
   }
 }

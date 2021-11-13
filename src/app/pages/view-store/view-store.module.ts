@@ -8,13 +8,17 @@ import { ViewStorePageRoutingModule } from './view-store-routing.module';
 
 import { ViewStorePage } from './view-store.page';
 
+// import custom Components
+import { ComponentsModule } from 'src/app/Components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewStorePageRoutingModule
+    ViewStorePageRoutingModule,
+    ComponentsModule,
   ],
-  declarations: [ViewStorePage]
+  declarations: [ViewStorePage],
 })
 export class ViewStorePageModule {}

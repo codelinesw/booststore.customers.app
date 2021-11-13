@@ -8,7 +8,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 
 
 // import the services
-import { IndicatorsService } from "src/app/services/Indicators/indicators.service";
+import { ShopService } from "src/app/services/Shop/shop.service";
 import { Utilities } from 'src/Utils/Utilities';
 var _this;
 @Component({
@@ -25,14 +25,15 @@ export class HomePage implements OnInit {
     spaceBetween: 5,
   };
 
-  selectedTab: any = 0;
+  selectedTab: any = 7;
+  Shops: Array<any> = [];
   
 
   constructor(
     private router: Router,
     public platform: Platform,
     public utils: Utilities,
-    private indicatorService: IndicatorsService
+    private shopService: ShopService
   ) {
     this.options.slidesPerView =
       !this.platform.is('android') || !this.platform.is('ios') ? 8 : 3.4;
@@ -48,18 +49,29 @@ export class HomePage implements OnInit {
       if (this.utils.getSession()) {
         const { idShop, idOffice, openingHours, closingTime } =
           this.utils.getSession();
-        
+        await this.getShopByClassification();
       }
     } catch (error) {
       console.log('Error :: ', error);
     }
   }
 
-  selectTab($event,tab: number){
-
+  async getShopByClassification(){
+    const requestShops = await this.shopService.getShopByClassification({
+      idClassification: this.selectedTab,
+    });
+    const responseRShop = await requestShops.json();
+    if (!responseRShop.message) {
+      this.Shops = responseRShop;
+    }
   }
 
-  goToPage(page: string) {
-    return this.router.navigate([page]);
+  async selectTab($event,tab: number){
+    this.selectedTab = tab;
+    await this.getShopByClassification();
+  }
+
+  goToPage(page: string,params?: any) {
+    return this.router.navigate([page], { queryParams: { ...params } });
   }
 }

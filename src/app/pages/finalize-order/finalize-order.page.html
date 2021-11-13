@@ -1,0 +1,450 @@
+<app-header-section title="Tu carrito" goToPage="/view-products"></app-header-section>
+<ion-content>
+  <ion-row class="ion-padding-horizontal ion-justify-content-between ion-align-items-center">
+    <ion-col>
+      <div>
+        <ion-text>
+          <h1>Finaliza tu orden</h1>
+        </ion-text>
+        <ion-text color="medium">
+          <p>Diligencia los datos para hacerte la entrega de tu orden</p>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-item-divider></ion-item-divider>
+  <ion-row class="full m-auto mt-25 ion-padding">
+    <ion-col>
+      <ion-row class="w-100 mb-15">
+        <ion-card>
+          <ion-card-header>
+            <h4>Datos de envio</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row class="w-100 mb-15">
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Departamento*</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-select [value]="Order.idDep" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeDep($event)">
+                            <ion-select-option [value]="0">Selecciona un departmento</ion-select-option>
+                            <ion-select-option *ngFor="let item of Departaments" [value]="item.idDepartment">
+                                {{ item.name }}
+                            </ion-select-option>
+                          </ion-select>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Ciudad/región</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-select [value]="Order.idCity" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeCity($event)">
+                            <ion-select-option [value]="0">Selecciona una ciudad</ion-select-option>
+                            <ion-select-option *ngFor="let item of FilteredCities" [value]="item.idCity">
+                                {{ item.name }}
+                            </ion-select-option>
+                          </ion-select>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row class="w-100 mb-15">
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Dirección</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Número 1</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Número 2</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Ej: 34" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>            
+            </ion-row>          
+          <ion-row class="w-100 mb-15">
+            <ion-label>Barrio/Localidad, Apto...</ion-label>
+            <div class="container-input m-auto w-100">
+              <div class="container-icon">
+                <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-input type="text" placeholder="Barrio/Localidad, Apto..." [(ngModel)]="Wharehouse.code" ></ion-input>
+                </div>
+              </ion-item>
+            </div>
+          </ion-row>
+            <ion-row class="w-100 mb-15 mt-15">
+              <ion-label>¿Algún comentario?</ion-label>
+              <div class="container-input m-auto w-100 input-textarea">
+                <ion-item lines="none" color="none" class="item-textarea">
+                  <div class="input-group">
+                    <ion-textarea placeholder="Ej: Lo necesito con aquello"></ion-textarea>
+                  </div>
+                </ion-item>
+              </div>
+            </ion-row>
+          </ion-card-content>
+      </ion-card>
+      </ion-row>
+      <ion-row class="w-100 mb-15">
+        <ion-card>
+          <ion-card-header>
+            <h4>Datos Personales</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row class="w-100 mb-15">
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Nombres</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Apellidos</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row class="w-100 mb-15">
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Celular</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>
+              <ion-col>
+                  <ion-row class="w-100">
+                    <ion-label>Documento de identidad</ion-label>
+                    <div class="container-input m-auto w-100">
+                      <div class="container-icon">
+                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      </div>
+                      <ion-item lines="none" color="none">
+                        <div class="input-group">
+                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Wharehouse.code" ></ion-input>
+                        </div>
+                      </ion-item>
+                    </div>
+                  </ion-row>
+              </ion-col>           
+            </ion-row>          
+          <ion-row class="w-100 mb-15">
+            <ion-label>Correo electrónico</ion-label>
+            <div class="container-input m-auto w-100">
+              <div class="container-icon">
+                <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+              </div>
+              <ion-item lines="none" color="none">
+                <div class="input-group">
+                  <ion-input type="text" placeholder="ej: pepito@gomez.com" [(ngModel)]="Wharehouse.code" ></ion-input>
+                </div>
+              </ion-item>
+            </div>
+          </ion-row>
+          </ion-card-content>
+      </ion-card>
+      </ion-row>
+      <ion-row class="w-100 mb-15">
+        <ion-card class="w-100">
+          <ion-card-header>
+            <h4>Metodos de pago</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row class="w-100 mb-15">
+              <div class="w-100 d-flex justify-content-center">
+                <ul class="w-100 padding-0">
+                  <li                     
+                    *ngFor="let item of paymentMethods"                    
+                    [ngClass]="idPaymentMethod == item.id ? 'item item-button fullWidth shadow selected' : 'item item-button fullWidth shadow disabled'" 
+                    (click)="setPaymentMethod(item.id)">
+                    <div class="w-100 d-flex justify-content-start align-items-center itemInfo">
+                      <ion-img [src]="item.image" class="mr-15"></ion-img>
+                      <p class="ml-15">{{item.name}}</p>
+                    </div>
+                    <p class="w-100 description">{{item.description}}</p>
+                  </li>
+                </ul>
+             </div>
+            </ion-row>
+            <!-- <ion-row class="w-100 mb-15">
+              <ion-row class="w-100 mb-15">
+                <ion-col>
+                    <ion-row class="w-100">
+                      <ion-label>Nombres</ion-label>
+                      <div class="container-input m-auto w-100">
+                        <div class="container-icon">
+                          <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        </div>
+                        <ion-item lines="none" color="none">
+                          <div class="input-group">
+                            <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          </div>
+                        </ion-item>
+                      </div>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    <ion-row class="w-100">
+                      <ion-label>Apellidos</ion-label>
+                      <div class="container-input m-auto w-100">
+                        <div class="container-icon">
+                          <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        </div>
+                        <ion-item lines="none" color="none">
+                          <div class="input-group">
+                            <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          </div>
+                        </ion-item>
+                      </div>
+                    </ion-row>
+                </ion-col>
+              </ion-row>
+              <ion-row class="w-100 mb-15">
+                <ion-col>
+                    <ion-row class="w-100">
+                      <ion-label>Celular</ion-label>
+                      <div class="container-input m-auto w-100">
+                        <div class="container-icon">
+                          <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        </div>
+                        <ion-item lines="none" color="none">
+                          <div class="input-group">
+                            <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          </div>
+                        </ion-item>
+                      </div>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    <ion-row class="w-100">
+                      <ion-label>Documento de identidad</ion-label>
+                      <div class="container-input m-auto w-100">
+                        <div class="container-icon">
+                          <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        </div>
+                        <ion-item lines="none" color="none">
+                          <div class="input-group">
+                            <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          </div>
+                        </ion-item>
+                      </div>
+                    </ion-row>
+                </ion-col>           
+              </ion-row>          
+              <ion-row class="w-100 mb-15">
+                <ion-label>Correo electrónico</ion-label>
+                <div class="container-input m-auto w-100">
+                  <div class="container-icon">
+                    <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                  </div>
+                  <ion-item lines="none" color="none">
+                    <div class="input-group">
+                      <ion-input type="text" placeholder="ej: pepito@gomez.com" [(ngModel)]="Wharehouse.code" ></ion-input>
+                    </div>
+                  </ion-item>
+                </div>
+              </ion-row>
+            </ion-row> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-row>            
+    </ion-col>
+    <ion-col>
+      <ion-row class="w-100 mb-15">
+        <ion-card class="w-80 m-auto">
+          <ion-card-header>
+            <h4>Resumen del pedido</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row class="w-100 mb-15">
+                <div class="w-100 sidebar-shopping-cart">
+                    <div class="w-80 m-auto position-relative">
+                      <div class="sidebar-header">
+                        <h3 class="color-semiDark">Tu carrito de compras</h3>
+                        <p class="bold">Productos agregados a tu carrito</p>
+                      </div>
+                      <div class="sidebar-body">
+                        <div class="informationDelivery d-block m-auto">
+                          <div class="w-100 d-flex justify-content-between">
+                            <p class="order-number bold">#5665998</p>
+                          </div>
+                          <div class="w-100 d-block list-product">
+                            <div class="d-flex justify-content-between list-pinfo" *ngFor="let item of products">
+                              <div class="w-70 list-detail">
+                                <p class="product font-small">{{item.productName}}</p>
+                                <p class="semiDark cantidad mt-0">{{item.qty}} Unidad</p>
+                              </div>
+                              <div class="w30 info-price">
+                                <p class="colorGreen font-small">{{utils.addCurrencyFormat(item.amountSale)}}</p>
+                              </div>
+                            </div>
+                            <div class="w-100" *ngIf="loaded">
+                              <ion-item *ngFor="let item of loading">
+                                <ion-label>
+                                  <h3>
+                                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                                  </h3>
+                                  <p>
+                                    <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+                                  </p>
+                                </ion-label>
+                              </ion-item>
+                            </div>
+                            <!-- <div class="d-flex justify-content-between list-pinfo">
+                              <div class="w-80 list-detail">
+                                <p class="product font-small">Hamburguesa doble carne</p>
+                                <p class="semiDark m-t0">1 Unidad</p>
+                              </div>
+                              <div class="w-20">
+                                <p class="colorGreen">$25.000</p>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between list-pinfo">
+                              <div class="w-80 list-detail">
+                                <p class="product font-small">Hamburguesa doble carne</p>
+                                <p class="semiDark m-t0">1 Unidad</p>
+                              </div>
+                              <div class="w-20">
+                                <p class="colorGreen">$25.000</p>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between list-pinfo">
+                              <div class="w-80 list-detail">
+                                <p class="product font-small">Hamburguesa doble carne</p>
+                                <p class="semiDark m-t0">1 Unidad</p>
+                              </div>
+                              <div class="w-20">
+                                <p class="colorGreen">$25.000</p>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between list-pinfo">
+                              <div class="w-80 list-detail">
+                                <p class="product font-small">Hamburguesa doble carne</p>
+                                <p class="semiDark m-t0">1 Unidad</p>
+                              </div>
+                              <div class="w-20">
+                                <p class="colorGreen">$25.000</p>
+                              </div>
+                            </div>                                                         -->
+                          </div>
+                        </div>
+                        <div class="w-100 d-block container-total m-auto">
+                          <div class="d-flex justify-content-between cost-detail">
+                            <div class="w-70 list-detail">
+                              <p class="product font-small">Sub Total</p>
+                            </div>
+                            <div class="w30 info-price">
+                              <p class="colorGreen font-small">{{utils.addCurrencyFormat(subTotalAmount)}}</p>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between cost-detail">
+                            <div class="w-80 list-detail">
+                              <p class="product">Costo de domicilio</p>
+                            </div>
+                            <div class="w-20 info-price">
+                              <p class="colorGreen font-small">{{utils.addCurrencyFormat(deliveryCost)}}</p>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between cost-detail">
+                            <div class="w-70 list-detail">
+                              <p class="product bold">Total</p>
+                            </div>
+                            <div class="w-30 info-price">
+                              <p class="colorGreen font-small">{{utils.addCurrencyFormat(totalAmount)}}</p>
+                            </div>
+                          </div> 
+                          <ion-item-divider></ion-item-divider>
+                          <div class="w-100 m-auto mt-15">
+                            <ion-button class="custom-cd-button bg-green color-white w-100">
+                              <ion-text>Finalizar compra</ion-text>
+                            </ion-button>
+                          </div>                
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+            </ion-row>
+          </ion-card-content>
+      </ion-card>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

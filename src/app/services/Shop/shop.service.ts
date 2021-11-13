@@ -8,9 +8,22 @@ import { URL_BASE } from "src/environments/environment";
   providedIn: 'root',
 })
 export class ShopService {
-  
   constructor(private http: HttpClient) {}
-  
+
+  getShopByClassification(shop: any) {
+    return this.http.consumerPOST(
+      `${URL_BASE}/Shop/getShopByClassification`,
+      JSON.stringify(shop)
+    );
+  }
+
+  getShopById(shop: any) {
+    return this.http.consumerPOST(
+      `${URL_BASE}/Shop/getShopById`,
+      JSON.stringify(shop)
+    );
+  }
+
   register(shop: ShopModel) {
     return this.http.consumerPOST(`${URL_BASE}/Shop/add`, JSON.stringify(shop));
   }
@@ -24,10 +37,8 @@ export class ShopService {
 
   update(shop: any) {
     return this.http.consumerPOST(
-      `${URL_BASE}/Shop/update`, 
+      `${URL_BASE}/Shop/update`,
       JSON.stringify(shop)
     );
   }
-
-
 }

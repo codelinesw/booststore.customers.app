@@ -10,6 +10,7 @@
         <div class="d-flex mainNav">
           <button class="custom-cd-button without-bg buttonNav button-bell" (click)="openShoppingCart()">
             <ion-icon name="cart-outline"></ion-icon>
+            <span [ngClass]="showBubble ? 'bubble-notification show' : 'bubble-notification'"></span>
           </button>
           <button class="custom-cd-button without-bg buttonNav avatar">
             <img src="http://localhost/universe-orm/Stores/LogoTypes/Store-JD-avatar-shop-test.png" class="storeLogoType" />
@@ -17,4 +18,102 @@
         </div>
       </div>
     </ion-toolbar>
+      <div class="container-sidebar-shopping-cart" menuId="shoppingCartSB" id="shoppingCartSB" #shoppingCartSB>
+    <div class="sidebar-shopping-cart">
+      <div class="w-80 m-auto position-relative">
+        <ion-button class="custom-cd-button button-close without-bg" (click)="closeShoppingCart()">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+        <div class="sidebar-header">
+          <h3 class="color-semiDark">Tu carrito de compras</h3>
+          <p class="bold">Productos agregados a tu carrito</p>
+        </div>
+        <div class="sidebar-body">
+          <div class="informationDelivery d-block m-auto">
+            <div class="w-100 d-flex justify-content-between">
+              <p class="order-number bold">#5665998</p>
+            </div>
+            <div class="w-100 d-block list-product">
+              <div class="d-flex justify-content-between list-pinfo" *ngFor="let item of products">
+                <div class="w-70 list-detail">
+                  <p class="product font-small">{{item.productName}}</p>
+                  <p class="semiDark cantidad">{{item.qty}} Unidad</p>
+                  <!-- <div class="col d-flex justify-content-between algn-items-center" style="max-width: 150px !important;">
+                    <ion-button class="custom-cd-button border-purple bg-purple" style="width:40px;height:40px;" (click)="decreaseAmount(item,i)">-</ion-button>
+                    <ion-input type="text" [value]="item.qty" style="width:40px !important;border:1px solid #cecece;border-radius: 6px;text-align: center;"></ion-input>
+                    <ion-button class="custom-cd-button border-purple bg-purple" style="width:40px;height:40px;" (click)="increaseAmount(item,i)">+</ion-button>                
+                  </div> -->
+                </div>
+                <div class="w30 info-price">
+                  <p class="colorGreen font-small">{{utils.addCurrencyFormat(item.amountSale)}}</p>
+                </div>
+              </div>
+              <div class="w-100" *ngIf="loaded">
+                <ion-item *ngFor="let item of loading">
+                  <ion-label>
+                    <h3>
+                      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                      <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+                    </p>
+                  </ion-label>
+                </ion-item>
+              </div>
+              <!-- <div class="d-flex justify-content-between list-pinfo">
+                <div class="w-80 list-detail">
+                  <p class="product">Hamburguesa doble carne</p>
+                  <p class="semiDark cantidad">1 Unidad</p>
+                </div>
+                <div class="w-20">
+                  <p class="colorGreen">$25.000</p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between list-pinfo">
+                <div class="w-80 list-detail">
+                  <p class="product">Hamburguesa doble carne</p>
+                  <p class="semiDark cantidad">1 Unidad</p>
+                </div>
+                <div class="w-20">
+                  <p class="colorGreen">$25.000</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="w-100 d-block container-total m-auto">
+            <div class="d-flex justify-content-between cost-detail">
+              <div class="w-70 list-detail">
+                <p class="product font-small">Sub Total</p>
+              </div>
+              <div class="w30 info-price">
+                <p class="colorGreen font-small">{{utils.addCurrencyFormat(subTotalAmount)}}</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between cost-detail">
+              <div class="w-80 list-detail">
+                <p class="product">Costo de domicilio</p>
+              </div>
+              <div class="w-20 info-price">
+                <p class="colorGreen font-small">{{utils.addCurrencyFormat(deliveryCost)}}</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between cost-detail">
+              <div class="w-70 list-detail">
+                <p class="product bold">Total</p>
+              </div>
+              <div class="w-30 info-price">
+                <p class="colorGreen font-small">{{utils.addCurrencyFormat(totalAmount)}}</p>
+              </div>
+            </div> 
+            <ion-item-divider></ion-item-divider>
+            <div class="w-100 m-auto mt-15">
+              <ion-button class="custom-cd-button bg-green color-white w-100" (click)="utils.goToPage('/finalize-order')">
+                <ion-text>Ir a pagar</ion-text>
+              </ion-button>
+            </div>                
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
   </ion-header>

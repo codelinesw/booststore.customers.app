@@ -4,9 +4,15 @@
   <ion-grid>
     <ion-row class="container-view-products d-flex justify-content-between align-items-center paddin-top-25 padding-bottom-25">
       <div class="paddin-top-30 panel-left">
-        <img src="assets/Images/Products/Shoes/shoes1.jpg" class="image-product image-main"/>
+        <img [src]="image" class="image-product image-main"/>
         <div class="container-all-images d-flex justify-content-start align-items-center">
-          <div class="box-image active">
+          <!-- <div class="box-image active">
+            <img src="assets/Images/Products/Shoes/shoes1.jpg" class="image-product mt-45"/>
+          </div> -->
+          <div class="box-image active" *ngFor="let image of Product.image">
+            <img [src]="image.baseFile" class="image-product mt-45"/>
+          </div>
+          <!-- <div class="box-image">
             <img src="assets/Images/Products/Shoes/shoes1.jpg" class="image-product mt-45"/>
           </div>
           <div class="box-image">
@@ -17,31 +23,28 @@
           </div>
           <div class="box-image">
             <img src="assets/Images/Products/Shoes/shoes1.jpg" class="image-product mt-45"/>
-          </div>
-          <div class="box-image">
-            <img src="assets/Images/Products/Shoes/shoes1.jpg" class="image-product mt-45"/>
-          </div>                                        
+          </div>                                         -->
         </div>
       </div>
       <div class="panel-right" style="height:100%;">
-        <div class="d-block w-85 m-auto">
-          <ion-text><h3>32 Unidades Disponibles</h3></ion-text>
-          <ion-text><h2>Zapato de Plataforma con estilo tacon alto</h2></ion-text>
-          <ion-text class="price">$135.000 COP</ion-text>
+        <div class="d-block w-85 m-auto detail-product">
+          <ion-text><h3>{{Product.qty}} Unidades Disponibles</h3></ion-text>
+          <ion-text><h2>{{Product.name}}</h2></ion-text>
+          <ion-text class="price">{{utils.addCurrencyFormat(Product.salesPrice)}}</ion-text>
           <ion-item-divider></ion-item-divider>
           <ion-text><h3>Color</h3></ion-text>
           <ion-row class="w-90">
-            <ion-button color="primary" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
-            <ion-button color="secondary" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
+            <ion-button *ngFor="let color of Colors" [ngClass]="'custom-cd-button mr-15 mb-15 color-button '+color" style="width: 45px !important;"></ion-button>
+            <!-- <ion-button color="secondary" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
             <ion-button color="dark" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
             <ion-button color="success" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
             <ion-button color="warning" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
-            <ion-button color="danger" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button>
+            <ion-button color="danger" class="custom-cd-button mr-15 mb-15 color-button" style="width: 45px !important;"></ion-button> -->
           </ion-row>
           <ion-item-divider></ion-item-divider>
           <ion-text><h3>Talla</h3></ion-text> 
           <ion-row class="w-90">
-            <button class="custom-cd-button border-green without-bg color-green mr-15 mb-15" style="width: 50px !important;">
+            <!-- <button class="custom-cd-button border-green without-bg color-green mr-15 mb-15" style="width: 50px !important;">
               <ion-text>32</ion-text>               
             </button>
             <button class="custom-cd-button border-green without-bg color-green mr-15 mb-15" style="width: 50px !important;">
@@ -58,7 +61,7 @@
             </button>
             <button class="custom-cd-button border-green without-bg color-green mr-15 mb-15" style="width: 50px !important;">
               <ion-text>41</ion-text>
-            </button>
+            </button> -->
           </ion-row>
           <ion-item-divider></ion-item-divider>
           <ion-row class="w-100 mb-15 mt-15">
@@ -72,10 +75,15 @@
             </div>
           </ion-row>
           <ion-row class="d-block m-auto w-100">
-            <ion-button class="w-100 custom-cd-button without-bg border-green color-green">
+            <ion-button class="w-100 custom-cd-button without-bg border-green color-green" (click)="addPTocart()" *ngIf="qty <= 0">
               <ion-text>Agregar al carrito</ion-text>
             </ion-button>
-            <ion-button class="w-100 custom-cd-button bg-green border-green color-white">
+            <div class="col d-flex justify-content-between algn-items-center w-100 m-auto" style="transform:translateY(-5px) !important;" *ngIf="qty > 0">
+              <ion-button class="custom-cd-button bg-green color-green w30 mr-10" style="transform:translateY(-2px) !important;" (click)="decreaseAmount()">-</ion-button>
+              <ion-input type="text" [value]="qty" style="width:40px !important;height:48px !important;border:1px solid #cecece;border-radius: 6px;text-align: center;"></ion-input>
+              <ion-button class="custom-cd-button bg-green color-green w30 ml-10" style="transform:translateY(-2px) !important;" (click)="increaseAmount()">+</ion-button>                
+            </div>
+            <ion-button class="w-100 custom-cd-button bg-green border-green color-white" (click)="utils.goToPage('/finalize-order')">
               <ion-text>Comprar</ion-text>
             </ion-button>
           </ion-row>
@@ -91,24 +99,24 @@
             <h4>Descripcion del producto</h4>
           </ion-text>
           <ion-text color="medium">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit explicabo expedita praesentium impedit eum. Laborum nostrum mollitia eos nulla necessitatibus, quaerat soluta omnis cum sapiente?</p>
+            <p>{{Product.description}}</p>
           </ion-text>
         </ion-row>
         <ion-row class="fullWidth">
-          <ion-text>
+          <!-- <ion-text>
             <h4>Detalles del producto</h4>
           </ion-text>
           <ion-text color="medium">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit explicabo expedita praesentium impedit eum. Laborum nostrum mollitia eos nulla necessitatibus, quaerat soluta omnis cum sapiente?</p>
-          </ion-text>
+          </ion-text> -->
         </ion-row>
         <ion-row class="fullWidth">
           <ion-text>
             <h4>Garantia del producto</h4>
           </ion-text>
-          <ion-text color="medium">
+          <!-- <ion-text color="medium">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit explicabo expedita praesentium impedit eum. Laborum nostrum mollitia eos nulla necessitatibus, quaerat soluta omnis cum sapiente?</p>
-          </ion-text>
+          </ion-text> -->
         </ion-row>
       </div>
       <div class="ion-padding-horizontal container-payment-method">

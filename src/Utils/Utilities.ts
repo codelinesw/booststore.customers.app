@@ -331,6 +331,26 @@ export class Utilities {
     return null;
   }
 
+  saveProductsCart(information: any): Boolean {
+    try {
+      localStorage.setItem('productsCart', JSON.stringify(information));
+      return true;
+    } catch (error) {
+      console.log('Error :: ', error);
+    }
+    return false;
+  }
+
+  getProductsCart() {
+    try {
+      let data = localStorage.getItem('productsCart');
+      return data === null ? undefined : JSON.parse(data);
+    } catch (error) {
+      console.log('Error :: ', error);
+    }
+    return undefined;
+  }
+
   showToast(title?: string, message?: string, type?: string) {
     let toast = document.getElementById('custom-toast'),
       toastIcon = document.getElementById('toastIcon');
@@ -482,7 +502,7 @@ export class Utilities {
       let tmpTime = time.split('T');
       if (tmpTime.length > 0) {
         console.log('TmpTime ', tmpTime);
-         if (openingH || closingTime) {
+        if (openingH || closingTime) {
           const { openingHours, closingTime } = this.getSession();
           let tmpHours = openingH
             ? openingHours.split(':')
@@ -492,9 +512,8 @@ export class Utilities {
             parseInt(tmpHours[1]),
             parseInt(tmpHours[2])
           );
-         } else {
-          
-         }        
+        } else {
+        }
       }
       return this.getFormatDate(date.toString());
     }
@@ -555,12 +574,11 @@ export class Utilities {
     return false;
   }
   isCordova() {
-    if(this.platform.is('cordova')){
+    if (this.platform.is('cordova')) {
       return true;
     }
 
     return false;
   }
-
 }
 

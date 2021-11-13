@@ -9,9 +9,15 @@ import { URL_BASE } from "src/environments/environment";
   providedIn: 'root',
 })
 export class CategoriesService {
-
   private headerCustom: HttpHeaders;
   constructor(private fetch: Fetch, private httpClient: HttpClient) {}
+
+  getCategoriesByMainOffice(category: any) {
+    return this.fetch.consumerPOST(
+      `${URL_BASE}/Categories/listCategoriesByMainOffice`,
+      JSON.stringify(category)
+    );
+  }
 
   createCategory(category: CategoryModel) {
     return this.fetch.consumerPOST(
