@@ -68,12 +68,18 @@ export class ViewProductsPage implements OnInit {
     console.log('Desminuyendo la cantidad :: ');
     if (this.qty >= 1) {
       this.qty = this.qty - 1;
-      let product  = {
+      let amount = (parseInt(this.Product.salesPrice) * this.qty);
+      let product = {
         id: this.platform.getQueryParam('idProduct'),
         productName: this.Product.name,
+        product: this.Product.name,
+        productId: this.platform.getQueryParam('idProduct'),
         qty: this.qty,
         image: this.image,
-        amountSale: (parseInt(this.Product.salesPrice) * this.qty).toString(),
+        amountSale: amount.toString(),
+        total: amount.toString(),
+        discount: (amount * parseInt(this.Product.offSale)) / 100,
+        percent: this.Product.offSale,
       };
       this.events.addPToCart(product);
       this.saveProducstCart(product);
@@ -84,15 +90,22 @@ export class ViewProductsPage implements OnInit {
     console.log('aumentando la cantidad :: ');
     if (this.qty >= 0) {      
       this.qty = this.qty + 1;
+      let amount = (parseInt(this.Product.salesPrice) * this.qty);
       let product = {
         id: this.platform.getQueryParam('idProduct'),
         productName: this.Product.name,
+        product: this.Product.name,
+        productId: this.platform.getQueryParam('idProduct'),
         qty: this.qty,
         image: this.image,
-        amountSale: (parseInt(this.Product.salesPrice) * this.qty).toString(),
+        amountSale: amount.toString(),
+        total: amount.toString(),
+        discount: (amount * parseInt(this.Product.offSale)) / 100,
+        percent: this.Product.offSale,
       };
       this.events.addPToCart(product);
       this.saveProducstCart(product);
+      // test
     }
   }
 
@@ -106,6 +119,10 @@ export class ViewProductsPage implements OnInit {
       if (parseInt(product.qty) > 0) {
         this.pCart[findIndex].qty = product.qty;
         this.pCart[findIndex].amountSale = product.amountSale;
+        this.pCart[findIndex].total = product.amountSale;
+        this.pCart[findIndex].discount =
+          (parseInt(product.amountSale) * this.Product.discount) / 100;
+        this.pCart[findIndex].percent =  this.Product.discount;
       } else {
         this.pCart.splice(findIndex,1);
       }

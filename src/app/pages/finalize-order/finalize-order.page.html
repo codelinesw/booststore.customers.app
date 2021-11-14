@@ -46,8 +46,8 @@
                   <ion-row class="w-100">
                     <ion-label>Ciudad/región</ion-label>
                     <div class="container-input m-auto w-100">
-                      <div class="container-icon">
-                        <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                      <div class="container-icon">                        
+                        <ion-icon class="icon-input" name="map-outline"></ion-icon>
                       </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
@@ -68,42 +68,39 @@
                   <ion-row class="w-100">
                     <ion-label>Dirección</ion-label>
                     <div class="container-input m-auto w-100">
-                      <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
-                      </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: Cra 66" [(ngModel)]="Order.address" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
                   </ion-row>
               </ion-col>
+              <div class="d-flex justify-content-center align-items-center" style="width:18px !important;">
+                <p class="bold" style="transform: translateY(10px);">#</p>
+              </div>
               <ion-col>
                   <ion-row class="w-100">
                     <ion-label>Número 1</ion-label>
                     <div class="container-input m-auto w-100">
-                      <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
-                      </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Order.numOne" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
                   </ion-row>
               </ion-col>
+              <div class="d-flex justify-content-center align-items-center" style="width:15px !important;">
+                <p class="bold" style="transform: translateY(10px);">-</p>
+              </div>              
               <ion-col>
                   <ion-row class="w-100">
                     <ion-label>Número 2</ion-label>
                     <div class="container-input m-auto w-100">
-                      <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
-                      </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Ej: 34" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: 34" [(ngModel)]="Order.numTwo" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
@@ -113,12 +110,12 @@
           <ion-row class="w-100 mb-15">
             <ion-label>Barrio/Localidad, Apto...</ion-label>
             <div class="container-input m-auto w-100">
-              <div class="container-icon">
-                <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+              <div class="container-icon">                
+                <ion-icon class="icon-input" name="navigate-circle-outline"></ion-icon>
               </div>
               <ion-item lines="none" color="none">
                 <div class="input-group">
-                  <ion-input type="text" placeholder="Barrio/Localidad, Apto..." [(ngModel)]="Wharehouse.code" ></ion-input>
+                  <ion-input type="text" placeholder="Barrio/Localidad, Apto..." [(ngModel)]="Order.neigh" ></ion-input>
                 </div>
               </ion-item>
             </div>
@@ -148,11 +145,11 @@
                     <ion-label>Nombres</ion-label>
                     <div class="container-input m-auto w-100">
                       <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        <ion-icon class="icon-input" name="person-outline"></ion-icon>
                       </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: Pedro" [(ngModel)]="Order.name" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
@@ -163,11 +160,11 @@
                     <ion-label>Apellidos</ion-label>
                     <div class="container-input m-auto w-100">
                       <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        <ion-icon class="icon-input" name="person-outline"></ion-icon>
                       </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: Murillo" [(ngModel)]="Order.lastName" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
@@ -180,11 +177,11 @@
                     <ion-label>Celular</ion-label>
                     <div class="container-input m-auto w-100">
                       <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                        <ion-icon class="icon-input" name="call-outline"></ion-icon>
                       </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Codigo del local/oficina" [(ngModel)]="Order.cellPhoneNumber" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
@@ -194,12 +191,12 @@
                   <ion-row class="w-100">
                     <ion-label>Documento de identidad</ion-label>
                     <div class="container-input m-auto w-100">
-                      <div class="container-icon">
-                        <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+                      <div class="container-icon">                       
+                        <ion-icon class="icon-input" name="reader-outline"></ion-icon>
                       </div>
                       <ion-item lines="none" color="none">
                         <div class="input-group">
-                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Wharehouse.code" ></ion-input>
+                          <ion-input type="text" placeholder="Ej: 39" [(ngModel)]="Order.document" ></ion-input>
                         </div>
                       </ion-item>
                     </div>
@@ -209,12 +206,12 @@
           <ion-row class="w-100 mb-15">
             <ion-label>Correo electrónico</ion-label>
             <div class="container-input m-auto w-100">
-              <div class="container-icon">
-                <ion-icon class="icon-input" name="barcode-outline"></ion-icon>
+              <div class="container-icon">                
+                <ion-icon class="icon-input" name="mail-outline"></ion-icon>
               </div>
               <ion-item lines="none" color="none">
                 <div class="input-group">
-                  <ion-input type="text" placeholder="ej: pepito@gomez.com" [(ngModel)]="Wharehouse.code" ></ion-input>
+                  <ion-input type="text" placeholder="ej: pepito@gomez.com" [(ngModel)]="Order.email" ></ion-input>
                 </div>
               </ion-item>
             </div>
@@ -337,16 +334,34 @@
             <ion-row class="w-100 mb-15">
                 <div class="w-100 sidebar-shopping-cart">
                     <div class="w-80 m-auto position-relative">
-                      <div class="sidebar-header">
-                        <h3 class="color-semiDark">Tu carrito de compras</h3>
+                      <ion-row class="w-100 mb-15">
+                        <ion-label>Tipo de entrega</ion-label>
+                        <div class="container-input m-auto w-100">
+                          <div class="container-icon">
+                            <ion-icon class="icon-input"  name="planet-outline"></ion-icon>
+                          </div>
+                          <ion-item lines="none" color="none">
+                            <div class="input-group">
+                              <ion-select [value]="Order.idOrderType" okText="Aceptar" cancelText="Cancelar" (ionChange)="OnChangeOrderType($event)">
+                                <ion-select-option [value]="0">Selecciona un metodo de entrega</ion-select-option>
+                                <ion-select-option *ngFor="let item of OrderType" [value]="item.idOrderType">
+                                    {{ item.name }}
+                                </ion-select-option>
+                              </ion-select>
+                            </div>
+                          </ion-item>
+                        </div>
+                      </ion-row>                      
+                      <div class="sidebar-header mb-15">
+                        <h2 class="color-semiDark">Tu carrito de compras</h2>
                         <p class="bold">Productos agregados a tu carrito</p>
                       </div>
                       <div class="sidebar-body">
                         <div class="informationDelivery d-block m-auto">
-                          <div class="w-100 d-flex justify-content-between">
+                          <div class="w-100 d-flex justify-content-between mb-15">
                             <p class="order-number bold">#5665998</p>
                           </div>
-                          <div class="w-100 d-block list-product">
+                          <div class="w-100 d-block list-product mb-15">
                             <div class="d-flex justify-content-between list-pinfo" *ngFor="let item of products">
                               <div class="w-70 list-detail">
                                 <p class="product font-small">{{item.productName}}</p>
@@ -433,7 +448,7 @@
                           </div> 
                           <ion-item-divider></ion-item-divider>
                           <div class="w-100 m-auto mt-15">
-                            <ion-button class="custom-cd-button bg-green color-white w-100">
+                            <ion-button class="custom-cd-button bg-green color-white w-100" (click)="save()">
                               <ion-text>Finalizar compra</ion-text>
                             </ion-button>
                           </div>                

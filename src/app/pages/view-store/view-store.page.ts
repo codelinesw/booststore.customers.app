@@ -46,9 +46,9 @@ export class ViewStorePage implements OnInit {
     }
   }
 
-  setPaymentMethod(obj: any) {
+  setPaymentInfo(obj: any) {
     try {
-      localStorage.setItem('paymentMethod', JSON.stringify(obj));
+      localStorage.setItem('paymentInfo', JSON.stringify(obj));
       return true;
     } catch (error) {
       return false;
@@ -63,7 +63,9 @@ export class ViewStorePage implements OnInit {
     if (!responseRShop.message) {
       console.log('Informacion de la tienda -> ', responseRShop);
       this.Shop = responseRShop.length > 0 ? responseRShop[0] : {};
-      this.setPaymentMethod({ paymentMethod: this.Shop.idPaymentMethod });
+      this.setPaymentInfo({ 
+        ...this.Shop
+      });
     }
   }
 
@@ -131,11 +133,22 @@ export class ViewStorePage implements OnInit {
     }
   }
 
-  async selectTab($event, tab: number) {
-    this.selectedTab = tab;
-    $event.target.parentNode.classList.toggle('selected');
-    $event.target.classList.toggle('selected');
-    await this.getProductsByCategories();
+  async selectTab($event, tab: number, position: number) {    
+    if (this.selectTab.toString() != tab.toString()) {
+      await this.getProductsByCategories();
+      this.selectedTab = tab;
+    }
+    let categoryButton = document.querySelectorAll('.categoryButton');
+    console.log("position -> ", position);
+    console.log('size -> ', categoryButton.length);
+    for (let i = 0; i < categoryButton.length; i++) {
+      if (i != (position+1)) {
+        categoryButton[i].classList.remove('selected');
+        console.log('Es diferente la posicion de la iteracion con la position del boton');
+      } else {
+        categoryButton[i].classList.add('selected');
+      }
+    }    
   }
 
   goToPage(page: string, idProduct) {

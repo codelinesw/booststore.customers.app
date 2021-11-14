@@ -10,6 +10,7 @@ import { WarehouseModel } from 'src/app/Models/WarehouseModel';
 // import the services
 import { OfficeService } from "src/app/services/Office/office.service";
 import { OrdersService } from 'src/app/services/Orders/orders.service';
+import { SalesService } from 'src/app/services/Sales/sales.service';
 
 @Component({
   selector: 'app-finalize-order',
@@ -50,43 +51,69 @@ export class FinalizeOrderPage implements OnInit {
     },
   ];
   idPaymentMethod: number = 0;
+  OrderType: Array<any> = [
+    {
+      idOrderType: 1,
+      name: 'Domicilio',
+    },
+    {
+      idOrderType: 3,
+      name: 'Retiro en el punto de venta',
+    },
+  ];
   constructor(
     private officeService: OfficeService,
     public utils: Utilities,
     private ordersService: OrdersService,
-    private platform: Platform
+    private platform: Platform,
+    private salesService: SalesService
   ) {}
 
   ngOnInit() {}
 
-  getPaymentMethods() {
+  getPaymentInfo() {
     try {
-      const { paymentMethod } = JSON.parse(
-        localStorage.getItem('paymentMethod')
-      );
-      this.idPaymentMethod = paymentMethod;
-      console.log('Metodo de pago de la tienda actual -> ', paymentMethod);
+      return JSON.parse(localStorage.getItem('paymentInfo'));
     } catch (error) {
       console.log('Error :: ', error);
     }
+  }
+
+  getPaymentMethods() {
+    const { idPaymentMethod } = this.getPaymentInfo();
+    this.idPaymentMethod = idPaymentMethod;
+    console.log('Metodo de pago de la tienda actual -> ', idPaymentMethod);
   }
 
   async ionViewWillEnter() {
     try {
       this.Order.idDep = 0;
       this.Order.idCity = 0;
+      this.Order.idOrderType = 0;
       if (this.utils.getSession()) {
         const { idShop } = await this.utils.getSession();
       }
       this.products = this.utils.getProductsCart();
       this.getPaymentMethods();
       let total = 0,
-        deliveryCost = parseInt(this.deliveryCost);
+        deliveryCost = parseInt(this.deliveryCost),
+        totalDiscount = 0,
+        totalQty = 0,
+        products = [];
       for (let index = 0; index < this.products.length; index++) {
         total += parseInt(this.products[index].amountSale);
+        totalQty += parseInt(this.products[index].qty);
+        totalDiscount += parseInt(this.products[index].discount);
       }
       this.subTotalAmount = total.toString();
       this.totalAmount = (total + deliveryCost).toString();
+      this.Order.amountSale = this.totalAmount;
+      this.Order.amountPaid = this.totalAmount;
+      this.Order.amountExchange = 0;
+      this.Order.qtySold = totalQty;
+      this.Order.discount = totalDiscount;
+      this.Order.balance = 0;
+      this.Order.products = JSON.stringify(this.products);
       await this.getDepartments();
       await this.getCities();
     } catch (error) {}
@@ -94,82 +121,142 @@ export class FinalizeOrderPage implements OnInit {
 
   setPaymentMethod(id: number) {}
 
+  OnChangeOrderType($event) {
+    this.Order.idOrderType = $event.target.value;
+  }
+
+  validateFields() {
+    let error = false,
+      message = '';
+
+    if (
+      !this.Order.name ||
+      (this.Order.name && this.Order.name.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de ingresa el Nombre de la persona que realiza el domicilio <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.lastName ||
+      (this.Order.lastName && this.Order.lastName.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de ingresa el Apellido de la persona que realiza el domicilio <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.cellPhoneNumber ||
+      (this.Order.cellPhoneNumber &&
+        this.Order.cellPhoneNumber.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de ingresa el número celular de la persona que realiza el domicilio <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.document ||
+      (this.Order.document && this.Order.document.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de ingresa el documento de identificación de la persona que realiza el domicilio <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.email ||
+      (this.Order.email && this.Order.email.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de ingresa el correo de la persona que realiza el domicilio <BR>';
+      error = true;
+    }
+
+    if (!this.Order.idDep || this.Order.idDep == 0) {
+      message +=
+        '- Debes de seleccionar a que departamento se va despachar el pedido <BR>';
+      error = true;
+    }
+
+    if (!this.Order.idCity || this.Order.idCity == 0) {
+      message += '- Debes de seleccionar a que ciudad se va despachar el pedido <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.address ||
+      (this.Order.address && this.Order.address.trim().length === 0)
+    ) {
+      message += '- Debes de ingresa la dirección donde se va entregar el pedido <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.numOne ||
+      (this.Order.numOne && this.Order.numOne.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de completar la dirección(Te hace falta el primer numero EJ 32) donde se va entregar el pedido <BR>';
+      error = true;
+    }
+
+    if (
+      !this.Order.numTwo ||
+      (this.Order.numTwo && this.Order.numTwo.trim().length === 0)
+    ) {
+      message +=
+        '- Debes de completar la dirección(Te hace falta el segundo numero EJ 32) donde se va entregar el pedido <BR>';
+      error = true;
+    }
+
+    if (error) {
+      this.utils.customAlert('Finalizar pedido', message);
+      return true;
+    }
+
+    return false;
+  }
+
   async save() {
     try {
-      let error = false,
-        message = '';
-      // if (!this.Wharehouse.idOffice) {
-      //   message +=
-      //     '- Debes de seleccionar una sede a <BR>';
-      //   error = true;
-      // }
+      if (!this.validateFields()) {
+        const paymentInfo = this.getPaymentInfo();
+        this.Order.idShop = paymentInfo.idShop;
+        this.Order.idOffice = paymentInfo.idOffice;
+        this.Order.idWarehouse = paymentInfo.idWarehouse;
+        this.Order.idPaymentMethod = this.idPaymentMethod;
+        this.Order.idTypeSale = 2;
+        this.Order.salesAddress = `${this.Order.address}. #${this.Order.numOne}-${this.Order.numTwo},${this.Order.city},${this.Order.department}, Colombia`;
+        this.Order.idClassification = paymentInfo.idClassification;
+        this.Order.paymentDateLimit = '0000-00:00 00:00:00';
+        this.Order.tableNumber = 0;
+        this.utils.showLoading('Cargando...');
+        const requestCOrder = await this.salesService.createSale(this.Order);
+        const responseRequestCOrder = await requestCOrder.json();
+        this.utils.hideLoader();
+        console.log('Response create order :: ', responseRequestCOrder);
 
-      if (!this.Wharehouse.code) {
-        message +=
-          '- Debes de ingresar un codigo para elmacen ya que nos sirve para identificar el almacen <BR>';
-        error = true;
+        if (!responseRequestCOrder.message) {
+          this.Order = <any>{};
+          this.utils.showToast(
+            'Finalizar pedido',
+            'Se ha realizo el pedido con exito',
+            'SUCCESS'
+          );
+        } else {
+          this.utils.showToast(
+            'Finalizar pedido',
+            responseRequestCOrder.message,
+            'ERROR'
+          );
+        }
       }
-
-      if (!this.Wharehouse.name) {
-        message +=
-          '- Debes de ingresar un nombre para elmacen ya que nos sirve para diferenciar el almacen <BR>';
-        error = true;
-      }
-
-      if (error) {
-        this.utils.customAlert('Creacion de almacenes', message);
-        return false;
-      }
-
-      // this.utils.showLoading('Cargando...');
-      // const requestCreateWarehouse = this.platform.getQueryParam('idWarehouse')
-      //   ? await this.warehouseService.updateWarehouse(this.Wharehouse)
-      //   : await this.warehouseService.createWarehouse(this.Wharehouse);
-      // const responseRequestCreateWarehouse =
-      //   await requestCreateWarehouse.json();
-      // this.utils.hideLoader();
-      // console.log(
-      //   'Response create warehouse :: ',
-      //   responseRequestCreateWarehouse
-      // );
-
-      // if (
-      //   !this.platform.getQueryParam('idWarehouse') &&
-      //   !responseRequestCreateWarehouse.message
-      // ) {
-      //   this.Wharehouse = <WarehouseModel>{};
-      //   setTimeout(() => {
-      //     this.utils.showToast(
-      //       'Administracion de almacenes',
-      //       'Se ha creado con exito el almacen',
-      //       'SUCCESS'
-      //     );
-      //   }, 200);
-      //   this.utils.goToPage('/warehouse');
-      // }
-      // if (
-      //   this.platform.getQueryParam('idWarehouse') &&
-      //   !responseRequestCreateWarehouse.message
-      // ) {
-      //   setTimeout(() => {
-      //     this.utils.showToast(
-      //       'Administracion de almacenes',
-      //       'Se ha actualizado con exito el almacen',
-      //       'SUCCESS'
-      //     );
-      //   }, 200);
-      //   this.utils.goToPage('/warehouse');
-      // }
-
-      // if (responseRequestCreateWarehouse.message) {
-      //   this.utils.showToast(
-      //     'Administracion de almacenes',
-      //     responseRequestCreateWarehouse.message,
-      //     'ERROR'
-      //   );
-      // }
     } catch (error) {
       this.utils.hideLoader();
+      console.log('Error -> ', error);
     }
   }
 
@@ -214,15 +301,24 @@ export class FinalizeOrderPage implements OnInit {
 
   OnChangeDep($event) {
     this.Order.idDep = $event.target.value;
-    console.log("Deparamento seleccionado -> ", $event.target.value);
+    console.log('Deparamento seleccionado -> ', $event.target.value);
     this.Order.idCity = 0;
-    this.FilteredCities = this.Cities.filter(
-      (item) => item.idDepartment == $event.target.value
-    );
+    if (this.Cities.length > 0 && this.Departaments.length > 0) {
+      this.FilteredCities = this.Cities.filter(
+        (item) => item.idDepartment == $event.target.value
+      );
+      this.Order.department = this.Departaments.find(
+        (item) => item.idDepartment == this.Order.idDep
+      ).name;
+    }
   }
 
   OnChangeCity($event) {
     this.Order.idCity = $event.target.value;
+    if (this.FilteredCities.length > 0) {
+      this.Order.city = this.FilteredCities.find(
+        (item) => item.idCity == this.Order.idCity
+      ).name;
+    }
   }
-
 }

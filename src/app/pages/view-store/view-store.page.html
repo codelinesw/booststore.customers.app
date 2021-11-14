@@ -64,16 +64,16 @@
               scrollable>
                 <ion-button 
                   id="buttonCategory"
-                  class="cd-custom-button no-shadow without-bg box-access buttonColor d-flex justify-content-between align-items-center selected"
-                  (click)="selectTab($event,0)">
+                  class="categoryButton cd-custom-button no-shadow without-bg box-access buttonColor d-flex justify-content-between align-items-center selected"
+                  (click)="selectTab($event,0,-1)">
                   <ion-icon [name]="getIcon('todos')"></ion-icon>
                   <ion-label>TODOS</ion-label>
                 </ion-button>
                 <ion-button 
                   id="buttonCategory"
-                  class="cd-custom-button no-shadow without-bg box-access buttonColor d-flex justify-content-between align-items-center"
-                  *ngFor="let item of Categories"
-                  (click)="selectTab($event,item.idCategory)"
+                  class="categoryButton cd-custom-button no-shadow without-bg box-access buttonColor d-flex justify-content-between align-items-center"
+                  *ngFor="let item of Categories;let i = index;"
+                  (click)="selectTab($event,item.idCategory, i)"
                 >
                   <ion-icon [name]="getIcon(item.name)"></ion-icon>
                   <ion-label>{{item.name}}</ion-label>
